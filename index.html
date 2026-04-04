@@ -96,8 +96,7 @@
     .callout-danger { border-color: #dc2626; background: #fef2f2; color: #991b1b; }
 
     .pull-group {
-      margin: 0.5rem 0; padding-left: 1rem;
-      border-left: 2px dashed var(--color-cactus-300);
+      margin: 0.5rem 0;
     }
 
     .overview-step {
@@ -129,6 +128,10 @@
       h2, h3 { break-after: avoid; }
       * { box-shadow: none !important; }
     }
+    .timer-btn { font-variant-numeric: tabular-nums; font-family: 'DM Mono', monospace; }
+    .timer-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .timer-btn.running { background: var(--color-cactus-100); border-color: var(--color-cactus-600); }
+    .timer-btn.done { background: var(--color-cactus-500); border-color: var(--color-cactus-600); color: white; }
   </style>
   <script>
     !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Ii init Di qi Sr Bi Zi Pi capture calculateEventProperties Yi register register_once register_for_session unregister unregister_for_session Xi getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync Ji identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Wi Vi createPersonProfile setInternalOrTestUser Gi Fi Ki opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing $i debug Tr Ui getPageViewId captureTraceFeedback captureTraceMetric Ri".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
@@ -342,19 +345,39 @@
       </button>
       <div id="body-phase3" class="collapsible-body">
         <div class="p-4 space-y-1">
-          <p class="text-sm text-gray-500 mb-3">Pull wet crumbs with EA in the french press. <strong>Complete all pulls within 45 min</strong> -plant matter congeals after that.</p>
+          <p class="text-sm text-gray-500 mb-3">Pull wet crumbs with EA in the french press. <strong>Complete all pulls within 60 min</strong> -plant matter congeals after that.</p>
 
           <label class="step-row"><input type="checkbox" id="s3-0"><span class="step-text">Transfer wet crumbs to french press</span></label>
 
           <div class="pull-group space-y-1 my-2">
             <p class="text-xs text-cactus-700 font-bold mb-1">Pull 1 -<span class="calc-val" data-calc="ea_pull_1">250</span> ml</p>
             <label class="step-row"><input type="checkbox" id="s3-1"><span class="step-text">Add EA, stir 3 min, rest 1 min, filter through 2 stacked coffee filters into jar</span></label>
+            <div class="pull-timer flex gap-3 my-2 ml-7" data-checkbox="s3-1">
+              <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]">Stir 3:00</button>
+              <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]" disabled>Rest 1:00</button>
+            </div>
 
             <p class="text-xs text-cactus-700 font-bold mb-1 mt-3">Pulls 2&ndash;5 -each <span class="calc-val" data-calc="ea_pull_n">175</span> ml</p>
             <label class="step-row"><input type="checkbox" id="s3-2"><span class="step-text">Pull 2: stir 3 min, rest 1 min, filter</span></label>
+            <div class="pull-timer flex gap-3 my-2 ml-7" data-checkbox="s3-2">
+              <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]">Stir 3:00</button>
+              <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]" disabled>Rest 1:00</button>
+            </div>
             <label class="step-row"><input type="checkbox" id="s3-3"><span class="step-text">Pull 3: stir 3 min, rest 1 min, filter</span></label>
+            <div class="pull-timer flex gap-3 my-2 ml-7" data-checkbox="s3-3">
+              <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]">Stir 3:00</button>
+              <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]" disabled>Rest 1:00</button>
+            </div>
             <label class="step-row"><input type="checkbox" id="s3-4"><span class="step-text">Pull 4: stir 3 min, rest 1 min, filter</span></label>
+            <div class="pull-timer flex gap-3 my-2 ml-7" data-checkbox="s3-4">
+              <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]">Stir 3:00</button>
+              <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]" disabled>Rest 1:00</button>
+            </div>
             <label class="step-row"><input type="checkbox" id="s3-5"><span class="step-text">Pull 5: stir 3 min, rest 1 min, filter</span></label>
+            <div class="pull-timer flex gap-3 my-2 ml-7" data-checkbox="s3-5">
+              <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]">Stir 3:00</button>
+              <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]" disabled>Rest 1:00</button>
+            </div>
           </div>
 
           <label class="step-row"><input type="checkbox" id="s3-6"><span class="step-text">All pulls combined -extract clear, no debris</span></label>
@@ -479,7 +502,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support, and <a href="https://www.onset.to" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">onset.to</a> for hosting.</p>
-      <p class="text-gray-400 mt-2">v1.3.1</p>
+      <p class="text-gray-400 mt-2">v1.4.1</p>
     </footer>
 
   </main>
@@ -563,15 +586,104 @@
       });
     }
 
+    function formatTimer(secs) {
+      return Math.floor(secs / 60) + ':' + String(secs % 60).padStart(2, '0');
+    }
+
+    function updateTimersForCheckbox(cbId, checked) {
+      const group = document.querySelector('.pull-timer[data-checkbox="' + cbId + '"]');
+      if (!group) return;
+      const btns = group.querySelectorAll('.timer-btn');
+      btns.forEach((b, i) => {
+        const secs = parseInt(b.getAttribute('onclick').match(/,\s*(\d+)/)[1]);
+        const label = i === 0 ? 'Stir' : 'Rest';
+        if (checked) {
+          b.classList.add('done');
+          b.classList.remove('running');
+          b.disabled = true;
+          b.textContent = label + ' done';
+        } else {
+          b.classList.remove('done', 'running');
+          b.disabled = i > 0;
+          b.textContent = label + ' ' + formatTimer(secs);
+          delete b.dataset.interval;
+        }
+      });
+    }
+
     function initChecklist() {
       document.querySelectorAll('.step-row input[type="checkbox"]').forEach(cb => {
-        if (state.checklist[cb.id]) cb.checked = true;
+        if (state.checklist[cb.id]) {
+          cb.checked = true;
+          updateTimersForCheckbox(cb.id, true);
+        }
         cb.addEventListener('change', () => {
           if (cb.checked) state.checklist[cb.id] = true; else delete state.checklist[cb.id];
           saveState(); updateProgress();
+          updateTimersForCheckbox(cb.id, cb.checked);
         });
       });
       updateProgress();
+    }
+
+    function startTimer(btn, seconds) {
+      if (btn.dataset.interval) return;
+      let remaining = seconds;
+      btn.disabled = false;
+      btn.classList.add('running');
+      const label = btn.textContent.split(' ')[0];
+      const update = () => {
+        const m = Math.floor(remaining / 60);
+        const s = remaining % 60;
+        btn.textContent = label + ' ' + m + ':' + String(s).padStart(2, '0');
+      };
+      update();
+      const iv = setInterval(() => {
+        remaining--;
+        update();
+        if (remaining <= 0) {
+          clearInterval(iv);
+          delete btn.dataset.interval;
+          btn.classList.remove('running');
+          btn.classList.add('done');
+          btn.disabled = true;
+          btn.textContent = label + ' done';
+          // enable next timer button (Rest) if exists
+          const next = btn.nextElementSibling;
+          if (next && next.classList.contains('timer-btn')) {
+            next.disabled = false;
+          }
+          // if all timer buttons in this group are done, check the checkbox
+          const group = btn.closest('.pull-timer');
+          if (group) {
+            const allBtns = group.querySelectorAll('.timer-btn');
+            const allDone = Array.from(allBtns).every(b => b.classList.contains('done'));
+            if (allDone) {
+              const cbId = group.dataset.checkbox;
+              const cb = document.getElementById(cbId);
+              if (cb && !cb.checked) {
+                cb.checked = true;
+                state.checklist[cb.id] = true;
+                saveState();
+                updateProgress();
+              }
+            }
+          }
+          // beep
+          try {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.frequency.value = 880;
+            gain.gain.value = 0.4;
+            osc.start();
+            osc.stop(ctx.currentTime + 0.2);
+          } catch (e) {}
+        }
+      }, 1000);
+      btn.dataset.interval = iv;
     }
 
     function updateProgress() {
@@ -585,7 +697,10 @@
     function resetChecklist() {
       if (!confirm('Reset all checkboxes?')) return;
       state.checklist = {}; saveState();
-      document.querySelectorAll('.step-row input[type="checkbox"]').forEach(cb => cb.checked = false);
+      document.querySelectorAll('.step-row input[type="checkbox"]').forEach(cb => {
+        cb.checked = false;
+        updateTimersForCheckbox(cb.id, false);
+      });
       updateProgress();
     }
 

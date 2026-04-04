@@ -137,10 +137,13 @@
   <header id="sticky-header" class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-cactus-700/15 shadow-md">
     <div class="max-w-4xl mx-auto px-4 py-3">
       <div class="flex flex-col sm:flex-row sm:items-center gap-3">
-        <h1 class="text-lg tracking-tight shrink-0 flex items-center gap-2">
-          <svg class="w-5 h-5 text-cactus-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 22V4a2 2 0 0 1 4 0v18"/><path d="M10 14H8a2 2 0 0 1-2-2V9a2 2 0 0 1 4 0v5"/><path d="M14 12h2a2 2 0 0 0 2-2V8a2 2 0 0 0-4 0v4"/><line x1="7" y1="22" x2="17" y2="22"/></svg>
-          <span class="font-bold text-cactus-800">CIELO</span>
-        </h1>
+        <div class="shrink-0">
+          <h1 class="text-lg tracking-tight flex items-center gap-2">
+            <svg class="w-5 h-5 text-cactus-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 22V4a2 2 0 0 1 4 0v18"/><path d="M10 14H8a2 2 0 0 1-2-2V9a2 2 0 0 1 4 0v5"/><path d="M14 12h2a2 2 0 0 0 2-2V8a2 2 0 0 0-4 0v4"/><line x1="7" y1="22" x2="17" y2="22"/></svg>
+            <span class="font-bold text-cactus-800">CIELO</span>
+          </h1>
+          <p class="text-[10px] uppercase tracking-[0.2em] text-cactus-600/70 font-medium mt-0.5 ml-7">Crystals In Ethyl-acetate Lazily Over-the-counter</p>
+        </div>
         <div class="flex flex-wrap items-center gap-3 flex-1">
           <label class="flex items-center gap-2 text-sm">
             <span class="font-medium text-gray-500 uppercase text-xs tracking-wider">Powder</span>
@@ -172,6 +175,7 @@
         <span id="progress-text" class="text-[10px] text-gray-400 font-mono shrink-0">0/0</span>
         <button id="reset-btn" onclick="resetChecklist()" class="text-[10px] text-red-300 hover:text-red-500 cursor-pointer uppercase tracking-wider" title="Reset checklist">reset</button>
       </div>
+      <p class="text-[10px] text-gray-400 mt-1.5">Set your powder amount and acid type above - all quantities adjust automatically. Progress is saved in your browser.</p>
     </div>
   </header>
 
@@ -186,22 +190,6 @@
   </div>
 
   <main class="max-w-4xl mx-auto px-4 pb-16 pt-8">
-
-    <!-- Intro -->
-    <section class="mb-8 phase-card overflow-hidden p-5">
-      <div class="flex items-start gap-4">
-        <svg class="w-10 h-10 text-cactus-500 shrink-0 hidden sm:block mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 22V4a2 2 0 0 1 4 0v18"/><path d="M10 14H8a2 2 0 0 1-2-2V9a2 2 0 0 1 4 0v5"/><path d="M14 12h2a2 2 0 0 0 2-2V8a2 2 0 0 0-4 0v4"/><line x1="7" y1="22" x2="17" y2="22"/></svg>
-        <div>
-          <h1 class="text-3xl sm:text-4xl font-bold text-cactus-900 tracking-tight leading-none">CIELO</h1>
-          <p class="text-[10px] uppercase tracking-[0.2em] text-cactus-600/70 font-medium mt-1">Crystals In Ethyl-acetate Lazily Over-the-counter</p>
-        </div>
-      </div>
-      <p class="text-sm text-gray-600 leading-relaxed mt-4">
-        Mescaline from cactus, precipitated as crystals in ethyl acetate.
-        Simple, avoids harsh chemicals, less than an hour of active work.
-      </p>
-      <p class="text-xs text-gray-400 mt-2">Set your powder amount and acid type in the bar above - all quantities adjust automatically. Progress is saved in your browser.</p>
-    </section>
 
     <!-- Safety + Grow Your Own -->
     <div class="grid sm:grid-cols-2 gap-4 mb-8">
@@ -487,6 +475,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support, and <a href="https://www.onset.to" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">onset.to</a> for hosting.</p>
+      <p class="text-gray-400 mt-2">v1.1.0</p>
     </footer>
 
   </main>

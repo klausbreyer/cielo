@@ -136,46 +136,23 @@
   <!-- Sticky Header -->
   <header id="sticky-header" class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-cactus-700/15 shadow-md">
     <div class="max-w-4xl mx-auto px-4 py-3">
-      <div class="flex flex-col sm:flex-row sm:items-center gap-3">
-        <div class="shrink-0">
-          <h1 class="text-lg tracking-tight flex items-center gap-2">
-            <svg class="w-5 h-5 text-cactus-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 22V4a2 2 0 0 1 4 0v18"/><path d="M10 14H8a2 2 0 0 1-2-2V9a2 2 0 0 1 4 0v5"/><path d="M14 12h2a2 2 0 0 0 2-2V8a2 2 0 0 0-4 0v4"/><line x1="7" y1="22" x2="17" y2="22"/></svg>
-            <span class="font-bold text-cactus-800">CIELO</span>
-          </h1>
-          <p class="text-[10px] uppercase tracking-[0.2em] text-cactus-600/70 font-medium mt-0.5 ml-7">Crystals In Ethyl-acetate Lazily Over-the-counter</p>
-        </div>
-        <div class="flex flex-wrap items-center gap-3 flex-1">
-          <label class="flex items-center gap-2 text-sm">
-            <span class="font-medium text-gray-500 uppercase text-xs tracking-wider">Powder</span>
-            <input type="number" id="base-input" value="100" min="10" max="5000" step="1"
-                   class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors"
-                   style="font-family:'DM Mono',monospace">
-            <span class="text-gray-400 text-xs">g</span>
-          </label>
-          <div class="flex items-center gap-2.5 text-sm">
-            <label class="flex items-center gap-1.5 cursor-pointer px-2 py-1 rounded border border-cactus-200 has-[:checked]:bg-cactus-700 has-[:checked]:text-white has-[:checked]:border-cactus-700 transition-all">
-              <input type="radio" name="acid" value="fumaric" checked class="sr-only">
-              <span class="text-xs font-semibold">Fumaric</span>
-            </label>
-            <label class="flex items-center gap-1.5 cursor-pointer px-2 py-1 rounded border border-cactus-200 has-[:checked]:bg-cactus-700 has-[:checked]:text-white has-[:checked]:border-cactus-700 transition-all">
-              <input type="radio" name="acid" value="citric" class="sr-only">
-              <span class="text-xs font-semibold">Citric</span>
-            </label>
-          </div>
-        </div>
+      <div class="flex items-center justify-between">
+        <h1 class="text-2xl tracking-tight flex items-center gap-2.5 shrink-0">
+          <svg class="w-7 h-7 text-cactus-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 22V4a2 2 0 0 1 4 0v18"/><path d="M10 14H8a2 2 0 0 1-2-2V9a2 2 0 0 1 4 0v5"/><path d="M14 12h2a2 2 0 0 0 2-2V8a2 2 0 0 0-4 0v4"/><line x1="7" y1="22" x2="17" y2="22"/></svg>
+          <span class="font-bold text-cactus-800">CIELO</span>
+        </h1>
         <button onclick="window.print()" id="print-btn"
                 class="shrink-0 px-3 py-1.5 border border-gray-300 hover:border-gray-400 text-gray-600 hover:text-gray-800 rounded text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer">
           Print
         </button>
       </div>
-      <div class="mt-2.5 flex items-center gap-3">
+      <div class="mt-2 flex items-center gap-3">
         <div class="flex-1 h-1.5 bg-cactus-100 rounded-full overflow-hidden">
           <div id="progress-bar" class="h-full bg-cactus-500 rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
         </div>
         <span id="progress-text" class="text-[10px] text-gray-400 font-mono shrink-0">0/0</span>
         <button id="reset-btn" onclick="resetChecklist()" class="text-[10px] text-red-300 hover:text-red-500 cursor-pointer uppercase tracking-wider" title="Reset checklist">reset</button>
       </div>
-      <p class="text-[10px] text-gray-400 mt-1.5">Set your powder amount and acid type above - all quantities adjust automatically. Progress is saved in your browser.</p>
     </div>
   </header>
 
@@ -204,7 +181,7 @@
       </div>
       <div class="callout callout-tip" style="border-left-width: 4px;">
         <p class="font-bold text-xs mb-2 uppercase tracking-wide">Grow your own</p>
-        <p class="text-xs" style="color: var(--color-cactus-800);">San Pedro cacti in Peru are being over-harvested. Never buy dry powder online. Obtain live seeds, cuttings, or rooted plants.</p>
+        <p class="text-xs" style="color: var(--color-cactus-800);">San Pedro cacti in Peru are being over-harvested. Never buy dry powder online. Obtain live seeds, cuttings, or rooted plants.<br>Avoid PC cactus + citric acid - risk of zero precipitation at low yield (&lt;0.15%).</p>
       </div>
     </div>
 
@@ -216,6 +193,26 @@
       </button>
       <div id="body-materials" class="collapsible-body">
         <div class="p-4">
+          <div class="flex flex-wrap items-center gap-4 mb-5 pb-4 border-b border-gray-200">
+            <label class="flex items-center gap-2 text-sm">
+              <span class="font-medium text-gray-500 uppercase text-xs tracking-wider">Powder</span>
+              <input type="number" id="base-input" value="100" min="10" max="5000" step="1"
+                     class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors"
+                     style="font-family:'DM Mono',monospace">
+              <span class="text-gray-400 text-xs">g</span>
+            </label>
+            <div class="flex items-center gap-2.5 text-sm">
+              <label class="flex items-center gap-1.5 cursor-pointer px-2 py-1 rounded border border-cactus-200 has-[:checked]:bg-cactus-700 has-[:checked]:text-white has-[:checked]:border-cactus-700 transition-all">
+                <input type="radio" name="acid" value="fumaric" checked class="sr-only">
+                <span class="text-xs font-semibold">Fumaric</span>
+              </label>
+              <label class="flex items-center gap-1.5 cursor-pointer px-2 py-1 rounded border border-cactus-200 has-[:checked]:bg-cactus-700 has-[:checked]:text-white has-[:checked]:border-cactus-700 transition-all">
+                <input type="radio" name="acid" value="citric" class="sr-only">
+                <span class="text-xs font-semibold">Citric</span>
+              </label>
+            </div>
+            <p class="text-xs text-gray-500 w-full">Set your powder amount and acid type - all quantities below adjust automatically.</p>
+          </div>
           <h3 class="font-bold text-gray-700 text-xs uppercase tracking-wider mb-2">Consumables</h3>
           <ul class="space-y-1.5 text-sm mb-5">
             <li><span class="calc-val" data-calc="base">100</span> g dry fine cactus powder</li>
@@ -230,9 +227,6 @@
             <li>For solvent reclaim: washing soda (Na&#8322;CO&#8323;)</li>
           </ul>
 
-          <div data-show-acid="citric" class="hidden callout callout-danger mb-4">
-            <strong>Warning:</strong> Avoid PC cactus + citric acid. Risk of zero precipitation at low yield (&lt;0.15%).
-          </div>
 
           <h3 class="font-bold text-gray-700 text-xs uppercase tracking-wider mb-2">Equipment</h3>
           <ul class="space-y-1 text-sm text-gray-600">
@@ -475,7 +469,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support, and <a href="https://www.onset.to" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">onset.to</a> for hosting.</p>
-      <p class="text-gray-400 mt-2">v1.1.0</p>
+      <p class="text-gray-400 mt-2">v1.2.2</p>
     </footer>
 
   </main>

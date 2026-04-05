@@ -99,6 +99,22 @@
       margin: 0.5rem 0;
     }
 
+    .timer-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.1em 0.45em;
+      border-radius: 3px;
+      margin-left: 0.4em;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .timer-tag-start { background: var(--color-cactus-100); color: var(--color-cactus-800); border: 1px solid var(--color-cactus-300); }
+    .timer-tag-stop { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+    .step-row:has(input:checked) .timer-tag { opacity: 0.4; }
+
     .overview-step {
       padding: 0.35rem 0.75rem; font-weight: 600; font-size: 0.8rem;
       background: var(--color-cactus-800); color: var(--color-cactus-100);
@@ -107,7 +123,7 @@
     .overview-arrow { color: var(--color-cactus-400); font-size: 1rem; }
 
     @media print {
-      .no-print, #sticky-header, #print-btn, #reset-btn { display: none !important; }
+      .no-print, #sticky-header, #print-btn { display: none !important; }
       .print-only { display: block !important; }
       body { background: white !important; background-image: none !important; color: black !important; font-size: 10pt; line-height: 1.35; }
       .calc-val { background: none !important; color: black !important; font-weight: 700; padding: 0; border: none !important; }
@@ -150,12 +166,14 @@
           Print
         </button>
       </div>
-      <div class="mt-2 flex items-center gap-3">
-        <div class="flex-1 h-1.5 bg-cactus-100 rounded-full overflow-hidden">
+      <div class="mt-2">
+        <div class="flex items-center gap-2 text-[10px] mb-1 leading-tight">
+          <span id="timer-label" class="text-cactus-700/70 uppercase tracking-wider flex-1 truncate">60 min congeal timer · starts when wet crumbs go into french press</span>
+          <span id="progress-text" class="text-gray-500 font-mono shrink-0"></span>
+        </div>
+        <div class="h-1.5 bg-cactus-100 rounded-full overflow-hidden">
           <div id="progress-bar" class="h-full bg-cactus-500 rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
         </div>
-        <span id="progress-text" class="text-[10px] text-gray-400 font-mono shrink-0">0/0</span>
-        <button id="reset-btn" onclick="resetChecklist()" class="text-[10px] text-red-300 hover:text-red-500 cursor-pointer uppercase tracking-wider" title="Reset checklist">reset</button>
       </div>
     </div>
   </header>
@@ -343,7 +361,7 @@
         <div class="p-4 space-y-1">
           <p class="text-sm text-gray-500 mb-3">Pull wet crumbs with EA in the french press. <strong>Complete all pulls within 60 min</strong> -plant matter congeals after that.</p>
 
-          <label class="step-row"><input type="checkbox" id="s3-0"><span class="step-text">Transfer wet crumbs to french press</span></label>
+          <label class="step-row"><input type="checkbox" id="s3-0"><span class="step-text">Transfer wet crumbs to french press <span class="timer-tag timer-tag-start">starts 60 min timer</span></span></label>
 
           <div class="pull-group space-y-1 my-2">
             <p class="text-xs text-cactus-700 font-bold mb-1">Pull 1 -<span class="calc-val" data-calc="ea_pull_1">250</span> ml</p>
@@ -376,7 +394,7 @@
             </div>
           </div>
 
-          <label class="step-row"><input type="checkbox" id="s3-6"><span class="step-text">All pulls combined -extract clear, no debris</span></label>
+          <label class="step-row"><input type="checkbox" id="s3-6"><span class="step-text">All pulls combined -extract clear, no debris <span class="timer-tag timer-tag-stop">stops timer</span></span></label>
 
           <p class="text-xs text-gray-500 mt-2">Watch final trickle -don&rsquo;t squeeze water into solvent. Target &ge;<span class="calc-val" data-calc="ea_min_return_1">110</span> ml back from Pull 1. Compost spent crumbs when dry.</p>
 
@@ -498,7 +516,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
-      <p class="text-gray-400 mt-2">v1.5.0</p>
+      <p class="text-gray-400 mt-2">v1.6.3</p>
     </footer>
 
   </main>
@@ -518,7 +536,32 @@
     let state = loadState();
 
     function defaultState() {
-      return { version: 4, baseAmount: 100, acidType: 'fumaric', checklist: {}, collapsed: {} };
+      return { version: 4, baseAmount: 100, acidType: 'fumaric', checklist: {}, collapsed: {}, timerStart: null, timerEnd: null };
+    }
+
+    const CONGEAL_MS = 60 * 60 * 1000;
+    const TIMER_START_CB = 's3-0';
+    const TIMER_END_CB = 's3-6';
+
+    function formatClock(ts) {
+      const d = new Date(ts);
+      const now = new Date();
+      const hh = String(d.getHours()).padStart(2, '0');
+      const mm = String(d.getMinutes()).padStart(2, '0');
+      const sameDay = d.toDateString() === now.toDateString();
+      if (sameDay) return hh + ':' + mm;
+      const day = d.toLocaleDateString(undefined, { weekday: 'short' });
+      return day + ' ' + hh + ':' + mm;
+    }
+
+    function handleCongealTimer(cbId, checked) {
+      if (cbId === TIMER_START_CB) {
+        if (checked) { state.timerStart = Date.now(); state.timerEnd = null; }
+        else { state.timerStart = null; state.timerEnd = null; }
+      } else if (cbId === TIMER_END_CB) {
+        if (checked && state.timerStart && !state.timerEnd) state.timerEnd = Date.now();
+        else if (!checked) state.timerEnd = null;
+      }
     }
     function loadState() {
       try {
@@ -615,6 +658,7 @@
         }
         cb.addEventListener('change', () => {
           if (cb.checked) state.checklist[cb.id] = true; else delete state.checklist[cb.id];
+          handleCongealTimer(cb.id, cb.checked);
           saveState(); updateProgress();
           updateTimersForCheckbox(cb.id, cb.checked);
         });
@@ -683,21 +727,47 @@
     }
 
     function updateProgress() {
-      const all = document.querySelectorAll('.step-row input[type="checkbox"]');
-      const checked = document.querySelectorAll('.step-row input[type="checkbox"]:checked');
-      const pct = all.length ? Math.round((checked.length / all.length) * 100) : 0;
-      document.getElementById('progress-bar').style.width = pct + '%';
-      document.getElementById('progress-text').textContent = checked.length + '/' + all.length;
-    }
+      const bar = document.getElementById('progress-bar');
+      const text = document.getElementById('progress-text');
+      const label = document.getElementById('timer-label');
 
-    function resetChecklist() {
-      if (!confirm('Reset all checkboxes?')) return;
-      state.checklist = {}; saveState();
-      document.querySelectorAll('.step-row input[type="checkbox"]').forEach(cb => {
-        cb.checked = false;
-        updateTimersForCheckbox(cb.id, false);
-      });
-      updateProgress();
+      if (state.timerStart && !state.timerEnd) {
+        const now = Date.now();
+        const elapsed = now - state.timerStart;
+        const expiry = state.timerStart + CONGEAL_MS;
+        const remaining = expiry - now;
+        const pct = Math.min(100, (elapsed / CONGEAL_MS) * 100);
+        bar.style.width = pct + '%';
+        if (remaining > CONGEAL_MS / 6) bar.style.background = 'var(--color-cactus-500)';
+        else if (remaining > 0) bar.style.background = '#f59e0b';
+        else bar.style.background = '#dc2626';
+        const absMs = Math.abs(remaining);
+        const mins = Math.floor(absMs / 60000);
+        const secs = Math.floor((absMs % 60000) / 1000);
+        const mmss = mins + ':' + String(secs).padStart(2, '0');
+        const startStr = formatClock(state.timerStart);
+        const expiryStr = formatClock(expiry);
+        label.textContent = 'congeal timer · started ' + startStr + ' · ' + (remaining < 0 ? 'expired ' : 'expires ') + expiryStr;
+        text.textContent = (remaining < 0 ? '+' : '') + mmss;
+        return;
+      }
+
+      if (state.timerStart && state.timerEnd) {
+        const duration = state.timerEnd - state.timerStart;
+        const mins = Math.floor(duration / 60000);
+        const secs = Math.floor((duration % 60000) / 1000);
+        const overran = duration > CONGEAL_MS;
+        bar.style.width = '100%';
+        bar.style.background = overran ? '#dc2626' : 'var(--color-cactus-500)';
+        label.textContent = 'congeal timer · started ' + formatClock(state.timerStart) + ' · stopped ' + formatClock(state.timerEnd);
+        text.textContent = 'done ' + mins + ':' + String(secs).padStart(2, '0');
+        return;
+      }
+
+      bar.style.width = '0%';
+      bar.style.background = 'var(--color-cactus-500)';
+      label.textContent = '60 min congeal timer · starts when wet crumbs go into french press';
+      text.textContent = '';
     }
 
     function toggleSection(id) {
@@ -740,6 +810,9 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       initControls(); initCollapsibles(); initChecklist(); updateAllValues();
+      setInterval(() => {
+        if (state.timerStart && !state.timerEnd) updateProgress();
+      }, 1000);
     });
   </script>
 </body>

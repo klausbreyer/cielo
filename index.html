@@ -393,7 +393,289 @@
             </div>
           </div>
 
+          <!-- Efficiency Tracker -->
+          <div class="mt-4 mb-4 p-4 bg-cactus-50/50 rounded-lg border border-cactus-200">
+            <div class="flex items-center justify-between mb-1">
+              <p class="font-bold text-xs uppercase tracking-wider text-cactus-700">Efficiency Tracker</p>
+              <button onclick="resetEffCalc()" class="text-[10px] text-gray-400 hover:text-red-500 transition-colors cursor-pointer uppercase tracking-wider">Reset</button>
+            </div>
+            <p class="text-[10px] text-gray-400 mb-3">Weigh your french press at each step. Accounts for mescaline/water partitioning (ratio &asymp; 3).</p>
+
+            <div class="flex flex-wrap gap-3 mb-3 pb-3 border-b border-cactus-200">
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-600">Press + crumbs (M)</span>
+                <input type="number" id="eff-M" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm">
+                <span class="text-xs text-gray-400">g</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-600">Extra water</span>
+                <input type="number" id="eff-extra-w" value="0" oninput="updateEffCalc()" class="w-16 px-2 py-1.5 border border-gray-300 rounded text-center text-sm">
+                <span class="text-xs text-gray-400">ml (beyond <span data-calc="water_start">130</span>)</span>
+              </div>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs">
+                <thead>
+                  <tr class="text-gray-500">
+                    <th class="text-left pb-2 pr-2">Pull</th>
+                    <th class="text-center pb-2 px-1">Before (m)</th>
+                    <th class="text-center pb-2 px-1">After (y)</th>
+                    <th class="text-center pb-2 px-1">Cumulative</th>
+                    <th class="text-center pb-2 px-1">Ref</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="font-bold text-cactus-700 pr-2 py-1">1</td>
+                    <td class="text-center px-1"><input type="number" data-eff-m="1" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><input type="number" data-eff-y="1" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><span data-eff-e="1" class="font-bold">--</span></td>
+                    <td class="text-center px-1 text-gray-400">47%</td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold text-cactus-700 pr-2 py-1">2</td>
+                    <td class="text-center px-1"><input type="number" data-eff-m="2" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><input type="number" data-eff-y="2" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><span data-eff-e="2" class="font-bold">--</span></td>
+                    <td class="text-center px-1 text-gray-400">75%</td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold text-cactus-700 pr-2 py-1">3</td>
+                    <td class="text-center px-1"><input type="number" data-eff-m="3" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><input type="number" data-eff-y="3" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><span data-eff-e="3" class="font-bold">--</span></td>
+                    <td class="text-center px-1 text-gray-400">88%</td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold text-cactus-700 pr-2 py-1">4</td>
+                    <td class="text-center px-1"><input type="number" data-eff-m="4" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><input type="number" data-eff-y="4" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><span data-eff-e="4" class="font-bold">--</span></td>
+                    <td class="text-center px-1 text-gray-400">94%</td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold text-cactus-700 pr-2 py-1">5</td>
+                    <td class="text-center px-1"><input type="number" data-eff-m="5" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><input type="number" data-eff-y="5" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><span data-eff-e="5" class="font-bold">--</span></td>
+                    <td class="text-center px-1 text-gray-400">97%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-[10px] text-gray-400 mt-2">Target &ge;90% after final pull. Stop after pull 4 if &ge;95%. Red = &gt;10% below reference.</p>
+          </div>
+
           <label class="step-row"><input type="checkbox" id="s3-6"><span class="step-text">All pulls combined -extract clear, no debris <span class="timer-tag timer-tag-stop">stops timer</span></span></label>
+
+          <p class="text-xs text-gray-500 mt-2">Watch final trickle -don&rsquo;t squeeze water into solvent. Target &ge;<span class="calc-val" data-calc="ea_min_return_1">110</span> ml back from Pull 1. Compost spent crumbs when dry.</p>
+
+          <div class="callout callout-tip">
+            <strong>Particles?</strong> Crumbs had dry spots. Filter everything before salting. More water + mixing next time.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PHASE 3b: Extract (inline weighing variant) -->
+    <!-- ============================================ -->
+    <section class="mb-6 phase-card overflow-hidden">
+      <button onclick="toggleSection('phase3b')" class="phase-header">
+        <h2 class="text-base font-bold text-gray-800 flex items-center"><span class="phase-num">3b</span> Extract</h2>
+        <svg id="chevron-phase3b" class="w-4 h-4 text-gray-400 section-toggle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div id="body-phase3b" class="collapsible-body">
+        <div class="p-4 space-y-1">
+          <p class="text-sm text-gray-500 mb-3">Pull wet crumbs with EA in the french press. <strong>Complete all pulls within 60 min</strong> -plant matter congeals after that.</p>
+
+          <!-- Setup + start box -->
+          <div class="mb-4 p-4 bg-cactus-50 rounded-lg border border-cactus-200">
+            <div class="flex flex-wrap items-center gap-4 mb-3 pb-3 border-b border-cactus-200/60">
+              <label class="flex items-center gap-2 text-sm">
+                <span class="font-medium text-gray-500 uppercase text-xs tracking-wider">Press + crumbs</span>
+                <input type="number" id="inl-M" placeholder="0" oninput="updateEffCalc2()"
+                       class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors"
+                       style="font-family:'DM Mono',monospace">
+                <span class="text-gray-400 text-xs">g</span>
+              </label>
+              <label class="flex items-center gap-2 text-sm">
+                <span class="font-medium text-gray-500 uppercase text-xs tracking-wider">Extra water</span>
+                <input type="number" id="inl-extra-w" value="0" oninput="updateEffCalc2()"
+                       class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors"
+                       style="font-family:'DM Mono',monospace">
+                <span class="text-gray-400 text-xs">ml</span>
+              </label>
+              <button onclick="resetEffCalc2()" class="text-[10px] text-gray-400 hover:text-red-500 transition-colors cursor-pointer uppercase tracking-wider font-bold ml-auto">Reset</button>
+            </div>
+            <label class="step-row !py-0"><input type="checkbox" id="s3b-0"><span class="step-text text-sm">Transfer wet crumbs to french press <span class="timer-tag timer-tag-start">starts 60 min timer</span></span></label>
+            <p class="text-[10px] text-gray-500 mt-2">Weigh your french press before adding EA and after each pull to track cumulative extraction efficiency.</p>
+          </div>
+
+          <div class="space-y-3 my-3">
+            <!-- Pull 1 -->
+            <div class="pull-card rounded-lg border border-cactus-200/60 bg-white/60 overflow-hidden">
+              <div class="flex items-center gap-3 px-4 py-2.5 bg-cactus-50/80 border-b border-cactus-200/40">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-cactus-600 text-white text-xs font-bold shrink-0">1</span>
+                <span class="text-xs font-bold text-cactus-800">Pull 1</span>
+                <span class="text-[10px] text-gray-400">&middot; <span class="calc-val" data-calc="ea_pull_1" style="font-size:0.7rem; padding:0.05em 0.3em;">250</span> ml EA</span>
+                <span data-inl-e="1" class="font-bold text-sm ml-auto font-mono min-w-[2.5rem] text-right">--</span>
+                <span class="text-[10px] text-gray-400 shrink-0">/ 47%</span>
+              </div>
+              <div class="px-4 py-3">
+                <label class="flex items-center gap-3 mb-3"><input type="checkbox" id="s3b-1" class="w-[1.15rem] h-[1.15rem] min-w-[1.15rem] accent-cactus-600 cursor-pointer"><span class="step-text text-sm">Add EA, stir 3 min, rest 1 min, filter</span></label>
+                <div class="flex flex-wrap items-center gap-2 ml-7">
+                  <div class="pull-timer flex gap-2" data-checkbox="s3b-1">
+                    <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
+                    <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm" disabled>Rest 1:00</button>
+                  </div>
+                  <div class="flex items-center gap-2 ml-auto">
+                    <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider">before</span>
+                    <input type="number" data-inl-m="1" placeholder="0" oninput="updateEffCalc2()"
+                           class="w-16 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors"
+                           style="font-family:'DM Mono',monospace">
+                    <span class="text-gray-300">&rarr;</span>
+                    <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider">after</span>
+                    <input type="number" data-inl-y="1" placeholder="0" oninput="updateEffCalc2()"
+                           class="w-16 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors"
+                           style="font-family:'DM Mono',monospace">
+                    <span class="text-gray-400 text-xs">g</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pull 2 -->
+            <div class="pull-card rounded-lg border border-cactus-200/60 bg-white/60 overflow-hidden">
+              <div class="flex items-center gap-3 px-4 py-2.5 bg-cactus-50/80 border-b border-cactus-200/40">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-cactus-600 text-white text-xs font-bold shrink-0">2</span>
+                <span class="text-xs font-bold text-cactus-800">Pull 2</span>
+                <span class="text-[10px] text-gray-400">&middot; <span class="calc-val" data-calc="ea_pull_n" style="font-size:0.7rem; padding:0.05em 0.3em;">175</span> ml EA</span>
+                <span data-inl-e="2" class="font-bold text-sm ml-auto font-mono min-w-[2.5rem] text-right">--</span>
+                <span class="text-[10px] text-gray-400 shrink-0">/ 75%</span>
+              </div>
+              <div class="px-4 py-3">
+                <label class="flex items-center gap-3 mb-3"><input type="checkbox" id="s3b-2" class="w-[1.15rem] h-[1.15rem] min-w-[1.15rem] accent-cactus-600 cursor-pointer"><span class="step-text text-sm">Add EA, stir 3 min, rest 1 min, filter</span></label>
+                <div class="flex flex-wrap items-center gap-2 ml-7">
+                  <div class="pull-timer flex gap-2" data-checkbox="s3b-2">
+                    <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
+                    <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm" disabled>Rest 1:00</button>
+                  </div>
+                  <div class="flex items-center gap-2 ml-auto">
+                    <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider">before</span>
+                    <input type="number" data-inl-m="2" placeholder="0" oninput="updateEffCalc2()"
+                           class="w-16 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors"
+                           style="font-family:'DM Mono',monospace">
+                    <span class="text-gray-300">&rarr;</span>
+                    <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider">after</span>
+                    <input type="number" data-inl-y="2" placeholder="0" oninput="updateEffCalc2()"
+                           class="w-16 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors"
+                           style="font-family:'DM Mono',monospace">
+                    <span class="text-gray-400 text-xs">g</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pull 3 -->
+            <div class="pull-card rounded-lg border border-cactus-200/60 bg-white/60 overflow-hidden">
+              <div class="flex items-center gap-3 px-4 py-2.5 bg-cactus-50/80 border-b border-cactus-200/40">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-cactus-600 text-white text-xs font-bold shrink-0">3</span>
+                <span class="text-xs font-bold text-cactus-800">Pull 3</span>
+                <span class="text-[10px] text-gray-400">&middot; <span class="calc-val" data-calc="ea_pull_n" style="font-size:0.7rem; padding:0.05em 0.3em;">175</span> ml EA</span>
+                <span data-inl-e="3" class="font-bold text-sm ml-auto font-mono min-w-[2.5rem] text-right">--</span>
+                <span class="text-[10px] text-gray-400 shrink-0">/ 88%</span>
+              </div>
+              <div class="px-4 py-3">
+                <label class="flex items-center gap-3 mb-3"><input type="checkbox" id="s3b-3" class="w-[1.15rem] h-[1.15rem] min-w-[1.15rem] accent-cactus-600 cursor-pointer"><span class="step-text text-sm">Add EA, stir 3 min, rest 1 min, filter</span></label>
+                <div class="flex flex-wrap items-center gap-2 ml-7">
+                  <div class="pull-timer flex gap-2" data-checkbox="s3b-3">
+                    <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
+                    <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm" disabled>Rest 1:00</button>
+                  </div>
+                  <div class="flex items-center gap-2 ml-auto">
+                    <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider">before</span>
+                    <input type="number" data-inl-m="3" placeholder="0" oninput="updateEffCalc2()"
+                           class="w-16 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors"
+                           style="font-family:'DM Mono',monospace">
+                    <span class="text-gray-300">&rarr;</span>
+                    <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider">after</span>
+                    <input type="number" data-inl-y="3" placeholder="0" oninput="updateEffCalc2()"
+                           class="w-16 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors"
+                           style="font-family:'DM Mono',monospace">
+                    <span class="text-gray-400 text-xs">g</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pull 4 -->
+            <div class="pull-card rounded-lg border border-cactus-200/60 bg-white/60 overflow-hidden">
+              <div class="flex items-center gap-3 px-4 py-2.5 bg-cactus-50/80 border-b border-cactus-200/40">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-cactus-600 text-white text-xs font-bold shrink-0">4</span>
+                <span class="text-xs font-bold text-cactus-800">Pull 4</span>
+                <span class="text-[10px] text-gray-400">&middot; <span class="calc-val" data-calc="ea_pull_n" style="font-size:0.7rem; padding:0.05em 0.3em;">175</span> ml EA</span>
+                <span data-inl-e="4" class="font-bold text-sm ml-auto font-mono min-w-[2.5rem] text-right">--</span>
+                <span class="text-[10px] text-gray-400 shrink-0">/ 94%</span>
+              </div>
+              <div class="px-4 py-3">
+                <label class="flex items-center gap-3 mb-3"><input type="checkbox" id="s3b-4" class="w-[1.15rem] h-[1.15rem] min-w-[1.15rem] accent-cactus-600 cursor-pointer"><span class="step-text text-sm">Add EA, stir 3 min, rest 1 min, filter</span></label>
+                <div class="flex flex-wrap items-center gap-2 ml-7">
+                  <div class="pull-timer flex gap-2" data-checkbox="s3b-4">
+                    <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
+                    <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm" disabled>Rest 1:00</button>
+                  </div>
+                  <div class="flex items-center gap-2 ml-auto">
+                    <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider">before</span>
+                    <input type="number" data-inl-m="4" placeholder="0" oninput="updateEffCalc2()"
+                           class="w-16 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors"
+                           style="font-family:'DM Mono',monospace">
+                    <span class="text-gray-300">&rarr;</span>
+                    <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider">after</span>
+                    <input type="number" data-inl-y="4" placeholder="0" oninput="updateEffCalc2()"
+                           class="w-16 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors"
+                           style="font-family:'DM Mono',monospace">
+                    <span class="text-gray-400 text-xs">g</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pull 5 -->
+            <div class="pull-card rounded-lg border border-cactus-200/60 bg-white/60 overflow-hidden">
+              <div class="flex items-center gap-3 px-4 py-2.5 bg-cactus-50/80 border-b border-cactus-200/40">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-cactus-600 text-white text-xs font-bold shrink-0">5</span>
+                <span class="text-xs font-bold text-cactus-800">Pull 5</span>
+                <span class="text-[10px] text-gray-400">&middot; <span class="calc-val" data-calc="ea_pull_n" style="font-size:0.7rem; padding:0.05em 0.3em;">175</span> ml EA</span>
+                <span data-inl-e="5" class="font-bold text-sm ml-auto font-mono min-w-[2.5rem] text-right">--</span>
+                <span class="text-[10px] text-gray-400 shrink-0">/ 97%</span>
+              </div>
+              <div class="px-4 py-3">
+                <label class="flex items-center gap-3 mb-3"><input type="checkbox" id="s3b-5" class="w-[1.15rem] h-[1.15rem] min-w-[1.15rem] accent-cactus-600 cursor-pointer"><span class="step-text text-sm">Add EA, stir 3 min, rest 1 min, filter</span></label>
+                <div class="flex flex-wrap items-center gap-2 ml-7">
+                  <div class="pull-timer flex gap-2" data-checkbox="s3b-5">
+                    <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
+                    <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm" disabled>Rest 1:00</button>
+                  </div>
+                  <div class="flex items-center gap-2 ml-auto">
+                    <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider">before</span>
+                    <input type="number" data-inl-m="5" placeholder="0" oninput="updateEffCalc2()"
+                           class="w-16 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors"
+                           style="font-family:'DM Mono',monospace">
+                    <span class="text-gray-300">&rarr;</span>
+                    <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider">after</span>
+                    <input type="number" data-inl-y="5" placeholder="0" oninput="updateEffCalc2()"
+                           class="w-16 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors"
+                           style="font-family:'DM Mono',monospace">
+                    <span class="text-gray-400 text-xs">g</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <label class="step-row"><input type="checkbox" id="s3b-6"><span class="step-text">All pulls combined -extract clear, no debris <span class="timer-tag timer-tag-stop">stops timer</span></span></label>
 
           <p class="text-xs text-gray-500 mt-2">Watch final trickle -don&rsquo;t squeeze water into solvent. Target &ge;<span class="calc-val" data-calc="ea_min_return_1">110</span> ml back from Pull 1. Compost spent crumbs when dry.</p>
 
@@ -515,7 +797,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
-      <p class="text-gray-400 mt-2">v1.6.4</p>
+      <p class="text-gray-400 mt-2">v1.7.0</p>
     </footer>
 
   </main>
@@ -554,10 +836,10 @@
     }
 
     function handleCongealTimer(cbId, checked) {
-      if (cbId === TIMER_START_CB) {
+      if (cbId === TIMER_START_CB || cbId === 's3b-0') {
         if (checked) { state.timerStart = Date.now(); state.timerEnd = null; }
         else { state.timerStart = null; state.timerEnd = null; }
-      } else if (cbId === TIMER_END_CB) {
+      } else if (cbId === TIMER_END_CB || cbId === 's3b-6') {
         if (checked && state.timerStart && !state.timerEnd) state.timerEnd = Date.now();
         else if (!checked) state.timerEnd = null;
       }
@@ -647,6 +929,174 @@
           delete b.dataset.interval;
         }
       });
+    }
+
+    const EFF_STORAGE_KEY = 'cielo-eff-calc';
+
+    function loadEffCalc() {
+      try {
+        const raw = localStorage.getItem(EFF_STORAGE_KEY);
+        if (raw) return JSON.parse(raw);
+      } catch (e) {}
+      return {};
+    }
+
+    function saveEffCalc() {
+      const data = {};
+      const M = document.getElementById('eff-M');
+      const extraW = document.getElementById('eff-extra-w');
+      if (M && M.value) data.M = M.value;
+      if (extraW && extraW.value && extraW.value !== '0') data.extraW = extraW.value;
+      for (let i = 1; i <= 5; i++) {
+        const mEl = document.querySelector('[data-eff-m="' + i + '"]');
+        const yEl = document.querySelector('[data-eff-y="' + i + '"]');
+        if (mEl && mEl.value) data['m' + i] = mEl.value;
+        if (yEl && yEl.value) data['y' + i] = yEl.value;
+      }
+      try { localStorage.setItem(EFF_STORAGE_KEY, JSON.stringify(data)); } catch (e) {}
+    }
+
+    function restoreEffCalc() {
+      const data = loadEffCalc();
+      if (!data || !Object.keys(data).length) return;
+      const M = document.getElementById('eff-M');
+      const extraW = document.getElementById('eff-extra-w');
+      if (data.M && M) M.value = data.M;
+      if (data.extraW && extraW) extraW.value = data.extraW;
+      for (let i = 1; i <= 5; i++) {
+        const mEl = document.querySelector('[data-eff-m="' + i + '"]');
+        const yEl = document.querySelector('[data-eff-y="' + i + '"]');
+        if (data['m' + i] && mEl) mEl.value = data['m' + i];
+        if (data['y' + i] && yEl) yEl.value = data['y' + i];
+      }
+      updateEffCalc(false);
+    }
+
+    function updateEffCalc(save) {
+      const M = parseFloat(document.getElementById('eff-M').value);
+      if (!M || M <= 0) return;
+      const wDefault = state.baseAmount * SCALE.water_start;
+      const extraW = parseFloat(document.getElementById('eff-extra-w').value) || 0;
+      const w = wDefault + extraW;
+      const refs = [47, 75, 88, 94, 97];
+      let product = 1;
+      for (let i = 1; i <= 5; i++) {
+        const mEl = document.querySelector('[data-eff-m="' + i + '"]');
+        const yEl = document.querySelector('[data-eff-y="' + i + '"]');
+        const eEl = document.querySelector('[data-eff-e="' + i + '"]');
+        const m = parseFloat(mEl.value);
+        const y = parseFloat(yEl.value);
+        if (!m || !y || m <= M || y > m) {
+          eEl.textContent = '--';
+          eEl.style.color = '';
+          continue;
+        }
+        const fraction = (m - y) / (m - M + w / 3);
+        product *= (1 - fraction);
+        const en = (1 - product) * 100;
+        eEl.textContent = Math.round(en) + '%';
+        eEl.style.color = en < refs[i - 1] - 10 ? '#dc2626' : '#16a34a';
+      }
+      if (save !== false) saveEffCalc();
+    }
+
+    function resetEffCalc() {
+      document.getElementById('eff-M').value = '';
+      document.getElementById('eff-extra-w').value = '0';
+      for (let i = 1; i <= 5; i++) {
+        const mEl = document.querySelector('[data-eff-m="' + i + '"]');
+        const yEl = document.querySelector('[data-eff-y="' + i + '"]');
+        const eEl = document.querySelector('[data-eff-e="' + i + '"]');
+        mEl.value = '';
+        yEl.value = '';
+        eEl.textContent = '--';
+        eEl.style.color = '';
+      }
+      try { localStorage.removeItem(EFF_STORAGE_KEY); } catch (e) {}
+    }
+
+    const INL_STORAGE_KEY = 'cielo-inl-calc';
+
+    function loadInlCalc() {
+      try {
+        const raw = localStorage.getItem(INL_STORAGE_KEY);
+        if (raw) return JSON.parse(raw);
+      } catch (e) {}
+      return {};
+    }
+
+    function saveInlCalc() {
+      const data = {};
+      const M = document.getElementById('inl-M');
+      const extraW = document.getElementById('inl-extra-w');
+      if (M && M.value) data.M = M.value;
+      if (extraW && extraW.value && extraW.value !== '0') data.extraW = extraW.value;
+      for (let i = 1; i <= 5; i++) {
+        const mEl = document.querySelector('[data-inl-m="' + i + '"]');
+        const yEl = document.querySelector('[data-inl-y="' + i + '"]');
+        if (mEl && mEl.value) data['m' + i] = mEl.value;
+        if (yEl && yEl.value) data['y' + i] = yEl.value;
+      }
+      try { localStorage.setItem(INL_STORAGE_KEY, JSON.stringify(data)); } catch (e) {}
+    }
+
+    function restoreEffCalc2() {
+      const data = loadInlCalc();
+      if (!data || !Object.keys(data).length) return;
+      const M = document.getElementById('inl-M');
+      const extraW = document.getElementById('inl-extra-w');
+      if (data.M && M) M.value = data.M;
+      if (data.extraW && extraW) extraW.value = data.extraW;
+      for (let i = 1; i <= 5; i++) {
+        const mEl = document.querySelector('[data-inl-m="' + i + '"]');
+        const yEl = document.querySelector('[data-inl-y="' + i + '"]');
+        if (data['m' + i] && mEl) mEl.value = data['m' + i];
+        if (data['y' + i] && yEl) yEl.value = data['y' + i];
+      }
+      updateEffCalc2(false);
+    }
+
+    function updateEffCalc2(save) {
+      const M = parseFloat(document.getElementById('inl-M').value);
+      if (!M || M <= 0) return;
+      const wDefault = state.baseAmount * SCALE.water_start;
+      const extraW = parseFloat(document.getElementById('inl-extra-w').value) || 0;
+      const w = wDefault + extraW;
+      const refs = [47, 75, 88, 94, 97];
+      let product = 1;
+      for (let i = 1; i <= 5; i++) {
+        const mEl = document.querySelector('[data-inl-m="' + i + '"]');
+        const yEl = document.querySelector('[data-inl-y="' + i + '"]');
+        const eEl = document.querySelector('[data-inl-e="' + i + '"]');
+        const m = parseFloat(mEl.value);
+        const y = parseFloat(yEl.value);
+        if (!m || !y || m <= M || y > m) {
+          eEl.textContent = '--';
+          eEl.style.color = '';
+          continue;
+        }
+        const fraction = (m - y) / (m - M + w / 3);
+        product *= (1 - fraction);
+        const en = (1 - product) * 100;
+        eEl.textContent = Math.round(en) + '%';
+        eEl.style.color = en < refs[i - 1] - 10 ? '#dc2626' : '#16a34a';
+      }
+      if (save !== false) saveInlCalc();
+    }
+
+    function resetEffCalc2() {
+      document.getElementById('inl-M').value = '';
+      document.getElementById('inl-extra-w').value = '0';
+      for (let i = 1; i <= 5; i++) {
+        const mEl = document.querySelector('[data-inl-m="' + i + '"]');
+        const yEl = document.querySelector('[data-inl-y="' + i + '"]');
+        const eEl = document.querySelector('[data-inl-e="' + i + '"]');
+        mEl.value = '';
+        yEl.value = '';
+        eEl.textContent = '--';
+        eEl.style.color = '';
+      }
+      try { localStorage.removeItem(INL_STORAGE_KEY); } catch (e) {}
     }
 
     function initChecklist() {
@@ -808,7 +1258,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      initControls(); initCollapsibles(); initChecklist(); updateAllValues();
+      initControls(); initCollapsibles(); initChecklist(); updateAllValues(); restoreEffCalc(); restoreEffCalc2();
       setInterval(() => {
         if (state.timerStart && !state.timerEnd) updateProgress();
       }, 1000);

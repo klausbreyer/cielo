@@ -11,3 +11,7 @@ This project uses [Semantic Versioning](https://semver.org/). The current versio
 - **MAJOR** (X) — breaking changes: restructured layout, removed features, changed URL/hosting setup
 - **MINOR** (Y) — new features or sections added (e.g. new calculator option, new phase, new callout box)
 - **PATCH** (Z) — bug fixes, text edits, style tweaks, small corrections
+
+## Style Rules
+
+- **No mdashes** — never use `&mdash;`, `—`, or `&ndash;` / `–`. Always use a plain hyphen `-` with spaces around it.

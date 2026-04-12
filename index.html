@@ -183,7 +183,7 @@
     <p class="text-sm mt-1">
       Calculated for <b data-calc="base">100</b>g cactus powder with <b data-calc="acid_name">Fumaric Acid</b>
       - Water: <b data-calc="water_start">130</b>ml | Lime: <b data-calc="lime">25</b>g |
-      EA total: ~<b data-calc="ea_total">950</b>ml | Acid: <b data-calc="acid_amount" data-decimals="1">3.0</b>g
+      EA total: ~<b data-calc="ea_total">977</b>ml / ~<b data-calc="ea_total_g">850</b>g | Acid: <b data-calc="acid_amount" data-decimals="1">3.0</b>g
     </p>
   </div>
 
@@ -244,7 +244,7 @@
             <li><span class="calc-val" data-calc="base">100</span> g dry fine cactus powder</li>
             <li><span class="calc-val" data-calc="water_start">130</span> ml water + <span class="calc-val" data-calc="water_reserve">70</span> ml reserve (max <span class="calc-val" data-calc="water_max">200</span> ml)</li>
             <li><span class="calc-val" data-calc="lime">25</span> g Ca(OH)&#8322; (lime)</li>
-            <li>~<span class="calc-val" data-calc="ea_total">950</span> ml ethyl acetate (&ldquo;MEK substitute&rdquo;)</li>
+            <li>~<span class="calc-val" data-calc="ea_total">977</span> ml / ~<span class="calc-val" data-calc="ea_total_g">850</span> g ethyl acetate (&ldquo;MEK substitute&rdquo;)</li>
             <li>
               <span data-show-acid="fumaric"><span class="calc-val" data-calc="acid_amount" data-decimals="1">3.0</span> g fumaric acid</span>
               <span data-show-acid="citric" class="hidden"><span class="calc-val" data-calc="acid_amount" data-decimals="1">5.0</span> g citric acid</span>
@@ -363,14 +363,14 @@
           <label class="step-row"><input type="checkbox" id="s3-0"><span class="step-text">Transfer wet crumbs to french press <span class="timer-tag timer-tag-start">starts 60 min timer</span></span></label>
 
           <div class="pull-group space-y-1 my-2">
-            <p class="text-xs text-cactus-700 font-bold mb-1">Pull 1 -<span class="calc-val" data-calc="ea_pull_1">250</span> ml</p>
+            <p class="text-xs text-cactus-700 font-bold mb-1">Pull 1 -<span class="calc-val" data-calc="ea_pull_1_g">250</span> g</p>
             <label class="step-row"><input type="checkbox" id="s3-1"><span class="step-text">Add EA, stir 3 min, rest 1 min, filter through 2 stacked coffee filters into jar</span></label>
             <div class="pull-timer flex gap-3 my-2 ml-7" data-checkbox="s3-1">
               <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]">Stir 3:00</button>
               <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]" disabled>Rest 1:00</button>
             </div>
 
-            <p class="text-xs text-cactus-700 font-bold mb-1 mt-3">Pulls 2&ndash;5 -each <span class="calc-val" data-calc="ea_pull_n">175</span> ml</p>
+            <p class="text-xs text-cactus-700 font-bold mb-1 mt-3">Pulls 2&ndash;5 -each <span class="calc-val" data-calc="ea_pull_n_g">150</span> g</p>
             <label class="step-row"><input type="checkbox" id="s3-2"><span class="step-text">Pull 2: stir 3 min, rest 1 min, filter</span></label>
             <div class="pull-timer flex gap-3 my-2 ml-7" data-checkbox="s3-2">
               <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]">Stir 3:00</button>
@@ -395,7 +395,7 @@
 
           <label class="step-row"><input type="checkbox" id="s3-6"><span class="step-text">All pulls combined -extract clear, no debris <span class="timer-tag timer-tag-stop">stops timer</span></span></label>
 
-          <p class="text-xs text-gray-500 mt-2">Watch final trickle -don&rsquo;t squeeze water into solvent. Target &ge;<span class="calc-val" data-calc="ea_min_return_1">110</span> ml back from Pull 1. Compost spent crumbs when dry.</p>
+          <p class="text-xs text-gray-500 mt-2">Watch final trickle -don&rsquo;t squeeze water into solvent. Target &ge;<span class="calc-val" data-calc="ea_min_return_1_g">99</span> g back from Pull 1. Compost spent crumbs when dry.</p>
 
           <div class="callout callout-tip">
             <strong>Particles?</strong> Crumbs had dry spots. Filter everything before salting. More water + mixing next time.
@@ -515,7 +515,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
-      <p class="text-gray-400 mt-2">v1.6.4</p>
+      <p class="text-gray-400 mt-2">v1.7.0</p>
     </footer>
 
   </main>
@@ -523,7 +523,10 @@
   <script>
     const SCALE = {
       water_start: 1.3, water_reserve: 0.7, water_max: 2.0,
-      lime: 0.25, ea_pull_1: 2.5, ea_pull_n: 1.75, num_pulls: 5,
+      lime: 0.25,
+      ea_pull_1_ml: 2.77, ea_pull_1_g: 2.5,
+      ea_pull_n_ml: 1.75, ea_pull_n_g: 1.5,
+      num_pulls: 5,
     };
 
     const ACIDS = {
@@ -588,19 +591,25 @@
 
     function calculate(base, acidType) {
       const acid = ACIDS[acidType];
-      const eaPull1 = base * SCALE.ea_pull_1;
-      const eaPullN = base * SCALE.ea_pull_n;
       const r = base / 100;
+      const eaPull1Ml = base * SCALE.ea_pull_1_ml;
+      const eaPullNMl = base * SCALE.ea_pull_n_ml;
+      const eaPull1G  = base * SCALE.ea_pull_1_g;
+      const eaPullNG  = base * SCALE.ea_pull_n_g;
       return {
         base: base,
         water_start: Math.round(base * SCALE.water_start),
         water_reserve: Math.round(base * SCALE.water_reserve),
         water_max: Math.round(base * SCALE.water_max),
         lime: Math.round(base * SCALE.lime),
-        ea_pull_1: Math.round(eaPull1),
-        ea_pull_n: Math.round(eaPullN),
-        ea_total: Math.round(eaPull1 + (SCALE.num_pulls - 1) * eaPullN),
+        ea_pull_1: Math.round(eaPull1Ml),
+        ea_pull_n: Math.round(eaPullNMl),
+        ea_total: Math.round(eaPull1Ml + (SCALE.num_pulls - 1) * eaPullNMl),
+        ea_pull_1_g: Math.round(eaPull1G),
+        ea_pull_n_g: Math.round(eaPullNG),
+        ea_total_g: Math.round(eaPull1G + (SCALE.num_pulls - 1) * eaPullNG),
         ea_min_return_1: Math.round(base * 1.1),
+        ea_min_return_1_g: Math.round(base * 1.1 * SCALE.ea_pull_1_g / SCALE.ea_pull_1_ml),
         acid_amount: base * acid.scale,
         acid_name: acid.name,
         reuse_soda_tbsp: formatFraction(r),

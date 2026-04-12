@@ -183,7 +183,7 @@
     <p class="text-sm mt-1">
       Calculated for <b data-calc="base">100</b>g cactus powder with <b data-calc="acid_name">Fumaric Acid</b>
       - Water: <b data-calc="water_start">130</b>ml | Lime: <b data-calc="lime">25</b>g |
-      EA total: ~<b data-calc="ea_total">950</b>ml | Acid: <b data-calc="acid_amount" data-decimals="1">3.0</b>g
+      EA total: ~<b data-calc="ea_total">977</b>ml / ~<b data-calc="ea_total_g">850</b>g | Acid: <b data-calc="acid_amount" data-decimals="1">3.0</b>g
     </p>
   </div>
 
@@ -244,7 +244,7 @@
             <li><span class="calc-val" data-calc="base">100</span> g dry fine cactus powder</li>
             <li><span class="calc-val" data-calc="water_start">130</span> ml water + <span class="calc-val" data-calc="water_reserve">70</span> ml reserve (max <span class="calc-val" data-calc="water_max">200</span> ml)</li>
             <li><span class="calc-val" data-calc="lime">25</span> g Ca(OH)&#8322; (lime)</li>
-            <li>~<span class="calc-val" data-calc="ea_total">950</span> ml ethyl acetate (&ldquo;MEK substitute&rdquo;)</li>
+            <li>~<span class="calc-val" data-calc="ea_total">977</span> ml / ~<span class="calc-val" data-calc="ea_total_g">850</span> g ethyl acetate (&ldquo;MEK substitute&rdquo;)</li>
             <li>
               <span data-show-acid="fumaric"><span class="calc-val" data-calc="acid_amount" data-decimals="1">3.0</span> g fumaric acid</span>
               <span data-show-acid="citric" class="hidden"><span class="calc-val" data-calc="acid_amount" data-decimals="1">5.0</span> g citric acid</span>
@@ -363,14 +363,14 @@
           <label class="step-row"><input type="checkbox" id="s3-0"><span class="step-text">Transfer wet crumbs to french press <span class="timer-tag timer-tag-start">starts 60 min timer</span></span></label>
 
           <div class="pull-group space-y-1 my-2">
-            <p class="text-xs text-cactus-700 font-bold mb-1">Pull 1 -<span class="calc-val" data-calc="ea_pull_1">250</span> ml</p>
+            <p class="text-xs text-cactus-700 font-bold mb-1">Pull 1 -<span class="calc-val" data-calc="ea_pull_1_g">250</span> g</p>
             <label class="step-row"><input type="checkbox" id="s3-1"><span class="step-text">Add EA, stir 3 min, rest 1 min, filter through 2 stacked coffee filters into jar</span></label>
             <div class="pull-timer flex gap-3 my-2 ml-7" data-checkbox="s3-1">
               <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]">Stir 3:00</button>
               <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]" disabled>Rest 1:00</button>
             </div>
 
-            <p class="text-xs text-cactus-700 font-bold mb-1 mt-3">Pulls 2&ndash;5 -each <span class="calc-val" data-calc="ea_pull_n">175</span> ml</p>
+            <p class="text-xs text-cactus-700 font-bold mb-1 mt-3">Pulls 2&ndash;5 -each <span class="calc-val" data-calc="ea_pull_n_g">150</span> g</p>
             <label class="step-row"><input type="checkbox" id="s3-2"><span class="step-text">Pull 2: stir 3 min, rest 1 min, filter</span></label>
             <div class="pull-timer flex gap-3 my-2 ml-7" data-checkbox="s3-2">
               <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]">Stir 3:00</button>
@@ -391,6 +391,33 @@
               <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]">Stir 3:00</button>
               <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]" disabled>Rest 1:00</button>
             </div>
+
+            <p class="text-xs text-gray-400 font-bold mb-1 mt-4 pt-3 border-t border-gray-200">Optional pulls 6-10 -each <span class="calc-val" data-calc="ea_pull_n_g">150</span> g</p>
+            <label class="step-row"><input type="checkbox" id="s3-7"><span class="step-text">Pull 6: stir 3 min, rest 1 min, filter</span></label>
+            <div class="pull-timer flex gap-3 my-2 ml-7" data-checkbox="s3-7">
+              <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]">Stir 3:00</button>
+              <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]" disabled>Rest 1:00</button>
+            </div>
+            <label class="step-row"><input type="checkbox" id="s3-8"><span class="step-text">Pull 7: stir 3 min, rest 1 min, filter</span></label>
+            <div class="pull-timer flex gap-3 my-2 ml-7" data-checkbox="s3-8">
+              <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]">Stir 3:00</button>
+              <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]" disabled>Rest 1:00</button>
+            </div>
+            <label class="step-row"><input type="checkbox" id="s3-9"><span class="step-text">Pull 8: stir 3 min, rest 1 min, filter</span></label>
+            <div class="pull-timer flex gap-3 my-2 ml-7" data-checkbox="s3-9">
+              <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]">Stir 3:00</button>
+              <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]" disabled>Rest 1:00</button>
+            </div>
+            <label class="step-row"><input type="checkbox" id="s3-10"><span class="step-text">Pull 9: stir 3 min, rest 1 min, filter</span></label>
+            <div class="pull-timer flex gap-3 my-2 ml-7" data-checkbox="s3-10">
+              <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]">Stir 3:00</button>
+              <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]" disabled>Rest 1:00</button>
+            </div>
+            <label class="step-row"><input type="checkbox" id="s3-11"><span class="step-text">Pull 10: stir 3 min, rest 1 min, filter</span></label>
+            <div class="pull-timer flex gap-3 my-2 ml-7" data-checkbox="s3-11">
+              <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]">Stir 3:00</button>
+              <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-3 rounded-lg border-2 border-cactus-400 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-50 transition-colors min-w-[120px]" disabled>Rest 1:00</button>
+            </div>
           </div>
 
           <!-- Efficiency Tracker -->
@@ -399,7 +426,7 @@
               <p class="font-bold text-xs uppercase tracking-wider text-cactus-700">Efficiency Tracker</p>
               <button onclick="resetEffCalc()" class="text-[10px] text-gray-400 hover:text-red-500 transition-colors cursor-pointer uppercase tracking-wider">Reset</button>
             </div>
-            <p class="text-[10px] text-gray-400 mb-3">Weigh your french press at each step. Accounts for mescaline/water partitioning (ratio &asymp; 3).</p>
+            <p class="text-[10px] text-gray-400 mb-3">Weigh your french press at each step. Partition coefficients: EA/water &asymp; 3, EA/powder &asymp; 1.</p>
 
             <div class="flex flex-wrap gap-3 mb-3 pb-3 border-b border-cactus-200">
               <div class="flex items-center gap-2">
@@ -431,45 +458,81 @@
                     <td class="text-center px-1"><input type="number" data-eff-m="1" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
                     <td class="text-center px-1"><input type="number" data-eff-y="1" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
                     <td class="text-center px-1"><span data-eff-e="1" class="font-bold">--</span></td>
-                    <td class="text-center px-1 text-gray-400">47%</td>
+                    <td class="text-center px-1 text-gray-400">38%</td>
                   </tr>
                   <tr>
                     <td class="font-bold text-cactus-700 pr-2 py-1">2</td>
                     <td class="text-center px-1"><input type="number" data-eff-m="2" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
                     <td class="text-center px-1"><input type="number" data-eff-y="2" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
                     <td class="text-center px-1"><span data-eff-e="2" class="font-bold">--</span></td>
-                    <td class="text-center px-1 text-gray-400">75%</td>
+                    <td class="text-center px-1 text-gray-400">62%</td>
                   </tr>
                   <tr>
                     <td class="font-bold text-cactus-700 pr-2 py-1">3</td>
                     <td class="text-center px-1"><input type="number" data-eff-m="3" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
                     <td class="text-center px-1"><input type="number" data-eff-y="3" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
                     <td class="text-center px-1"><span data-eff-e="3" class="font-bold">--</span></td>
-                    <td class="text-center px-1 text-gray-400">88%</td>
+                    <td class="text-center px-1 text-gray-400">76%</td>
                   </tr>
                   <tr>
                     <td class="font-bold text-cactus-700 pr-2 py-1">4</td>
                     <td class="text-center px-1"><input type="number" data-eff-m="4" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
                     <td class="text-center px-1"><input type="number" data-eff-y="4" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
                     <td class="text-center px-1"><span data-eff-e="4" class="font-bold">--</span></td>
-                    <td class="text-center px-1 text-gray-400">94%</td>
+                    <td class="text-center px-1 text-gray-400">85%</td>
                   </tr>
                   <tr>
                     <td class="font-bold text-cactus-700 pr-2 py-1">5</td>
                     <td class="text-center px-1"><input type="number" data-eff-m="5" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
                     <td class="text-center px-1"><input type="number" data-eff-y="5" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
                     <td class="text-center px-1"><span data-eff-e="5" class="font-bold">--</span></td>
+                    <td class="text-center px-1 text-gray-400">91%</td>
+                  </tr>
+                  <tr><td colspan="5" class="pt-2 pb-1 text-[10px] text-gray-400 uppercase tracking-wider">Optional</td></tr>
+                  <tr>
+                    <td class="text-gray-400 pr-2 py-1">6</td>
+                    <td class="text-center px-1"><input type="number" data-eff-m="6" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><input type="number" data-eff-y="6" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><span data-eff-e="6" class="font-bold">--</span></td>
+                    <td class="text-center px-1 text-gray-400">94%</td>
+                  </tr>
+                  <tr>
+                    <td class="text-gray-400 pr-2 py-1">7</td>
+                    <td class="text-center px-1"><input type="number" data-eff-m="7" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><input type="number" data-eff-y="7" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><span data-eff-e="7" class="font-bold">--</span></td>
                     <td class="text-center px-1 text-gray-400">97%</td>
+                  </tr>
+                  <tr>
+                    <td class="text-gray-400 pr-2 py-1">8</td>
+                    <td class="text-center px-1"><input type="number" data-eff-m="8" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><input type="number" data-eff-y="8" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><span data-eff-e="8" class="font-bold">--</span></td>
+                    <td class="text-center px-1 text-gray-400">98%</td>
+                  </tr>
+                  <tr>
+                    <td class="text-gray-400 pr-2 py-1">9</td>
+                    <td class="text-center px-1"><input type="number" data-eff-m="9" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><input type="number" data-eff-y="9" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><span data-eff-e="9" class="font-bold">--</span></td>
+                    <td class="text-center px-1 text-gray-400">99%</td>
+                  </tr>
+                  <tr>
+                    <td class="text-gray-400 pr-2 py-1">10</td>
+                    <td class="text-center px-1"><input type="number" data-eff-m="10" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><input type="number" data-eff-y="10" placeholder="g" oninput="updateEffCalc()" class="w-20 px-2 py-1.5 border border-gray-300 rounded text-center text-sm"></td>
+                    <td class="text-center px-1"><span data-eff-e="10" class="font-bold">--</span></td>
+                    <td class="text-center px-1 text-gray-400">99%</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <p class="text-[10px] text-gray-400 mt-2">Target &ge;90% after final pull. Stop after pull 4 if &ge;95%. Red = &gt;10% below reference.</p>
+            <p class="text-[10px] text-gray-400 mt-2">Target &ge;85% after pull 4, &ge;91% after pull 5. Red = &gt;10% below reference.</p>
           </div>
 
           <label class="step-row"><input type="checkbox" id="s3-6"><span class="step-text">All pulls combined -extract clear, no debris <span class="timer-tag timer-tag-stop">stops timer</span></span></label>
 
-          <p class="text-xs text-gray-500 mt-2">Watch final trickle -don&rsquo;t squeeze water into solvent. Target &ge;<span class="calc-val" data-calc="ea_min_return_1">110</span> ml back from Pull 1. Compost spent crumbs when dry.</p>
+          <p class="text-xs text-gray-500 mt-2">Watch final trickle -don&rsquo;t squeeze water into solvent. Target &ge;<span class="calc-val" data-calc="ea_min_return_1_g">99</span> g back from Pull 1. Compost spent crumbs when dry.</p>
 
           <div class="callout callout-warn">
             <strong>Particles?</strong> Crumbs had dry spots. Filter everything before salting. More water + mixing next time.
@@ -511,7 +574,7 @@
           <p class="text-[10px] text-gray-400 ml-7 mb-3">Weigh your french press before adding EA and after each pull to track cumulative extraction efficiency.</p>
 
           <div class="pull-group space-y-1 my-2">
-            <label class="step-row"><input type="checkbox" id="s3b-1"><span class="step-text"><strong>Pull 1</strong> - <span class="calc-val" data-calc="ea_pull_1">250</span> ml EA - add EA, stir 3 min, rest 1 min, filter</span></label>
+            <label class="step-row"><input type="checkbox" id="s3b-1"><span class="step-text"><strong>Pull 1</strong> - <span class="calc-val" data-calc="ea_pull_1_g">250</span> g EA - add EA, stir 3 min, rest 1 min, filter</span></label>
             <div class="flex flex-wrap items-center gap-2 ml-7">
               <div class="pull-timer flex gap-2" data-checkbox="s3b-1">
                 <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
@@ -526,11 +589,11 @@
                 <input type="number" data-inl-y="1" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
                 <span class="text-gray-400 text-xs">g</span>
                 <span class="text-gray-300">&rarr;</span>
-                <span data-inl-e="1" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span><span class="text-gray-400 text-[10px]">/ 47%</span>
+                <span data-inl-e="1" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span><span class="text-gray-400 text-[10px]">/ 38%</span>
               </div>
             </div>
 
-            <label class="step-row mt-2"><input type="checkbox" id="s3b-2"><span class="step-text"><strong>Pull 2</strong> - <span class="calc-val" data-calc="ea_pull_n">175</span> ml EA - stir 3 min, rest 1 min, filter</span></label>
+            <label class="step-row mt-2"><input type="checkbox" id="s3b-2"><span class="step-text"><strong>Pull 2</strong> - <span class="calc-val" data-calc="ea_pull_n_g">150</span> g EA - stir 3 min, rest 1 min, filter</span></label>
             <div class="flex flex-wrap items-center gap-2 ml-7">
               <div class="pull-timer flex gap-2" data-checkbox="s3b-2">
                 <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
@@ -545,11 +608,11 @@
                 <input type="number" data-inl-y="2" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
                 <span class="text-gray-400 text-xs">g</span>
                 <span class="text-gray-300">&rarr;</span>
-                <span data-inl-e="2" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span><span class="text-gray-400 text-[10px]">/ 75%</span>
+                <span data-inl-e="2" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span><span class="text-gray-400 text-[10px]">/ 62%</span>
               </div>
             </div>
 
-            <label class="step-row mt-2"><input type="checkbox" id="s3b-3"><span class="step-text"><strong>Pull 3</strong> - <span class="calc-val" data-calc="ea_pull_n">175</span> ml EA - stir 3 min, rest 1 min, filter</span></label>
+            <label class="step-row mt-2"><input type="checkbox" id="s3b-3"><span class="step-text"><strong>Pull 3</strong> - <span class="calc-val" data-calc="ea_pull_n_g">150</span> g EA - stir 3 min, rest 1 min, filter</span></label>
             <div class="flex flex-wrap items-center gap-2 ml-7">
               <div class="pull-timer flex gap-2" data-checkbox="s3b-3">
                 <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
@@ -564,11 +627,11 @@
                 <input type="number" data-inl-y="3" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
                 <span class="text-gray-400 text-xs">g</span>
                 <span class="text-gray-300">&rarr;</span>
-                <span data-inl-e="3" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span><span class="text-gray-400 text-[10px]">/ 88%</span>
+                <span data-inl-e="3" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span><span class="text-gray-400 text-[10px]">/ 76%</span>
               </div>
             </div>
 
-            <label class="step-row mt-2"><input type="checkbox" id="s3b-4"><span class="step-text"><strong>Pull 4</strong> - <span class="calc-val" data-calc="ea_pull_n">175</span> ml EA - stir 3 min, rest 1 min, filter</span></label>
+            <label class="step-row mt-2"><input type="checkbox" id="s3b-4"><span class="step-text"><strong>Pull 4</strong> - <span class="calc-val" data-calc="ea_pull_n_g">150</span> g EA - stir 3 min, rest 1 min, filter</span></label>
             <div class="flex flex-wrap items-center gap-2 ml-7">
               <div class="pull-timer flex gap-2" data-checkbox="s3b-4">
                 <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
@@ -583,11 +646,11 @@
                 <input type="number" data-inl-y="4" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
                 <span class="text-gray-400 text-xs">g</span>
                 <span class="text-gray-300">&rarr;</span>
-                <span data-inl-e="4" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span><span class="text-gray-400 text-[10px]">/ 94%</span>
+                <span data-inl-e="4" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span><span class="text-gray-400 text-[10px]">/ 85%</span>
               </div>
             </div>
 
-            <label class="step-row mt-2"><input type="checkbox" id="s3b-5"><span class="step-text"><strong>Pull 5</strong> - <span class="calc-val" data-calc="ea_pull_n">175</span> ml EA - stir 3 min, rest 1 min, filter</span></label>
+            <label class="step-row mt-2"><input type="checkbox" id="s3b-5"><span class="step-text"><strong>Pull 5</strong> - <span class="calc-val" data-calc="ea_pull_n_g">150</span> g EA - stir 3 min, rest 1 min, filter</span></label>
             <div class="flex flex-wrap items-center gap-2 ml-7">
               <div class="pull-timer flex gap-2" data-checkbox="s3b-5">
                 <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
@@ -602,14 +665,111 @@
                 <input type="number" data-inl-y="5" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
                 <span class="text-gray-400 text-xs">g</span>
                 <span class="text-gray-300">&rarr;</span>
-                <span data-inl-e="5" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span><span class="text-gray-400 text-[10px]">/ 97%</span>
+                <span data-inl-e="5" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span><span class="text-gray-400 text-[10px]">/ 91%</span>
+              </div>
+            </div>
+
+            <p class="text-xs text-gray-400 font-bold mt-4 mb-2 pt-3 border-t border-gray-200">Optional pulls 6-10</p>
+
+            <label class="step-row mt-2"><input type="checkbox" id="s3b-7"><span class="step-text"><strong>Pull 6</strong> - <span class="calc-val" data-calc="ea_pull_n_g">150</span> g EA - stir 3 min, rest 1 min, filter</span></label>
+            <div class="flex flex-wrap items-center gap-2 ml-7">
+              <div class="pull-timer flex gap-2" data-checkbox="s3b-7">
+                <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
+                <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm" disabled>Rest 1:00</button>
+              </div>
+              <div class="flex items-center gap-1.5 sm:gap-2 sm:ml-auto">
+                <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider hidden sm:inline">before</span>
+                <input type="number" data-inl-m="6" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
+                <span class="text-gray-400 text-xs">g</span>
+                <span class="text-gray-300">&rarr;</span>
+                <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider hidden sm:inline">after</span>
+                <input type="number" data-inl-y="6" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
+                <span class="text-gray-400 text-xs">g</span>
+                <span class="text-gray-300">&rarr;</span>
+                <span data-inl-e="6" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span><span class="text-gray-400 text-[10px]">/ 94%</span>
+              </div>
+            </div>
+
+            <label class="step-row mt-2"><input type="checkbox" id="s3b-8"><span class="step-text"><strong>Pull 7</strong> - <span class="calc-val" data-calc="ea_pull_n_g">150</span> g EA - stir 3 min, rest 1 min, filter</span></label>
+            <div class="flex flex-wrap items-center gap-2 ml-7">
+              <div class="pull-timer flex gap-2" data-checkbox="s3b-8">
+                <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
+                <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm" disabled>Rest 1:00</button>
+              </div>
+              <div class="flex items-center gap-1.5 sm:gap-2 sm:ml-auto">
+                <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider hidden sm:inline">before</span>
+                <input type="number" data-inl-m="7" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
+                <span class="text-gray-400 text-xs">g</span>
+                <span class="text-gray-300">&rarr;</span>
+                <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider hidden sm:inline">after</span>
+                <input type="number" data-inl-y="7" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
+                <span class="text-gray-400 text-xs">g</span>
+                <span class="text-gray-300">&rarr;</span>
+                <span data-inl-e="7" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span><span class="text-gray-400 text-[10px]">/ 97%</span>
+              </div>
+            </div>
+
+            <label class="step-row mt-2"><input type="checkbox" id="s3b-9"><span class="step-text"><strong>Pull 8</strong> - <span class="calc-val" data-calc="ea_pull_n_g">150</span> g EA - stir 3 min, rest 1 min, filter</span></label>
+            <div class="flex flex-wrap items-center gap-2 ml-7">
+              <div class="pull-timer flex gap-2" data-checkbox="s3b-9">
+                <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
+                <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm" disabled>Rest 1:00</button>
+              </div>
+              <div class="flex items-center gap-1.5 sm:gap-2 sm:ml-auto">
+                <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider hidden sm:inline">before</span>
+                <input type="number" data-inl-m="8" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
+                <span class="text-gray-400 text-xs">g</span>
+                <span class="text-gray-300">&rarr;</span>
+                <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider hidden sm:inline">after</span>
+                <input type="number" data-inl-y="8" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
+                <span class="text-gray-400 text-xs">g</span>
+                <span class="text-gray-300">&rarr;</span>
+                <span data-inl-e="8" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span><span class="text-gray-400 text-[10px]">/ 98%</span>
+              </div>
+            </div>
+
+            <label class="step-row mt-2"><input type="checkbox" id="s3b-10"><span class="step-text"><strong>Pull 9</strong> - <span class="calc-val" data-calc="ea_pull_n_g">150</span> g EA - stir 3 min, rest 1 min, filter</span></label>
+            <div class="flex flex-wrap items-center gap-2 ml-7">
+              <div class="pull-timer flex gap-2" data-checkbox="s3b-10">
+                <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
+                <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm" disabled>Rest 1:00</button>
+              </div>
+              <div class="flex items-center gap-1.5 sm:gap-2 sm:ml-auto">
+                <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider hidden sm:inline">before</span>
+                <input type="number" data-inl-m="9" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
+                <span class="text-gray-400 text-xs">g</span>
+                <span class="text-gray-300">&rarr;</span>
+                <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider hidden sm:inline">after</span>
+                <input type="number" data-inl-y="9" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
+                <span class="text-gray-400 text-xs">g</span>
+                <span class="text-gray-300">&rarr;</span>
+                <span data-inl-e="9" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span><span class="text-gray-400 text-[10px]">/ 99%</span>
+              </div>
+            </div>
+
+            <label class="step-row mt-2"><input type="checkbox" id="s3b-11"><span class="step-text"><strong>Pull 10</strong> - <span class="calc-val" data-calc="ea_pull_n_g">150</span> g EA - stir 3 min, rest 1 min, filter</span></label>
+            <div class="flex flex-wrap items-center gap-2 ml-7">
+              <div class="pull-timer flex gap-2" data-checkbox="s3b-11">
+                <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
+                <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm" disabled>Rest 1:00</button>
+              </div>
+              <div class="flex items-center gap-1.5 sm:gap-2 sm:ml-auto">
+                <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider hidden sm:inline">before</span>
+                <input type="number" data-inl-m="10" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
+                <span class="text-gray-400 text-xs">g</span>
+                <span class="text-gray-300">&rarr;</span>
+                <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider hidden sm:inline">after</span>
+                <input type="number" data-inl-y="10" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
+                <span class="text-gray-400 text-xs">g</span>
+                <span class="text-gray-300">&rarr;</span>
+                <span data-inl-e="10" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span><span class="text-gray-400 text-[10px]">/ 99%</span>
               </div>
             </div>
           </div>
 
           <label class="step-row"><input type="checkbox" id="s3b-6"><span class="step-text">All pulls combined -extract clear, no debris <span class="timer-tag timer-tag-stop">stops timer</span></span></label>
 
-          <p class="text-xs text-gray-500 mt-2">Watch final trickle -don&rsquo;t squeeze water into solvent. Target &ge;<span class="calc-val" data-calc="ea_min_return_1">110</span> ml back from Pull 1. Compost spent crumbs when dry.</p>
+          <p class="text-xs text-gray-500 mt-2">Watch final trickle -don&rsquo;t squeeze water into solvent. Target &ge;<span class="calc-val" data-calc="ea_min_return_1_g">99</span> g back from Pull 1. Compost spent crumbs when dry.</p>
 
           <div class="callout callout-warn">
             <strong>Particles?</strong> Crumbs had dry spots. Filter everything before salting. More water + mixing next time.
@@ -729,7 +889,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
-      <p class="text-gray-400 mt-2">v1.7.0</p>
+      <p class="text-gray-400 mt-2">v1.7.3</p>
     </footer>
 
   </main>
@@ -737,7 +897,10 @@
   <script>
     const SCALE = {
       water_start: 1.3, water_reserve: 0.7, water_max: 2.0,
-      lime: 0.25, ea_pull_1: 2.5, ea_pull_n: 1.75, num_pulls: 5,
+      lime: 0.25,
+      ea_pull_1_ml: 2.77, ea_pull_1_g: 2.5,
+      ea_pull_n_ml: 1.75, ea_pull_n_g: 1.5,
+      num_pulls: 5,
     };
 
     const ACIDS = {
@@ -802,19 +965,25 @@
 
     function calculate(base, acidType) {
       const acid = ACIDS[acidType];
-      const eaPull1 = base * SCALE.ea_pull_1;
-      const eaPullN = base * SCALE.ea_pull_n;
       const r = base / 100;
+      const eaPull1Ml = base * SCALE.ea_pull_1_ml;
+      const eaPullNMl = base * SCALE.ea_pull_n_ml;
+      const eaPull1G  = base * SCALE.ea_pull_1_g;
+      const eaPullNG  = base * SCALE.ea_pull_n_g;
       return {
         base: base,
         water_start: Math.round(base * SCALE.water_start),
         water_reserve: Math.round(base * SCALE.water_reserve),
         water_max: Math.round(base * SCALE.water_max),
         lime: Math.round(base * SCALE.lime),
-        ea_pull_1: Math.round(eaPull1),
-        ea_pull_n: Math.round(eaPullN),
-        ea_total: Math.round(eaPull1 + (SCALE.num_pulls - 1) * eaPullN),
+        ea_pull_1: Math.round(eaPull1Ml),
+        ea_pull_n: Math.round(eaPullNMl),
+        ea_total: Math.round(eaPull1Ml + (SCALE.num_pulls - 1) * eaPullNMl),
+        ea_pull_1_g: Math.round(eaPull1G),
+        ea_pull_n_g: Math.round(eaPullNG),
+        ea_total_g: Math.round(eaPull1G + (SCALE.num_pulls - 1) * eaPullNG),
         ea_min_return_1: Math.round(base * 1.1),
+        ea_min_return_1_g: Math.round(base * 1.1 * SCALE.ea_pull_1_g / SCALE.ea_pull_1_ml),
         acid_amount: base * acid.scale,
         acid_name: acid.name,
         reuse_soda_tbsp: formatFraction(r),
@@ -880,7 +1049,7 @@
       const extraW = document.getElementById('eff-extra-w');
       if (M && M.value) data.M = M.value;
       if (extraW && extraW.value && extraW.value !== '0') data.extraW = extraW.value;
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 10; i++) {
         const mEl = document.querySelector('[data-eff-m="' + i + '"]');
         const yEl = document.querySelector('[data-eff-y="' + i + '"]');
         if (mEl && mEl.value) data['m' + i] = mEl.value;
@@ -896,7 +1065,7 @@
       const extraW = document.getElementById('eff-extra-w');
       if (data.M && M) M.value = data.M;
       if (data.extraW && extraW) extraW.value = data.extraW;
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 10; i++) {
         const mEl = document.querySelector('[data-eff-m="' + i + '"]');
         const yEl = document.querySelector('[data-eff-y="' + i + '"]');
         if (data['m' + i] && mEl) mEl.value = data['m' + i];
@@ -908,12 +1077,13 @@
     function updateEffCalc(save) {
       const M = parseFloat(document.getElementById('eff-M').value);
       if (!M || M <= 0) return;
-      const wDefault = state.baseAmount * SCALE.water_start;
+      const base = state.baseAmount;
+      const wDefault = base * SCALE.water_start;
       const extraW = parseFloat(document.getElementById('eff-extra-w').value) || 0;
       const w = wDefault + extraW;
-      const refs = [47, 75, 88, 94, 97];
+      const refs = [38, 62, 76, 85, 91, 94, 97, 98, 99, 99];
       let product = 1;
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 10; i++) {
         const mEl = document.querySelector('[data-eff-m="' + i + '"]');
         const yEl = document.querySelector('[data-eff-y="' + i + '"]');
         const eEl = document.querySelector('[data-eff-e="' + i + '"]');
@@ -924,7 +1094,9 @@
           eEl.style.color = '';
           continue;
         }
-        const fraction = (m - y) / (m - M + w / 3);
+        const pulled = m - y;
+        const totalEA = m - M;
+        const fraction = 1 - pulled / (totalEA + w / 3 + base);
         product *= fraction;
         const en = (1 - product) * 100;
         eEl.textContent = Math.round(en) + '%';
@@ -936,7 +1108,7 @@
     function resetEffCalc() {
       document.getElementById('eff-M').value = '';
       document.getElementById('eff-extra-w').value = '0';
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 10; i++) {
         const mEl = document.querySelector('[data-eff-m="' + i + '"]');
         const yEl = document.querySelector('[data-eff-y="' + i + '"]');
         const eEl = document.querySelector('[data-eff-e="' + i + '"]');
@@ -964,7 +1136,7 @@
       const extraW = document.getElementById('inl-extra-w');
       if (M && M.value) data.M = M.value;
       if (extraW && extraW.value && extraW.value !== '0') data.extraW = extraW.value;
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 10; i++) {
         const mEl = document.querySelector('[data-inl-m="' + i + '"]');
         const yEl = document.querySelector('[data-inl-y="' + i + '"]');
         if (mEl && mEl.value) data['m' + i] = mEl.value;
@@ -980,7 +1152,7 @@
       const extraW = document.getElementById('inl-extra-w');
       if (data.M && M) M.value = data.M;
       if (data.extraW && extraW) extraW.value = data.extraW;
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 10; i++) {
         const mEl = document.querySelector('[data-inl-m="' + i + '"]');
         const yEl = document.querySelector('[data-inl-y="' + i + '"]');
         if (data['m' + i] && mEl) mEl.value = data['m' + i];
@@ -992,12 +1164,13 @@
     function updateEffCalc2(save) {
       const M = parseFloat(document.getElementById('inl-M').value);
       if (!M || M <= 0) return;
-      const wDefault = state.baseAmount * SCALE.water_start;
+      const base = state.baseAmount;
+      const wDefault = base * SCALE.water_start;
       const extraW = parseFloat(document.getElementById('inl-extra-w').value) || 0;
       const w = wDefault + extraW;
-      const refs = [47, 75, 88, 94, 97];
+      const refs = [38, 62, 76, 85, 91, 94, 97, 98, 99, 99];
       let product = 1;
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 10; i++) {
         const mEl = document.querySelector('[data-inl-m="' + i + '"]');
         const yEl = document.querySelector('[data-inl-y="' + i + '"]');
         const eEl = document.querySelector('[data-inl-e="' + i + '"]');
@@ -1008,7 +1181,9 @@
           eEl.style.color = '';
           continue;
         }
-        const fraction = (m - y) / (m - M + w / 3);
+        const pulled = m - y;
+        const totalEA = m - M;
+        const fraction = 1 - pulled / (totalEA + w / 3 + base);
         product *= fraction;
         const en = (1 - product) * 100;
         eEl.textContent = Math.round(en) + '%';
@@ -1020,7 +1195,7 @@
     function resetEffCalc2() {
       document.getElementById('inl-M').value = '';
       document.getElementById('inl-extra-w').value = '0';
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 10; i++) {
         const mEl = document.querySelector('[data-inl-m="' + i + '"]');
         const yEl = document.querySelector('[data-inl-y="' + i + '"]');
         const eEl = document.querySelector('[data-inl-e="' + i + '"]');

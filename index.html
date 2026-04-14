@@ -767,7 +767,10 @@
 
           <!-- Summary Table -->
           <div id="inl-summary" class="mt-4 p-4 bg-cactus-50/50 rounded-lg border border-cactus-200" style="display:none;">
-            <p class="font-bold text-xs uppercase tracking-wider text-cactus-700 mb-3">Extraction Summary</p>
+            <div class="flex items-baseline justify-between mb-3">
+              <p class="font-bold text-xs uppercase tracking-wider text-cactus-700">Extraction Summary</p>
+              <p class="text-[10px] text-gray-400">Using <span id="inl-summary-powder">--</span> g powder + <span id="inl-summary-water">--</span> ml water (K_water=3, K_powder=1)</p>
+            </div>
             <div class="overflow-x-auto">
               <table class="w-full text-xs font-mono">
                 <thead>
@@ -901,7 +904,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
-      <p class="text-gray-400 mt-2">v1.7.5</p>
+      <p class="text-gray-400 mt-2">v1.7.6</p>
     </footer>
 
   </main>
@@ -1262,6 +1265,8 @@
       }
       if (!hasData) { wrap.style.display = 'none'; return; }
       wrap.style.display = '';
+      document.getElementById('inl-summary-powder').textContent = Math.round(base);
+      document.getElementById('inl-summary-water').textContent = Math.round(w);
       tbody.innerHTML = rows;
       const recovered = totalAdded > 0 ? (totalPulled / totalAdded * 100).toFixed(1) : '--';
       tfoot.innerHTML = '<tr class="text-cactus-800">'

@@ -66,26 +66,16 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     }
     .phase-header {
-      display: flex; align-items: center; justify-content: space-between;
-      width: 100%; padding: 0.875rem 1rem; cursor: pointer;
-      border: none; background: none; text-align: left;
+      display: flex; align-items: center;
+      width: 100%; padding: 0.875rem 1rem;
       border-bottom: 1px solid rgba(0,0,0,0.04);
-      transition: background 0.2s;
     }
-    .phase-header:hover { background: rgba(0,0,0,0.02); }
     .phase-num {
       display: inline-flex; align-items: center; justify-content: center;
       width: 1.75rem; height: 1.75rem; border-radius: 50%;
       background: var(--color-cactus-600); color: white;
       font-size: 0.8rem; font-weight: 700; margin-right: 0.65rem; flex-shrink: 0;
     }
-
-    .collapsible-body { display: grid; grid-template-rows: 1fr; transition: grid-template-rows 0.35s ease; }
-    .collapsible-body.collapsed { grid-template-rows: 0fr; }
-    .collapsible-body > div { overflow: hidden; min-height: 0; }
-
-    .section-toggle { transition: transform 0.3s ease; }
-    .section-toggle.rotated { transform: rotate(-90deg); }
 
     .callout {
       border-left: 3px solid; padding: 0.65rem 0.85rem; border-radius: 0 6px 6px 0;
@@ -129,8 +119,6 @@
       .print-only { display: block !important; }
       body { background: white !important; background-image: none !important; color: black !important; font-size: 10pt; line-height: 1.35; }
       .calc-val { background: none !important; color: black !important; font-weight: 700; padding: 0; border: none !important; }
-      .collapsible-body.collapsed { grid-template-rows: 1fr !important; }
-      .collapsible-body.collapsed > div { overflow: visible !important; }
       .step-row input[type="checkbox"] {
         -webkit-appearance: none; appearance: none;
         width: 13px; height: 13px; min-width: 13px;
@@ -219,11 +207,10 @@
 
     <!-- Materials -->
     <section class="mb-8 phase-card overflow-hidden">
-      <button onclick="toggleSection('materials')" class="phase-header">
+      <div class="phase-header">
         <h2 class="text-base font-bold text-gray-800">Materials</h2>
-        <svg id="chevron-materials" class="w-4 h-4 text-gray-400 section-toggle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
-      </button>
-      <div id="body-materials" class="collapsible-body">
+      </div>
+      <div id="body-materials">
         <div class="p-4">
           <h3 class="font-bold text-gray-700 text-xs uppercase tracking-wider mb-3">Setup</h3>
           <div class="flex flex-wrap items-center gap-x-5 gap-y-3 mb-5 pb-4 border-b border-gray-200">
@@ -319,11 +306,10 @@
     <!-- PHASE 1: Cactus Powder -->
     <!-- ============================================ -->
     <section id="phase1" class="mb-6 phase-card overflow-hidden">
-      <button onclick="toggleSection('phase1')" class="phase-header">
+      <div class="phase-header">
         <h2 class="text-base font-bold text-gray-800 flex items-center"><span class="phase-num">1</span> Cactus Powder</h2>
-        <svg id="chevron-phase1" class="w-4 h-4 text-gray-400 section-toggle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
-      </button>
-      <div id="body-phase1" class="collapsible-body">
+      </div>
+      <div id="body-phase1">
         <div class="p-4 text-sm text-gray-700 space-y-3">
           <p>Grow, harvest, dry, and grind cactus to a fine powder. Don&rsquo;t harvest under 90 cm / 3 ft. Cut top half for processing, leave bottom to regrow.</p>
 
@@ -350,11 +336,10 @@
     <!-- PHASE 2: Wet Crumb Mix -->
     <!-- ============================================ -->
     <section id="phase2" class="mb-6 phase-card overflow-hidden">
-      <button onclick="toggleSection('phase2')" class="phase-header">
+      <div class="phase-header">
         <h2 class="text-base font-bold text-gray-800 flex items-center"><span class="phase-num">2</span> Wet Crumb Mix</h2>
-        <svg id="chevron-phase2" class="w-4 h-4 text-gray-400 section-toggle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
-      </button>
-      <div id="body-phase2" class="collapsible-body">
+      </div>
+      <div id="body-phase2">
         <div class="p-4 space-y-1">
           <p class="text-sm text-gray-500 mb-3">Target: &ldquo;wet crumbs&rdquo; -sticks when squeezed, crumbles when broken apart.</p>
 
@@ -376,11 +361,10 @@
     <!-- PHASE 3: Extract -->
     <!-- ============================================ -->
     <section id="phase3" class="mb-6 phase-card overflow-hidden">
-      <button onclick="toggleSection('phase3')" class="phase-header">
+      <div class="phase-header">
         <h2 class="text-base font-bold text-gray-800 flex items-center"><span class="phase-num">3</span> Extract</h2>
-        <svg id="chevron-phase3" class="w-4 h-4 text-gray-400 section-toggle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
-      </button>
-      <div id="body-phase3" class="collapsible-body">
+      </div>
+      <div id="body-phase3">
         <div class="p-4 space-y-1">
           <p class="text-sm text-gray-500 mb-3">Pull wet crumbs with EA in the french press. <strong>Complete all <span class="calc-val" data-calc="num_pulls">5</span> pulls within 60 min</strong> -plant matter congeals after that. <strong>Squeeze the plunger firmly</strong> each pull -EA left in the crumbs reduces pull efficiency. EA volume is set in the <em>Materials</em> section above: 1&times; uses 5 smaller pulls, 2&times; uses 3 larger pulls (same final yield, more EA on hand).</p>
 
@@ -529,11 +513,10 @@
     <!-- PHASE 4: Crystallize -->
     <!-- ============================================ -->
     <section id="phase4" class="mb-6 phase-card overflow-hidden">
-      <button onclick="toggleSection('phase4')" class="phase-header">
+      <div class="phase-header">
         <h2 class="text-base font-bold text-gray-800 flex items-center"><span class="phase-num">4</span> Crystallize</h2>
-        <svg id="chevron-phase4" class="w-4 h-4 text-gray-400 section-toggle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
-      </button>
-      <div id="body-phase4" class="collapsible-body">
+      </div>
+      <div id="body-phase4">
         <div class="p-4 space-y-1">
           <p class="text-sm text-gray-500 mb-3">
             <span data-show-acid="fumaric">Fumaric acid reacts with mescaline freebase &rarr; insoluble monomescaline fumarate.</span>
@@ -576,11 +559,10 @@
     <!-- PHASE 5: Collect -->
     <!-- ============================================ -->
     <section id="phase5" class="mb-6 phase-card overflow-hidden">
-      <button onclick="toggleSection('phase5')" class="phase-header">
+      <div class="phase-header">
         <h2 class="text-base font-bold text-gray-800 flex items-center"><span class="phase-num">5</span> Collect</h2>
-        <svg id="chevron-phase5" class="w-4 h-4 text-gray-400 section-toggle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
-      </button>
-      <div id="body-phase5" class="collapsible-body">
+      </div>
+      <div id="body-phase5">
         <div class="p-4 space-y-1">
           <p class="text-sm text-gray-500 mb-3">Collect, rinse, dry. Don&rsquo;t store salted solvent in metal.</p>
 
@@ -602,11 +584,10 @@
     <!-- PHASE 6: Reuse -->
     <!-- ============================================ -->
     <section id="phase6" class="mb-6 phase-card overflow-hidden">
-      <button onclick="toggleSection('phase6')" class="phase-header">
+      <div class="phase-header">
         <h2 class="text-base font-bold text-gray-800 flex items-center"><span class="phase-num">6</span> Reuse Solvent</h2>
-        <svg id="chevron-phase6" class="w-4 h-4 text-gray-400 section-toggle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
-      </button>
-      <div id="body-phase6" class="collapsible-body">
+      </div>
+      <div id="body-phase6">
         <div class="p-4 space-y-1">
           <p class="text-sm text-gray-500 mb-3">Regenerate for reuse. Green color is stable, doesn&rsquo;t interfere. Unlimited reuses. Check for new crystals first.</p>
 
@@ -636,7 +617,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
-      <p class="text-gray-400 mt-2">v2.4.1</p>
+      <p class="text-gray-400 mt-2">v3.0.0</p>
     </footer>
 
   </main>
@@ -669,7 +650,7 @@
     let state = loadState();
 
     function defaultState() {
-      return { version: 4, baseAmount: 100, acidType: 'fumaric', eaMode: 'standard', kWater: 3, kPowder: 1, checklist: {}, collapsed: {}, timerStart: null, timerEnd: null };
+      return { version: 4, baseAmount: 100, acidType: 'fumaric', eaMode: 'standard', kWater: 3, kPowder: 1, checklist: {}, timerStart: null, timerEnd: null };
     }
 
     const CONGEAL_MS = 60 * 60 * 1000;
@@ -1098,29 +1079,10 @@
       text.textContent = '';
     }
 
-    function toggleSection(id) {
-      const body = document.getElementById('body-' + id);
-      const chevron = document.getElementById('chevron-' + id);
-      if (!body) return;
-      const c = body.classList.toggle('collapsed');
-      if (chevron) chevron.classList.toggle('rotated', c);
-      if (c) state.collapsed[id] = true; else delete state.collapsed[id];
-      saveState();
-    }
-
     function jumpToPhase(e, id) {
       if (e) e.preventDefault();
       const target = document.getElementById(id);
       if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function initCollapsibles() {
-      Object.keys(state.collapsed).forEach(id => {
-        const body = document.getElementById('body-' + id);
-        const chevron = document.getElementById('chevron-' + id);
-        if (body) body.classList.add('collapsed');
-        if (chevron) chevron.classList.add('rotated');
-      });
     }
 
     let debounceTimer;
@@ -1151,7 +1113,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      initControls(); initCollapsibles(); initChecklist(); updateAllValues(); updatePullVisibility(); restoreEffCalc2();
+      initControls(); initChecklist(); updateAllValues(); updatePullVisibility(); restoreEffCalc2();
       setInterval(() => {
         if (state.timerStart && !state.timerEnd) updateProgress();
       }, 1000);

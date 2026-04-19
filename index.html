@@ -119,7 +119,9 @@
       padding: 0.35rem 0.75rem; font-weight: 600; font-size: 0.8rem;
       background: var(--color-cactus-800); color: var(--color-cactus-100);
       border-radius: 3px; white-space: nowrap;
+      text-decoration: none; cursor: pointer; transition: background 0.15s;
     }
+    a.overview-step:hover { background: var(--color-cactus-700); }
     .overview-arrow { color: var(--color-cactus-400); font-size: 1rem; }
 
     @media print {
@@ -223,16 +225,17 @@
       </button>
       <div id="body-materials" class="collapsible-body">
         <div class="p-4">
+          <h3 class="font-bold text-gray-700 text-xs uppercase tracking-wider mb-3">Setup</h3>
           <div class="flex flex-wrap items-center gap-x-5 gap-y-3 mb-5 pb-4 border-b border-gray-200">
-            <label class="flex items-center gap-2 text-sm">
+            <label class="flex items-center gap-2 text-sm w-full sm:w-auto">
               <span class="font-medium text-gray-500 uppercase text-xs tracking-wider">Powder</span>
               <input type="number" id="base-input" value="100" min="10" max="5000" step="1"
                      class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors"
                      style="font-family:'DM Mono',monospace">
               <span class="text-gray-400 text-xs">g</span>
             </label>
-            <span class="h-5 w-px bg-gray-300" aria-hidden="true"></span>
-            <div class="flex items-center gap-2.5 text-sm">
+            <span class="h-5 w-px bg-gray-300 hidden sm:inline-block" aria-hidden="true"></span>
+            <div class="flex items-center gap-2.5 text-sm w-full sm:w-auto">
               <label class="flex items-center gap-1.5 cursor-pointer px-2 py-1 rounded border border-cactus-200 has-[:checked]:bg-cactus-700 has-[:checked]:text-white has-[:checked]:border-cactus-700 transition-all">
                 <input type="radio" name="acid" value="fumaric" checked class="sr-only">
                 <span class="text-xs font-semibold">Fumaric</span>
@@ -242,8 +245,8 @@
                 <span class="text-xs font-semibold">Citric</span>
               </label>
             </div>
-            <span class="h-5 w-px bg-gray-300" aria-hidden="true"></span>
-            <div class="flex items-center gap-2.5 text-sm">
+            <span class="h-5 w-px bg-gray-300 hidden sm:inline-block" aria-hidden="true"></span>
+            <div class="flex items-center gap-2.5 text-sm w-full sm:w-auto">
               <label class="flex items-center gap-1.5 cursor-pointer px-2 py-1 rounded border border-cactus-200 has-[:checked]:bg-cactus-700 has-[:checked]:text-white has-[:checked]:border-cactus-700 transition-all">
                 <input type="radio" name="ea-mode" value="standard" checked class="sr-only">
                 <span class="text-xs font-semibold">1&times; EA</span>
@@ -290,32 +293,32 @@
     <!-- Process Overview -->
     <section class="mb-8">
       <div class="hidden sm:flex items-center gap-2">
-        <span class="overview-step flex-1 text-center">1 Powder</span>
+        <a href="#phase1" onclick="jumpToPhase(event,'phase1')" class="overview-step flex-1 text-center">1 Powder</a>
         <span class="overview-arrow">&#8594;</span>
-        <span class="overview-step flex-1 text-center">2 Crumbs</span>
+        <a href="#phase2" onclick="jumpToPhase(event,'phase2')" class="overview-step flex-1 text-center">2 Crumbs</a>
         <span class="overview-arrow">&#8594;</span>
-        <span class="overview-step flex-1 text-center">3 Extract</span>
+        <a href="#phase3" onclick="jumpToPhase(event,'phase3')" class="overview-step flex-1 text-center">3 Extract</a>
         <span class="overview-arrow">&#8594;</span>
-        <span class="overview-step flex-1 text-center">4 Crystallize</span>
+        <a href="#phase4" onclick="jumpToPhase(event,'phase4')" class="overview-step flex-1 text-center">4 Crystallize</a>
         <span class="overview-arrow">&#8594;</span>
-        <span class="overview-step flex-1 text-center">5 Collect</span>
+        <a href="#phase5" onclick="jumpToPhase(event,'phase5')" class="overview-step flex-1 text-center">5 Collect</a>
         <span class="overview-arrow">&#8594;</span>
-        <span class="overview-step flex-1 text-center">6 Reuse</span>
+        <a href="#phase6" onclick="jumpToPhase(event,'phase6')" class="overview-step flex-1 text-center">6 Reuse</a>
       </div>
       <div class="grid grid-cols-3 gap-1.5 sm:hidden">
-        <span class="overview-step text-center">1 Powder</span>
-        <span class="overview-step text-center">2 Crumbs</span>
-        <span class="overview-step text-center">3 Extract</span>
-        <span class="overview-step text-center">4 Crystallize</span>
-        <span class="overview-step text-center">5 Collect</span>
-        <span class="overview-step text-center">6 Reuse</span>
+        <a href="#phase1" onclick="jumpToPhase(event,'phase1')" class="overview-step text-center">1 Powder</a>
+        <a href="#phase2" onclick="jumpToPhase(event,'phase2')" class="overview-step text-center">2 Crumbs</a>
+        <a href="#phase3" onclick="jumpToPhase(event,'phase3')" class="overview-step text-center">3 Extract</a>
+        <a href="#phase4" onclick="jumpToPhase(event,'phase4')" class="overview-step text-center">4 Crystallize</a>
+        <a href="#phase5" onclick="jumpToPhase(event,'phase5')" class="overview-step text-center">5 Collect</a>
+        <a href="#phase6" onclick="jumpToPhase(event,'phase6')" class="overview-step text-center">6 Reuse</a>
       </div>
     </section>
 
     <!-- ============================================ -->
     <!-- PHASE 1: Cactus Powder -->
     <!-- ============================================ -->
-    <section class="mb-6 phase-card overflow-hidden">
+    <section id="phase1" class="mb-6 phase-card overflow-hidden">
       <button onclick="toggleSection('phase1')" class="phase-header">
         <h2 class="text-base font-bold text-gray-800 flex items-center"><span class="phase-num">1</span> Cactus Powder</h2>
         <svg id="chevron-phase1" class="w-4 h-4 text-gray-400 section-toggle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
@@ -346,7 +349,7 @@
     <!-- ============================================ -->
     <!-- PHASE 2: Wet Crumb Mix -->
     <!-- ============================================ -->
-    <section class="mb-6 phase-card overflow-hidden">
+    <section id="phase2" class="mb-6 phase-card overflow-hidden">
       <button onclick="toggleSection('phase2')" class="phase-header">
         <h2 class="text-base font-bold text-gray-800 flex items-center"><span class="phase-num">2</span> Wet Crumb Mix</h2>
         <svg id="chevron-phase2" class="w-4 h-4 text-gray-400 section-toggle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
@@ -372,7 +375,7 @@
     <!-- ============================================ -->
     <!-- PHASE 3: Extract -->
     <!-- ============================================ -->
-    <section class="mb-6 phase-card overflow-hidden">
+    <section id="phase3" class="mb-6 phase-card overflow-hidden">
       <button onclick="toggleSection('phase3')" class="phase-header">
         <h2 class="text-base font-bold text-gray-800 flex items-center"><span class="phase-num">3</span> Extract</h2>
         <svg id="chevron-phase3" class="w-4 h-4 text-gray-400 section-toggle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
@@ -525,7 +528,7 @@
     <!-- ============================================ -->
     <!-- PHASE 4: Crystallize -->
     <!-- ============================================ -->
-    <section class="mb-6 phase-card overflow-hidden">
+    <section id="phase4" class="mb-6 phase-card overflow-hidden">
       <button onclick="toggleSection('phase4')" class="phase-header">
         <h2 class="text-base font-bold text-gray-800 flex items-center"><span class="phase-num">4</span> Crystallize</h2>
         <svg id="chevron-phase4" class="w-4 h-4 text-gray-400 section-toggle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
@@ -572,7 +575,7 @@
     <!-- ============================================ -->
     <!-- PHASE 5: Collect -->
     <!-- ============================================ -->
-    <section class="mb-6 phase-card overflow-hidden">
+    <section id="phase5" class="mb-6 phase-card overflow-hidden">
       <button onclick="toggleSection('phase5')" class="phase-header">
         <h2 class="text-base font-bold text-gray-800 flex items-center"><span class="phase-num">5</span> Collect</h2>
         <svg id="chevron-phase5" class="w-4 h-4 text-gray-400 section-toggle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
@@ -598,7 +601,7 @@
     <!-- ============================================ -->
     <!-- PHASE 6: Reuse -->
     <!-- ============================================ -->
-    <section class="mb-6 phase-card overflow-hidden">
+    <section id="phase6" class="mb-6 phase-card overflow-hidden">
       <button onclick="toggleSection('phase6')" class="phase-header">
         <h2 class="text-base font-bold text-gray-800 flex items-center"><span class="phase-num">6</span> Reuse Solvent</h2>
         <svg id="chevron-phase6" class="w-4 h-4 text-gray-400 section-toggle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
@@ -633,7 +636,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
-      <p class="text-gray-400 mt-2">v2.3.1</p>
+      <p class="text-gray-400 mt-2">v2.4.1</p>
     </footer>
 
   </main>
@@ -1103,6 +1106,12 @@
       if (chevron) chevron.classList.toggle('rotated', c);
       if (c) state.collapsed[id] = true; else delete state.collapsed[id];
       saveState();
+    }
+
+    function jumpToPhase(e, id) {
+      if (e) e.preventDefault();
+      const target = document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     function initCollapsibles() {

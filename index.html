@@ -245,8 +245,8 @@
             </div>
             <div class="text-xs text-gray-500 w-full space-y-1">
               <p>Set your powder amount, acid type, and EA volume - all quantities below adjust automatically.</p>
-              <p><strong>1&times;</strong> = 5 pulls of <span class="calc-val" data-calc="ea_std_pull_1_g">250</span> / <span class="calc-val" data-calc="ea_std_pull_n_g">150</span> g (~<span class="calc-val" data-calc="ea_std_total_g">850</span> g total)</p>
-              <p><strong>2&times;</strong> = 3 larger pulls of <span class="calc-val" data-calc="ea_large_pull_1_g">500</span> / <span class="calc-val" data-calc="ea_large_pull_n_g">600</span> g (~<span class="calc-val" data-calc="ea_large_total_g">1700</span> g total)</p>
+              <p><strong>1&times; EA</strong>, 5 pulls = <span class="calc-val" data-calc="ea_std_pull_1_g">250</span>g x 1 + <span class="calc-val" data-calc="ea_std_pull_n_g">150</span>g x 4 (~<span class="calc-val" data-calc="ea_std_total_g">850</span> g total)</p>
+              <p><strong>2&times; EA</strong>, 3 pulls = <span class="calc-val" data-calc="ea_large_pull_1_g">634</span>g x 1 + <span class="calc-val" data-calc="ea_large_pull_n_g">533</span>g x 2 (~<span class="calc-val" data-calc="ea_large_total_g">1700</span> g total)</p>
               <p>Both recover nearly all EA - pick whichever you have on hand.</p>
             </div>
           </div>
@@ -268,7 +268,7 @@
           <h3 class="font-bold text-gray-700 text-xs uppercase tracking-wider mb-2">Equipment</h3>
           <ul class="space-y-1 text-sm text-gray-600">
             <li>Knife, paper bag, dehydrator, food processor, coffee grinder, flour sifter</li>
-            <li>Gram scale &middot; Large bowl + spoon or gloves</li>
+            <li>Metal gram scale &middot; Large bowl + spoon or gloves</li>
             <li>French press (stainless steel, 34 oz+) &middot; Coffee filters + funnel</li>
             <li>Quart mason jars with lids &middot; Milligram scale</li>
           </ul>
@@ -370,30 +370,28 @@
 
           <label class="step-row"><input type="checkbox" id="s3-0"><span class="step-text">Transfer wet crumbs to french press <span class="timer-tag timer-tag-start">starts 60 min timer</span></span></label>
           <div class="flex items-center ml-7 mb-3 mt-1">
-            <p class="text-[10px] text-gray-400">Tare a jar on your scale, pour each pull into it, note grams below.</p>
-            <button onclick="toggleAdvanced()" class="text-[10px] text-gray-400 hover:text-cactus-700 transition-colors cursor-pointer uppercase tracking-wider font-bold ml-auto">Advanced</button>
-            <span class="h-3 w-px bg-gray-300 mx-3" aria-hidden="true"></span>
-            <button onclick="resetEffCalc2()" class="text-[10px] text-gray-400 hover:text-red-500 transition-colors cursor-pointer uppercase tracking-wider font-bold">Reset pulls</button>
+            <p class="text-[10px] text-gray-400">Before EA addition tare french press, weigh poured EA over scale. After stir and rest, tare collection jar, weigh pulled EA over scale.</p>
+            <button onclick="resetEffCalc2()" class="text-[10px] text-gray-400 hover:text-red-500 transition-colors cursor-pointer uppercase tracking-wider font-bold ml-auto">Reset pulls</button>
           </div>
-          <div id="advanced-panel" class="ml-7 mb-3 p-3 rounded-lg border border-gray-200 bg-gray-50/50 hidden">
-            <p class="text-[10px] text-gray-500 mb-2">Partition coefficients - edit if you've measured your own values by fitting pull data to the theoretical function.</p>
+          <div id="coef-panel" class="ml-7 mb-3 p-3 rounded-lg border border-gray-200 bg-gray-50/50">
             <div class="flex flex-wrap gap-4 items-center text-sm">
               <label class="flex items-center gap-2">
-                <span class="font-medium text-gray-500 uppercase text-[10px] tracking-wider">K<sub>water</sub></span>
+                <span class="font-medium text-gray-500 uppercase text-[10px] tracking-wider">K<sub>water</sub> =</span>
                 <input type="number" id="k-water" value="3" step="0.1" min="0.1" oninput="updateCoefficients()"
-                       class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors"
+                       class="w-16 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors"
                        style="font-family:'DM Mono',monospace">
-                <span class="text-gray-400 text-[10px]">EA/water (default 3)</span>
+                <span class="text-gray-400 text-[10px]">([Mescaline]<sub>EA</sub> / [Mescaline]<sub>water</sub>)</span>
               </label>
               <label class="flex items-center gap-2">
-                <span class="font-medium text-gray-500 uppercase text-[10px] tracking-wider">K<sub>powder</sub></span>
+                <span class="font-medium text-gray-500 uppercase text-[10px] tracking-wider">K<sub>powder</sub> =</span>
                 <input type="number" id="k-powder" value="1" step="0.1" min="0.1" oninput="updateCoefficients()"
-                       class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors"
+                       class="w-16 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors"
                        style="font-family:'DM Mono',monospace">
-                <span class="text-gray-400 text-[10px]">EA/powder (default 1)</span>
+                <span class="text-gray-400 text-[10px]">([Mescaline]<sub>EA</sub> / [Mescaline]<sub>powder</sub>)</span>
               </label>
               <button onclick="resetCoefficients()" class="text-[10px] text-gray-400 hover:text-red-500 transition-colors cursor-pointer uppercase tracking-wider font-bold ml-auto">Reset defaults</button>
             </div>
+            <p class="text-[10px] text-gray-500 italic mt-2">Partition coefficient updates for advanced users. Change to K<sub>water</sub> = 2 if using cold EA.</p>
           </div>
 
           <div class="pull-group space-y-1 my-2">
@@ -471,11 +469,16 @@
                 <span data-inl-e="5" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span>
               </div>
             </div>
+            <div id="pull-actions" class="flex items-center gap-3 ml-7 mt-3">
+              <button type="button" id="btn-add-pull" onclick="addPull()" class="text-[10px] text-cactus-700 hover:text-cactus-900 border border-cactus-300 hover:border-cactus-500 rounded px-2 py-1 uppercase tracking-wider font-bold cursor-pointer transition-colors">+ Add pull</button>
+              <button type="button" id="btn-remove-pull" onclick="removePull()" class="text-[10px] text-gray-400 hover:text-red-500 uppercase tracking-wider font-bold cursor-pointer transition-colors" style="display:none">- Remove last pull</button>
+              <span class="text-[10px] text-gray-400 italic">Keep pulling to approach ~99% theoretical</span>
+            </div>
           </div>
 
-          <label class="step-row"><input type="checkbox" id="s3-6"><span class="step-text">All pulls combined -extract clear, no debris <span class="timer-tag timer-tag-stop">stops timer</span></span></label>
+          <label class="step-row mt-3"><input type="checkbox" id="s3-end"><span class="step-text">All pulls combined -extract clear, no debris <span class="timer-tag timer-tag-stop">stops timer</span></span></label>
 
-          <p class="text-xs text-gray-500 mt-2">Watch final trickle -don&rsquo;t squeeze water into solvent. Target &ge;<span class="calc-val" data-calc="ea_min_return_1_g">99</span> g back from Pull 1. Compost spent crumbs when dry.</p>
+          <p class="text-xs text-gray-500 mt-2">Watch final trickle -don&rsquo;t squeeze water into solvent. Target most of Pull 1&rsquo;s EA back in the jar. Compost spent crumbs when dry.</p>
 
           <div class="callout callout-warn">
             <strong>Particles?</strong> Crumbs had dry spots. Filter everything before salting. More water + mixing next time.
@@ -485,7 +488,7 @@
           <div id="inl-summary" class="mt-4 p-4 bg-cactus-50/50 rounded-lg border border-cactus-200" style="display:none;">
             <div class="flex items-baseline justify-between mb-3">
               <p class="font-bold text-xs uppercase tracking-wider text-cactus-700">Extraction Summary</p>
-              <p class="text-[10px] text-gray-400">Using <span id="inl-summary-powder">--</span> g powder + <span id="inl-summary-water">--</span> ml water (K<sub>water</sub>=<span id="inl-summary-kw">3</span>, K<sub>powder</sub>=<span id="inl-summary-kp">1</span>)</p>
+              <p class="text-[10px] text-gray-400">Using <span id="inl-summary-powder">--</span> g powder + <span id="inl-summary-water">--</span> ml water</p>
             </div>
             <div class="overflow-x-auto">
               <table class="w-full text-xs font-mono">
@@ -617,7 +620,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
-      <p class="text-gray-400 mt-2">v3.0.0</p>
+      <p class="text-gray-400 mt-2">v3.1.0</p>
     </footer>
 
   </main>
@@ -641,8 +644,8 @@
       },
       large: {
         num_pulls: 3,
-        ea_pull_1_g: 5.0, ea_pull_n_g: 6.0,
-        ea_pull_1_ml: 5.54, ea_pull_n_ml: 6.65,
+        ea_pull_1_g: 6.34, ea_pull_n_g: 5.33,
+        ea_pull_1_ml: 7.03, ea_pull_n_ml: 5.91,
       },
     };
 
@@ -650,12 +653,12 @@
     let state = loadState();
 
     function defaultState() {
-      return { version: 4, baseAmount: 100, acidType: 'fumaric', eaMode: 'standard', kWater: 3, kPowder: 1, checklist: {}, timerStart: null, timerEnd: null };
+      return { version: 4, baseAmount: 100, acidType: 'fumaric', eaMode: 'standard', kWater: 3, kPowder: 1, extraPulls: 0, checklist: {}, timerStart: null, timerEnd: null };
     }
 
     const CONGEAL_MS = 60 * 60 * 1000;
     const TIMER_START_CB = 's3-0';
-    const TIMER_END_CB = 's3-6';
+    const TIMER_END_CB = 's3-end';
 
     function formatClock(ts) {
       const d = new Date(ts);
@@ -686,6 +689,11 @@
             if (!s.eaMode) s.eaMode = 'standard';
             if (typeof s.kWater !== 'number') s.kWater = 3;
             if (typeof s.kPowder !== 'number') s.kPowder = 1;
+            if (typeof s.extraPulls !== 'number') s.extraPulls = 0;
+            if (s.checklist && s.checklist['s3-6'] && !s.checklist['s3-end']) {
+              s.checklist['s3-end'] = true;
+              delete s.checklist['s3-6'];
+            }
             return s;
           }
         }
@@ -754,10 +762,6 @@
       };
     }
 
-    function toggleAdvanced() {
-      document.getElementById('advanced-panel').classList.toggle('hidden');
-    }
-
     function updateCoefficients() {
       const kW = parseFloat(document.getElementById('k-water').value);
       const kP = parseFloat(document.getElementById('k-powder').value);
@@ -776,12 +780,50 @@
       updateEffCalc2();
     }
 
+    function effectiveMaxPulls() {
+      return Math.min(MAX_PULLS, EA_MODES[state.eaMode].num_pulls + state.extraPulls);
+    }
+
     function updatePullVisibility() {
-      const n = EA_MODES[state.eaMode].num_pulls;
+      const n = effectiveMaxPulls();
       document.querySelectorAll('[data-pull-idx]').forEach(el => {
         const idx = parseInt(el.dataset.pullIdx);
         el.style.display = idx > n ? 'none' : '';
       });
+      const addBtn = document.getElementById('btn-add-pull');
+      const remBtn = document.getElementById('btn-remove-pull');
+      if (addBtn) addBtn.style.display = n < MAX_PULLS ? '' : 'none';
+      if (remBtn) remBtn.style.display = state.extraPulls > 0 ? '' : 'none';
+    }
+
+    function addPull() {
+      const capacity = MAX_PULLS - EA_MODES[state.eaMode].num_pulls;
+      if (state.extraPulls < capacity) {
+        state.extraPulls++;
+        saveState();
+        updatePullVisibility();
+        updateEffCalc2();
+      }
+    }
+
+    function removePull() {
+      if (state.extraPulls <= 0) return;
+      const idx = EA_MODES[state.eaMode].num_pulls + state.extraPulls;
+      const pEl = document.querySelector('[data-inl-p="' + idx + '"]');
+      const eEl = document.querySelector('[data-inl-e="' + idx + '"]');
+      const cb = document.getElementById('s3-' + idx);
+      if (pEl) pEl.value = '';
+      if (eEl) { eEl.textContent = '--'; eEl.style.color = ''; }
+      if (cb) {
+        cb.checked = false;
+        delete state.checklist[cb.id];
+        updateTimersForCheckbox(cb.id, false);
+      }
+      state.extraPulls--;
+      saveState();
+      updatePullVisibility();
+      updateEffCalc2();
+      updateProgress();
     }
 
     function updateAllValues() {
@@ -824,7 +866,33 @@
     }
 
     const INL_STORAGE_KEY = 'cielo-inl-calc';
-    const MAX_PULLS = 5;
+    const MAX_PULLS = 10;
+    const STATIC_PULLS = 5;
+
+    function createPullHTML(idx) {
+      return '<label class="step-row mt-2" data-pull-idx="' + idx + '"><input type="checkbox" id="s3-' + idx + '"><span class="step-text"><strong>Pull ' + idx + '</strong> - <span class="calc-val" data-calc="ea_pull_n_g">150</span> g of EA added to french press, stir 3 min, rest 1 min, squeeze filter</span></label>'
+        + '<div class="flex flex-wrap items-center gap-2 ml-7" data-pull-idx="' + idx + '">'
+        +   '<div class="pull-timer flex gap-2" data-checkbox="s3-' + idx + '">'
+        +     '<button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>'
+        +     '<button onclick="startTimer(this, 60)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm" disabled>Rest 1:00</button>'
+        +   '</div>'
+        +   '<div class="flex items-center gap-1.5 sm:gap-2 sm:ml-auto">'
+        +     '<span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider w-full sm:w-auto">EA pulled into jar</span>'
+        +     '<input type="number" data-inl-p="' + idx + '" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:\'DM Mono\',monospace">'
+        +     '<span class="text-gray-400 text-xs">g</span>'
+        +     '<span class="text-gray-300">&rarr;</span>'
+        +     '<span data-inl-e="' + idx + '" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span>'
+        +   '</div>'
+        + '</div>';
+    }
+
+    function initExtraPulls() {
+      const anchor = document.getElementById('pull-actions');
+      if (!anchor) return;
+      let html = '';
+      for (let i = STATIC_PULLS + 1; i <= MAX_PULLS; i++) html += createPullHTML(i);
+      anchor.insertAdjacentHTML('beforebegin', html);
+    }
 
     function loadInlCalc() {
       try {
@@ -856,6 +924,7 @@
     function updateEffCalc2(save) {
       const base = state.baseAmount;
       const mode = EA_MODES[state.eaMode];
+      const maxP = effectiveMaxPulls();
       const w = base * SCALE.water_start;
       const ea1 = base * mode.ea_pull_1_g;
       const eaN = base * mode.ea_pull_n_g;
@@ -865,7 +934,8 @@
       for (let i = 1; i <= MAX_PULLS; i++) {
         const pEl = document.querySelector('[data-inl-p="' + i + '"]');
         const eEl = document.querySelector('[data-inl-e="' + i + '"]');
-        if (i > mode.num_pulls) {
+        if (!pEl || !eEl) continue;
+        if (i > maxP) {
           eEl.textContent = '--';
           eEl.style.color = '';
           continue;
@@ -894,6 +964,7 @@
       for (let i = 1; i <= MAX_PULLS; i++) {
         const pEl = document.querySelector('[data-inl-p="' + i + '"]');
         const eEl = document.querySelector('[data-inl-e="' + i + '"]');
+        if (!pEl || !eEl) continue;
         pEl.value = '';
         eEl.textContent = '--';
         eEl.style.color = '';
@@ -913,8 +984,10 @@
       const eaN = base * mode.ea_pull_n_g;
       let rows = '', totalAdded = 0, totalPulled = 0, product = 1, hasData = false;
       let remaining = 0;
-      for (let i = 1; i <= mode.num_pulls; i++) {
+      const maxP = effectiveMaxPulls();
+      for (let i = 1; i <= maxP; i++) {
         const pEl = document.querySelector('[data-inl-p="' + i + '"]');
+        if (!pEl) break;
         const added = i === 1 ? ea1 : eaN;
         const totalEA = remaining + added;
         const pulled = parseFloat(pEl.value);
@@ -942,8 +1015,6 @@
       wrap.style.display = '';
       document.getElementById('inl-summary-powder').textContent = Math.round(base);
       document.getElementById('inl-summary-water').textContent = Math.round(w);
-      document.getElementById('inl-summary-kw').textContent = state.kWater;
-      document.getElementById('inl-summary-kp').textContent = state.kPowder;
       tbody.innerHTML = rows;
       const recovered = totalAdded > 0 ? (totalPulled / totalAdded * 100).toFixed(1) : '--';
       tfoot.innerHTML = '<tr class="text-cactus-800">'
@@ -1105,7 +1176,10 @@
       document.querySelectorAll('input[name="ea-mode"]').forEach(radio => {
         radio.checked = radio.value === state.eaMode;
         radio.addEventListener('change', (e) => {
-          state.eaMode = e.target.value; saveState(); updateAllValues(); updatePullVisibility(); updateEffCalc2();
+          state.eaMode = e.target.value;
+          const cap = MAX_PULLS - EA_MODES[state.eaMode].num_pulls;
+          if (state.extraPulls > cap) state.extraPulls = cap;
+          saveState(); updateAllValues(); updatePullVisibility(); updateEffCalc2();
         });
       });
       document.getElementById('k-water').value = state.kWater;
@@ -1113,6 +1187,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+      initExtraPulls();
       initControls(); initChecklist(); updateAllValues(); updatePullVisibility(); restoreEffCalc2();
       setInterval(() => {
         if (state.timerStart && !state.timerEnd) updateProgress();

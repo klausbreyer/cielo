@@ -394,81 +394,7 @@
             <p class="text-[10px] text-gray-500 italic mt-2">Partition coefficient updates for advanced users. Change to K<sub>water</sub> = 2 if using cold EA.</p>
           </div>
 
-          <div class="pull-group space-y-1 my-2">
-            <label class="step-row"><input type="checkbox" id="s3-1"><span class="step-text"><strong>Pull 1</strong> - <span class="calc-val" data-calc="ea_pull_1_g">250</span> g of EA added to french press, stir 3 min, rest 1 min, squeeze filter</span></label>
-            <div class="flex flex-wrap items-center gap-2 ml-7">
-              <div class="pull-timer flex gap-2" data-checkbox="s3-1">
-                <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
-                <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm" disabled>Rest 1:00</button>
-              </div>
-              <div class="flex items-center gap-1.5 sm:gap-2 sm:ml-auto">
-                <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider w-full sm:w-auto">EA pulled into jar</span>
-                <input type="number" data-inl-p="1" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
-                <span class="text-gray-400 text-xs">g</span>
-                <span class="text-gray-300">&rarr;</span>
-                <span data-inl-e="1" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span>
-              </div>
-            </div>
-
-            <label class="step-row mt-2"><input type="checkbox" id="s3-2"><span class="step-text"><strong>Pull 2</strong> - <span class="calc-val" data-calc="ea_pull_n_g">150</span> g of EA added to french press, stir 3 min, rest 1 min, squeeze filter</span></label>
-            <div class="flex flex-wrap items-center gap-2 ml-7">
-              <div class="pull-timer flex gap-2" data-checkbox="s3-2">
-                <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
-                <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm" disabled>Rest 1:00</button>
-              </div>
-              <div class="flex items-center gap-1.5 sm:gap-2 sm:ml-auto">
-                <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider w-full sm:w-auto">EA pulled into jar</span>
-                <input type="number" data-inl-p="2" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
-                <span class="text-gray-400 text-xs">g</span>
-                <span class="text-gray-300">&rarr;</span>
-                <span data-inl-e="2" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span>
-              </div>
-            </div>
-
-            <label class="step-row mt-2"><input type="checkbox" id="s3-3"><span class="step-text"><strong>Pull 3</strong> - <span class="calc-val" data-calc="ea_pull_n_g">150</span> g of EA added to french press, stir 3 min, rest 1 min, squeeze filter</span></label>
-            <div class="flex flex-wrap items-center gap-2 ml-7">
-              <div class="pull-timer flex gap-2" data-checkbox="s3-3">
-                <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
-                <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm" disabled>Rest 1:00</button>
-              </div>
-              <div class="flex items-center gap-1.5 sm:gap-2 sm:ml-auto">
-                <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider w-full sm:w-auto">EA pulled into jar</span>
-                <input type="number" data-inl-p="3" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
-                <span class="text-gray-400 text-xs">g</span>
-                <span class="text-gray-300">&rarr;</span>
-                <span data-inl-e="3" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span>
-              </div>
-            </div>
-
-            <label class="step-row mt-2" data-pull-idx="4"><input type="checkbox" id="s3-4"><span class="step-text"><strong>Pull 4</strong> - <span class="calc-val" data-calc="ea_pull_n_g">150</span> g of EA added to french press, stir 3 min, rest 1 min, squeeze filter</span></label>
-            <div class="flex flex-wrap items-center gap-2 ml-7" data-pull-idx="4">
-              <div class="pull-timer flex gap-2" data-checkbox="s3-4">
-                <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
-                <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm" disabled>Rest 1:00</button>
-              </div>
-              <div class="flex items-center gap-1.5 sm:gap-2 sm:ml-auto">
-                <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider w-full sm:w-auto">EA pulled into jar</span>
-                <input type="number" data-inl-p="4" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
-                <span class="text-gray-400 text-xs">g</span>
-                <span class="text-gray-300">&rarr;</span>
-                <span data-inl-e="4" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span>
-              </div>
-            </div>
-
-            <label class="step-row mt-2" data-pull-idx="5"><input type="checkbox" id="s3-5"><span class="step-text"><strong>Pull 5</strong> - <span class="calc-val" data-calc="ea_pull_n_g">150</span> g of EA added to french press, stir 3 min, rest 1 min, squeeze filter</span></label>
-            <div class="flex flex-wrap items-center gap-2 ml-7" data-pull-idx="5">
-              <div class="pull-timer flex gap-2" data-checkbox="s3-5">
-                <button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>
-                <button onclick="startTimer(this, 60)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm" disabled>Rest 1:00</button>
-              </div>
-              <div class="flex items-center gap-1.5 sm:gap-2 sm:ml-auto">
-                <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider w-full sm:w-auto">EA pulled into jar</span>
-                <input type="number" data-inl-p="5" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
-                <span class="text-gray-400 text-xs">g</span>
-                <span class="text-gray-300">&rarr;</span>
-                <span data-inl-e="5" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span>
-              </div>
-            </div>
+          <div class="pull-group space-y-1 my-2" id="pulls-container">
             <div id="pull-actions" class="flex items-center gap-3 ml-7 mt-3">
               <button type="button" id="btn-add-pull" onclick="addPull()" class="text-[10px] text-cactus-700 hover:text-cactus-900 border border-cactus-300 hover:border-cactus-500 rounded px-2 py-1 uppercase tracking-wider font-bold cursor-pointer transition-colors">+ Add pull</button>
               <button type="button" id="btn-remove-pull" onclick="removePull()" class="text-[10px] text-gray-400 hover:text-red-500 uppercase tracking-wider font-bold cursor-pointer transition-colors" style="display:none">- Remove last pull</button>
@@ -620,7 +546,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
-      <p class="text-gray-400 mt-2">v3.1.0</p>
+      <p class="text-gray-400 mt-2">v3.2.0</p>
     </footer>
 
   </main>
@@ -809,10 +735,12 @@
     function removePull() {
       if (state.extraPulls <= 0) return;
       const idx = EA_MODES[state.eaMode].num_pulls + state.extraPulls;
+      const aEl = document.querySelector('[data-inl-a="' + idx + '"]');
       const pEl = document.querySelector('[data-inl-p="' + idx + '"]');
       const eEl = document.querySelector('[data-inl-e="' + idx + '"]');
       const cb = document.getElementById('s3-' + idx);
-      if (pEl) pEl.value = '';
+      if (aEl) aEl.value = '';
+      if (pEl) { pEl.value = ''; pEl.style.color = ''; }
       if (eEl) { eEl.textContent = '--'; eEl.style.color = ''; }
       if (cb) {
         cb.checked = false;
@@ -867,21 +795,39 @@
 
     const INL_STORAGE_KEY = 'cielo-inl-calc';
     const MAX_PULLS = 10;
-    const STATIC_PULLS = 5;
+
+    function targetAddedFor(idx, base, mode) {
+      return base * (idx === 1 ? mode.ea_pull_1_g : mode.ea_pull_n_g);
+    }
+
+    function targetPulledFor(idx, base, mode) {
+      const added = targetAddedFor(idx, base, mode);
+      return idx === 1 ? added - base : added;
+    }
 
     function createPullHTML(idx) {
-      return '<label class="step-row mt-2" data-pull-idx="' + idx + '"><input type="checkbox" id="s3-' + idx + '"><span class="step-text"><strong>Pull ' + idx + '</strong> - <span class="calc-val" data-calc="ea_pull_n_g">150</span> g of EA added to french press, stir 3 min, rest 1 min, squeeze filter</span></label>'
-        + '<div class="flex flex-wrap items-center gap-2 ml-7" data-pull-idx="' + idx + '">'
+      const numInput = 'w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold focus:outline-none focus:border-cactus-600 transition-colors';
+      const calcKey = idx === 1 ? 'ea_pull_1_g' : 'ea_pull_n_g';
+      const defaultTarget = idx === 1 ? '250' : '150';
+      return '<label class="step-row mt-2" data-pull-idx="' + idx + '"><input type="checkbox" id="s3-' + idx + '"><span class="step-text"><strong>Pull ' + idx + '</strong> - <span class="calc-val" data-calc="' + calcKey + '">' + defaultTarget + '</span> g of EA added to french press, stir 3 min, rest 1 min, squeeze filter</span></label>'
+        + '<div class="flex flex-wrap items-center gap-x-4 gap-y-2 ml-7" data-pull-idx="' + idx + '">'
         +   '<div class="pull-timer flex gap-2" data-checkbox="s3-' + idx + '">'
         +     '<button onclick="startTimer(this, 180)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm">Stir 3:00</button>'
         +     '<button onclick="startTimer(this, 60)" class="timer-btn px-4 py-2.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[110px] shadow-sm" disabled>Rest 1:00</button>'
         +   '</div>'
-        +   '<div class="flex items-center gap-1.5 sm:gap-2 sm:ml-auto">'
-        +     '<span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider w-full sm:w-auto">EA pulled into jar</span>'
-        +     '<input type="number" data-inl-p="' + idx + '" placeholder="0" oninput="updateEffCalc2()" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:\'DM Mono\',monospace">'
-        +     '<span class="text-gray-400 text-xs">g</span>'
-        +     '<span class="text-gray-300">&rarr;</span>'
-        +     '<span data-inl-e="' + idx + '" class="font-bold font-mono text-sm inline-block w-10 text-right">--</span>'
+        +   '<div class="flex flex-wrap items-center gap-x-4 gap-y-2 sm:ml-auto">'
+        +     '<div class="flex items-center gap-1.5">'
+        +       '<span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider whitespace-nowrap">EA added</span>'
+        +       '<input type="number" data-inl-a="' + idx + '" placeholder="0" oninput="updateEffCalc2()" class="' + numInput + ' text-cactus-800" style="font-family:\'DM Mono\',monospace">'
+        +       '<span class="text-gray-400 text-xs">g</span>'
+        +     '</div>'
+        +     '<div class="flex items-center gap-1.5">'
+        +       '<span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider whitespace-nowrap">EA pulled</span>'
+        +       '<input type="number" data-inl-p="' + idx + '" placeholder="0" oninput="updateEffCalc2()" class="' + numInput + ' text-cactus-800" style="font-family:\'DM Mono\',monospace">'
+        +       '<span class="text-gray-400 text-xs">g</span>'
+        +       '<span class="text-gray-300 ml-1">&rarr;</span>'
+        +       '<span data-inl-e="' + idx + '" class="font-bold font-mono text-sm">--</span>'
+        +     '</div>'
         +   '</div>'
         + '</div>';
     }
@@ -890,7 +836,7 @@
       const anchor = document.getElementById('pull-actions');
       if (!anchor) return;
       let html = '';
-      for (let i = STATIC_PULLS + 1; i <= MAX_PULLS; i++) html += createPullHTML(i);
+      for (let i = 1; i <= MAX_PULLS; i++) html += createPullHTML(i);
       anchor.insertAdjacentHTML('beforebegin', html);
     }
 
@@ -905,7 +851,9 @@
     function saveInlCalc() {
       const data = {};
       for (let i = 1; i <= MAX_PULLS; i++) {
+        const aEl = document.querySelector('[data-inl-a="' + i + '"]');
         const pEl = document.querySelector('[data-inl-p="' + i + '"]');
+        if (aEl && aEl.value) data['a' + i] = aEl.value;
         if (pEl && pEl.value) data['p' + i] = pEl.value;
       }
       try { localStorage.setItem(INL_STORAGE_KEY, JSON.stringify(data)); } catch (e) {}
@@ -913,9 +861,11 @@
 
     function restoreEffCalc2() {
       const data = loadInlCalc();
-      if (!data || !Object.keys(data).length) return;
+      if (!data || !Object.keys(data).length) { updateEffCalc2(false); return; }
       for (let i = 1; i <= MAX_PULLS; i++) {
+        const aEl = document.querySelector('[data-inl-a="' + i + '"]');
         const pEl = document.querySelector('[data-inl-p="' + i + '"]');
+        if (data['a' + i] && aEl) aEl.value = data['a' + i];
         if (data['p' + i] && pEl) pEl.value = data['p' + i];
       }
       updateEffCalc2(false);
@@ -926,35 +876,70 @@
       const mode = EA_MODES[state.eaMode];
       const maxP = effectiveMaxPulls();
       const w = base * SCALE.water_start;
-      const ea1 = base * mode.ea_pull_1_g;
-      const eaN = base * mode.ea_pull_n_g;
-      let product = 1;
-      let remaining = 0;
-      let stop = false;
+      const denom = w / state.kWater + base / state.kPowder;
+      let theoProduct = 1, theoRemaining = 0;
+      let actProduct = 1, actRemaining = 0, actStop = false;
+
       for (let i = 1; i <= MAX_PULLS; i++) {
+        const aEl = document.querySelector('[data-inl-a="' + i + '"]');
         const pEl = document.querySelector('[data-inl-p="' + i + '"]');
         const eEl = document.querySelector('[data-inl-e="' + i + '"]');
+        const tAEl = document.querySelector('[data-inl-tA="' + i + '"]');
+        const tPEl = document.querySelector('[data-inl-tP="' + i + '"]');
+        const tEEl = document.querySelector('[data-inl-tE="' + i + '"]');
         if (!pEl || !eEl) continue;
+
         if (i > maxP) {
+          if (tAEl) tAEl.textContent = '--';
+          if (tPEl) tPEl.textContent = '--';
+          if (tEEl) tEEl.textContent = '--%';
           eEl.textContent = '--';
           eEl.style.color = '';
+          if (pEl) pEl.style.color = '';
           continue;
         }
-        const added = i === 1 ? ea1 : eaN;
-        const totalEA = remaining + added;
-        const p = parseFloat(pEl.value);
-        if (stop || !p || p <= 0 || p > totalEA) {
+
+        const tAdded = targetAddedFor(i, base, mode);
+        const tPulled = targetPulledFor(i, base, mode);
+        if (tAEl) tAEl.textContent = Math.round(tAdded);
+        if (tPEl) tPEl.textContent = Math.round(tPulled);
+        if (aEl) aEl.placeholder = Math.round(tAdded);
+        pEl.placeholder = Math.round(tPulled);
+
+        const tTotalEA = theoRemaining + tAdded;
+        const tFracRemoved = Math.min(1, tPulled / (tTotalEA + denom));
+        theoProduct *= (1 - tFracRemoved);
+        theoRemaining = Math.max(0, tTotalEA - tPulled);
+        if (tEEl) tEEl.textContent = Math.round((1 - theoProduct) * 100) + '%';
+
+        const aVal = aEl ? parseFloat(aEl.value) : NaN;
+        const pVal = parseFloat(pEl.value);
+        const aUsed = (!isNaN(aVal) && aVal > 0) ? aVal : tAdded;
+
+        if (!isNaN(pVal) && pVal > 0) {
+          pEl.style.color = pVal >= tPulled ? '#16a34a' : '#dc2626';
+        } else {
+          pEl.style.color = '';
+        }
+
+        if (actStop || isNaN(pVal) || pVal <= 0) {
           eEl.textContent = '--';
           eEl.style.color = '';
-          stop = true;
+          actStop = true;
           continue;
         }
-        const fraction = 1 - p / (totalEA + w / state.kWater + base / state.kPowder);
-        product *= fraction;
-        const en = (1 - product) * 100;
-        eEl.textContent = Math.round(en) + '%';
+        const totalEA = actRemaining + aUsed;
+        if (pVal > totalEA) {
+          eEl.textContent = '--';
+          eEl.style.color = '';
+          actStop = true;
+          continue;
+        }
+        const fracRemoved = pVal / (totalEA + denom);
+        actProduct *= (1 - fracRemoved);
+        actRemaining = totalEA - pVal;
+        eEl.textContent = Math.round((1 - actProduct) * 100) + '%';
         eEl.style.color = '#16a34a';
-        remaining = totalEA - p;
       }
       if (save !== false) saveInlCalc();
       updateSummaryTable();
@@ -962,15 +947,13 @@
 
     function resetEffCalc2() {
       for (let i = 1; i <= MAX_PULLS; i++) {
+        const aEl = document.querySelector('[data-inl-a="' + i + '"]');
         const pEl = document.querySelector('[data-inl-p="' + i + '"]');
-        const eEl = document.querySelector('[data-inl-e="' + i + '"]');
-        if (!pEl || !eEl) continue;
-        pEl.value = '';
-        eEl.textContent = '--';
-        eEl.style.color = '';
+        if (aEl) aEl.value = '';
+        if (pEl) { pEl.value = ''; pEl.style.color = ''; }
       }
       try { localStorage.removeItem(INL_STORAGE_KEY); } catch (e) {}
-      updateSummaryTable();
+      updateEffCalc2(false);
     }
 
     function updateSummaryTable() {
@@ -980,21 +963,23 @@
       const base = state.baseAmount;
       const mode = EA_MODES[state.eaMode];
       const w = base * SCALE.water_start;
-      const ea1 = base * mode.ea_pull_1_g;
-      const eaN = base * mode.ea_pull_n_g;
+      const denom = w / state.kWater + base / state.kPowder;
       let rows = '', totalAdded = 0, totalPulled = 0, product = 1, hasData = false;
       let remaining = 0;
       const maxP = effectiveMaxPulls();
       for (let i = 1; i <= maxP; i++) {
+        const aEl = document.querySelector('[data-inl-a="' + i + '"]');
         const pEl = document.querySelector('[data-inl-p="' + i + '"]');
         if (!pEl) break;
-        const added = i === 1 ? ea1 : eaN;
+        const tAdded = targetAddedFor(i, base, mode);
+        const aVal = aEl ? parseFloat(aEl.value) : NaN;
+        const added = (!isNaN(aVal) && aVal > 0) ? aVal : tAdded;
         const totalEA = remaining + added;
         const pulled = parseFloat(pEl.value);
         if (!pulled || pulled <= 0 || pulled > totalEA) break;
         hasData = true;
         const newRemaining = totalEA - pulled;
-        const mRemoved = pulled / (totalEA + w / state.kWater + base / state.kPowder);
+        const mRemoved = pulled / (totalEA + denom);
         product *= (1 - mRemoved);
         const mInJar = product;
         const eff = 1 - product;

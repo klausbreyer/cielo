@@ -346,6 +346,12 @@
           <label class="step-row"><input type="checkbox" id="s2-1"><span class="step-text">Weigh <span class="calc-val" data-calc="base">100</span> g cactus powder into bowl</span></label>
           <label class="step-row"><input type="checkbox" id="s2-2"><span class="step-text">Add <span class="calc-val" data-calc="lime">25</span> g lime, mix dry until uniform</span></label>
           <label class="step-row"><input type="checkbox" id="s2-3"><span class="step-text">Add ~<span class="calc-val" data-calc="water_start">130</span> ml water, mix thoroughly for 10+ minutes</span></label>
+          <div class="flex items-center gap-2 ml-7 -mt-1 mb-2">
+            <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider whitespace-nowrap">actual water added</span>
+            <input type="number" id="actual-water" oninput="updateActualWater(this.value)" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
+            <span class="text-gray-400 text-xs">ml</span>
+            <span class="text-[10px] text-gray-400 italic">target <span class="calc-val" data-calc="water_start">130</span> ml; leave empty to match target, deviation feeds the pull efficiency calc</span>
+          </div>
           <label class="step-row"><input type="checkbox" id="s2-4"><span class="step-text">Wet crumb consistency confirmed</span></label>
 
           <p class="text-xs text-gray-500 mt-2">Dry spots? Add small amounts from your <span class="calc-val" data-calc="water_reserve">70</span> ml reserve. Stand mixer at low speed is a great upgrade.</p>
@@ -546,7 +552,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
-      <p class="text-gray-400 mt-2">v3.2.1</p>
+      <p class="text-gray-400 mt-2">v3.3.0</p>
     </footer>
 
   </main>
@@ -579,7 +585,7 @@
     let state = loadState();
 
     function defaultState() {
-      return { version: 4, baseAmount: 100, acidType: 'fumaric', eaMode: 'standard', kWater: 3, kPowder: 1, extraPulls: 0, checklist: {}, timerStart: null, timerEnd: null };
+      return { version: 4, baseAmount: 100, acidType: 'fumaric', eaMode: 'standard', kWater: 3, kPowder: 1, extraPulls: 0, actualWater: null, checklist: {}, timerStart: null, timerEnd: null };
     }
 
     const CONGEAL_MS = 60 * 60 * 1000;
@@ -616,6 +622,7 @@
             if (typeof s.kWater !== 'number') s.kWater = 3;
             if (typeof s.kPowder !== 'number') s.kPowder = 1;
             if (typeof s.extraPulls !== 'number') s.extraPulls = 0;
+            if (typeof s.actualWater !== 'number') s.actualWater = null;
             if (s.checklist && s.checklist['s3-6'] && !s.checklist['s3-end']) {
               s.checklist['s3-end'] = true;
               delete s.checklist['s3-6'];
@@ -693,6 +700,13 @@
       const kP = parseFloat(document.getElementById('k-powder').value);
       if (kW > 0) state.kWater = kW;
       if (kP > 0) state.kPowder = kP;
+      saveState();
+      updateEffCalc2();
+    }
+
+    function updateActualWater(val) {
+      const n = parseFloat(val);
+      state.actualWater = (isNaN(n) || n <= 0) ? null : n;
       saveState();
       updateEffCalc2();
     }
@@ -884,7 +898,7 @@
       const base = state.baseAmount;
       const mode = EA_MODES[state.eaMode];
       const maxP = effectiveMaxPulls();
-      const w = base * SCALE.water_start;
+      const w = (typeof state.actualWater === 'number' && state.actualWater > 0) ? state.actualWater : base * SCALE.water_start;
       const denom = w / state.kWater + base / state.kPowder;
       let theoProduct = 1, theoRemaining = 0;
       let actProduct = 1, actRemaining = 0, actStop = false;
@@ -970,7 +984,7 @@
       const tfoot = document.getElementById('inl-summary-foot');
       const base = state.baseAmount;
       const mode = EA_MODES[state.eaMode];
-      const w = base * SCALE.water_start;
+      const w = (typeof state.actualWater === 'number' && state.actualWater > 0) ? state.actualWater : base * SCALE.water_start;
       const denom = w / state.kWater + base / state.kPowder;
       let rows = '', totalAdded = 0, totalPulled = 0, product = 1, hasData = false;
       let remaining = 0;
@@ -1157,13 +1171,13 @@
         clearTimeout(debounceTimer);
         debounceTimer = setTimeout(() => {
           state.baseAmount = Math.max(10, Math.min(10000, Number(e.target.value) || 100));
-          saveState(); updateAllValues();
+          saveState(); updateAllValues(); updateEffCalc2();
         }, 200);
       });
       document.querySelectorAll('input[name="acid"]').forEach(radio => {
         if (radio.value === state.acidType) radio.checked = true;
         radio.addEventListener('change', (e) => {
-          state.acidType = e.target.value; saveState(); updateAllValues();
+          state.acidType = e.target.value; saveState(); updateAllValues(); updateEffCalc2();
         });
       });
       document.querySelectorAll('input[name="ea-mode"]').forEach(radio => {
@@ -1177,6 +1191,8 @@
       });
       document.getElementById('k-water').value = state.kWater;
       document.getElementById('k-powder').value = state.kPowder;
+      const aw = document.getElementById('actual-water');
+      if (aw && typeof state.actualWater === 'number' && state.actualWater > 0) aw.value = state.actualWater;
     }
 
     document.addEventListener('DOMContentLoaded', () => {

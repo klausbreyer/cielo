@@ -243,11 +243,14 @@
                 <span class="text-xs font-semibold">2&times; EA</span>
               </label>
             </div>
+            <span class="h-5 w-px bg-gray-300 hidden sm:inline-block" aria-hidden="true"></span>
+            <button type="button" onclick="resetEverything()" class="text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded border-2 border-red-300 text-red-600 hover:bg-red-50 hover:border-red-500 active:bg-red-100 transition-colors cursor-pointer">Reset extraction</button>
             <div class="text-xs text-gray-500 w-full space-y-1">
               <p>Set your powder amount, acid type, and EA volume - all quantities below adjust automatically.</p>
-              <p><strong>1&times; EA</strong>, 5 pulls = <span class="calc-val" data-calc="ea_std_pull_1_g">250</span>g x 1 + <span class="calc-val" data-calc="ea_std_pull_n_g">150</span>g x 4 (~<span class="calc-val" data-calc="ea_std_total_g">850</span> g total)</p>
-              <p><strong>2&times; EA</strong>, 3 pulls = <span class="calc-val" data-calc="ea_large_pull_1_g">634</span>g x 1 + <span class="calc-val" data-calc="ea_large_pull_n_g">533</span>g x 2 (~<span class="calc-val" data-calc="ea_large_total_g">1700</span> g total)</p>
+              <p><strong>1&times; EA</strong>, 5 pulls = <span class="calc-val" data-calc="ea_std_pull_1_g">250</span>g x 1 + <span class="calc-val" data-calc="ea_std_pull_n_g">150</span>g x 4 (~<span class="calc-val" data-calc="ea_std_total_g">850</span> g total). Expect ~88% EA recovered and ~91% pull efficiency.</p>
+              <p><strong>2&times; EA</strong>, 3 pulls = <span class="calc-val" data-calc="ea_large_pull_1_g">634</span>g x 1 + <span class="calc-val" data-calc="ea_large_pull_n_g">533</span>g x 2 (~<span class="calc-val" data-calc="ea_large_total_g">1700</span> g total). Expect ~94% EA recovered and ~97% pull efficiency.</p>
               <p>Both recover nearly all EA - pick whichever you have on hand.</p>
+              <p>Starting a new batch? <strong>Reset extraction</strong> clears all checkboxes, pull weights, timers, and saved inputs back to defaults.</p>
             </div>
           </div>
           <h3 class="font-bold text-gray-700 text-xs uppercase tracking-wider mb-2">Consumables</h3>
@@ -372,7 +375,7 @@
       </div>
       <div id="body-phase3">
         <div class="p-4 space-y-1">
-          <p class="text-sm text-gray-500 mb-3">Pull wet crumbs with EA in the french press. <strong>Complete all <span class="calc-val" data-calc="num_pulls">5</span> pulls within 60 min</strong> -plant matter congeals after that. <strong>Squeeze the plunger firmly</strong> each pull -EA left in the crumbs reduces pull efficiency. EA volume is set in the <em>Materials</em> section above: 1&times; uses 5 smaller pulls, 2&times; uses 3 larger pulls (same final yield, more EA on hand).</p>
+          <p class="text-sm text-gray-500 mb-3">Pull wet crumbs with EA in the french press. <strong>Complete all <span class="calc-val" data-calc="num_pulls">5</span> pulls within 60 min</strong> - after that, plant matter may begin to congeal. <strong>Squeeze the plunger firmly</strong> each pull -excess EA left in the crumbs reduces pull efficiency. EA volume is set in the <em>Materials</em> section above: 1&times; EA uses 5 smaller pulls, 2&times; EA uses 3 larger pulls (both achieve 90%+ extraction efficiency). Ph strips can optionally track mescaline in EA.</p>
 
           <label class="step-row"><input type="checkbox" id="s3-0"><span class="step-text">Transfer wet crumbs to french press <span class="timer-tag timer-tag-start">starts 60 min timer</span></span></label>
           <div class="flex items-center ml-7 mb-3 mt-1">
@@ -402,9 +405,9 @@
 
           <div class="pull-group space-y-1 my-2" id="pulls-container">
             <div id="pull-actions" class="flex items-center gap-3 ml-7 mt-3">
-              <button type="button" id="btn-add-pull" onclick="addPull()" class="text-[10px] text-cactus-700 hover:text-cactus-900 border border-cactus-300 hover:border-cactus-500 rounded px-2 py-1 uppercase tracking-wider font-bold cursor-pointer transition-colors">+ Add pull</button>
+              <button type="button" id="btn-add-pull" onclick="addPull()" class="text-[10px] text-cactus-700 hover:text-cactus-900 border border-cactus-300 hover:border-cactus-500 rounded px-2 py-1 uppercase tracking-wider font-bold cursor-pointer transition-colors" style="display:none">+ Add pull</button>
               <button type="button" id="btn-remove-pull" onclick="removePull()" class="text-[10px] text-gray-400 hover:text-red-500 uppercase tracking-wider font-bold cursor-pointer transition-colors" style="display:none">- Remove last pull</button>
-              <span class="text-[10px] text-gray-400 italic">Keep pulling to approach ~99% theoretical</span>
+              <span id="pull-suggestion" class="text-[10px] text-gray-400 italic"></span>
             </div>
           </div>
 
@@ -552,7 +555,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
-      <p class="text-gray-400 mt-2">v3.3.1</p>
+      <p class="text-gray-400 mt-2">v3.5.0</p>
     </footer>
 
   </main>
@@ -573,11 +576,13 @@
         num_pulls: 5,
         ea_pull_1_g: 2.5, ea_pull_n_g: 1.5,
         ea_pull_1_ml: 2.77, ea_pull_n_ml: 1.75,
+        target_eff: 91,
       },
       large: {
         num_pulls: 3,
         ea_pull_1_g: 6.34, ea_pull_n_g: 5.33,
         ea_pull_1_ml: 7.03, ea_pull_n_ml: 5.91,
+        target_eff: 97,
       },
     };
 
@@ -704,6 +709,38 @@
       updateEffCalc2();
     }
 
+    function resetEverything() {
+      if (!confirm('Reset everything? This clears all checkboxes, pull weights, timers, and saved inputs.')) return;
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem(INL_STORAGE_KEY);
+      } catch (e) {}
+      state = defaultState();
+      document.querySelectorAll('.step-row input[type="checkbox"]').forEach(cb => { cb.checked = false; });
+      document.querySelectorAll('[data-inl-a], [data-inl-p]').forEach(el => { el.value = ''; el.style.color = ''; });
+      document.querySelectorAll('[data-inl-e]').forEach(el => { el.textContent = '--'; el.style.color = ''; });
+      document.querySelectorAll('.timer-btn').forEach(btn => {
+        if (btn.dataset.interval) { clearInterval(parseInt(btn.dataset.interval)); delete btn.dataset.interval; }
+        btn.classList.remove('done', 'running');
+        const secs = parseInt(btn.getAttribute('onclick').match(/,\s*(\d+)/)[1]);
+        const label = secs >= 180 ? 'Stir' : 'Rest';
+        btn.disabled = secs < 180;
+        btn.textContent = label + ' ' + formatTimer(secs);
+      });
+      const baseInput = document.getElementById('base-input');
+      if (baseInput) baseInput.value = state.baseAmount;
+      document.querySelectorAll('input[name="acid"]').forEach(r => { r.checked = r.value === state.acidType; });
+      document.querySelectorAll('input[name="ea-mode"]').forEach(r => { r.checked = r.value === state.eaMode; });
+      const kw = document.getElementById('k-water'); if (kw) kw.value = state.kWater;
+      const kp = document.getElementById('k-powder'); if (kp) kp.value = state.kPowder;
+      const aw = document.getElementById('actual-water'); if (aw) aw.value = '';
+      saveState();
+      updateAllValues();
+      updatePullVisibility();
+      updateEffCalc2();
+      updateProgress();
+    }
+
     function updateActualWater(val) {
       const n = parseFloat(val);
       state.actualWater = (isNaN(n) || n <= 0) ? null : n;
@@ -730,9 +767,7 @@
         const idx = parseInt(el.dataset.pullIdx);
         el.style.display = idx > n ? 'none' : '';
       });
-      const addBtn = document.getElementById('btn-add-pull');
       const remBtn = document.getElementById('btn-remove-pull');
-      if (addBtn) addBtn.style.display = n < MAX_PULLS ? '' : 'none';
       if (remBtn) remBtn.style.display = state.extraPulls > 0 ? '' : 'none';
     }
 
@@ -964,6 +999,29 @@
         actRemaining = totalEA - pVal;
         eEl.textContent = Math.round((1 - actProduct) * 100) + '%';
         eEl.style.color = '#16a34a';
+      }
+      const defaultPulls = mode.num_pulls;
+      let filledDefault = 0;
+      for (let i = 1; i <= defaultPulls; i++) {
+        const pEl = document.querySelector('[data-inl-p="' + i + '"]');
+        const v = pEl ? parseFloat(pEl.value) : NaN;
+        if (!isNaN(v) && v > 0) filledDefault++;
+        else break;
+      }
+      const allDefaultsFilled = filledDefault === defaultPulls;
+      const currentEff = (1 - actProduct) * 100;
+      const targetEff = mode.target_eff;
+      const addBtn = document.getElementById('btn-add-pull');
+      const sugg = document.getElementById('pull-suggestion');
+      if (addBtn) addBtn.style.display = (allDefaultsFilled && maxP < MAX_PULLS) ? '' : 'none';
+      if (sugg) {
+        if (!allDefaultsFilled) {
+          sugg.textContent = '';
+        } else if (currentEff >= targetEff) {
+          sugg.textContent = 'Keep pulling to increase yield further (optional)';
+        } else {
+          sugg.textContent = 'Keep pulling to achieve ' + targetEff + '% pull efficiency or beyond';
+        }
       }
       if (save !== false) saveInlCalc();
       updateSummaryTable();

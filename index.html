@@ -555,7 +555,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
-      <p class="text-gray-400 mt-2">v3.5.1</p>
+      <p class="text-gray-400 mt-2">v3.6.0</p>
     </footer>
 
   </main>
@@ -576,13 +576,13 @@
         num_pulls: 5,
         ea_pull_1_g: 2.5, ea_pull_n_g: 1.5,
         ea_pull_1_ml: 2.77, ea_pull_n_ml: 1.75,
-        target_eff: 91,
+        target_eff: 91, target_recovered: 88,
       },
       large: {
         num_pulls: 3,
         ea_pull_1_g: 6.34, ea_pull_n_g: 5.33,
         ea_pull_1_ml: 7.03, ea_pull_n_ml: 5.91,
-        target_eff: 97,
+        target_eff: 97, target_recovered: 94,
       },
     };
 
@@ -845,6 +845,13 @@
     const INL_STORAGE_KEY = 'cielo-inl-calc';
     const MAX_PULLS = 10;
 
+    function colorVsTarget(actual, target, mode) {
+      if (actual >= target) return '#16a34a';
+      const gap = mode === 'pct' ? (target - actual) : ((target - actual) / target * 100);
+      if (gap <= 10) return '#ca8a04';
+      return '#dc2626';
+    }
+
     function targetAddedFor(idx, base, mode) {
       return base * (idx === 1 ? mode.ea_pull_1_g : mode.ea_pull_n_g);
     }
@@ -870,7 +877,7 @@
         +     '<div class="flex flex-col items-center gap-0.5">'
         +       '<span class="' + slotLbl + '">EA added</span>'
         +       '<div class="flex items-baseline gap-1">'
-        +         '<input type="number" data-inl-a="' + idx + '" oninput="updateEffCalc2()" class="' + numInput + '" style="font-family:\'DM Mono\',monospace">'
+        +         '<input type="number" min="0.01" step="any" data-inl-a="' + idx + '" oninput="updateEffCalc2()" class="' + numInput + '" style="font-family:\'DM Mono\',monospace">'
         +         '<span class="text-gray-400 text-xs">g</span>'
         +       '</div>'
         +       '<span class="' + slotTgt + '">target &gt; <span data-inl-tA="' + idx + '">--</span> g</span>'
@@ -878,7 +885,7 @@
         +     '<div class="flex flex-col items-center gap-0.5">'
         +       '<span class="' + slotLbl + '">EA pulled</span>'
         +       '<div class="flex items-baseline gap-1">'
-        +         '<input type="number" data-inl-p="' + idx + '" oninput="updateEffCalc2()" class="' + numInput + '" style="font-family:\'DM Mono\',monospace">'
+        +         '<input type="number" min="0.01" step="any" data-inl-p="' + idx + '" oninput="updateEffCalc2()" class="' + numInput + '" style="font-family:\'DM Mono\',monospace">'
         +         '<span class="text-gray-400 text-xs">g</span>'
         +       '</div>'
         +       '<span class="' + slotTgt + '">target &gt; <span data-inl-tP="' + idx + '">--</span> g</span>'
@@ -970,17 +977,21 @@
         theoRemaining = Math.max(0, tTotalEA - tPulled);
         if (tEEl) tEEl.textContent = Math.round((1 - theoProduct) * 100) + '%';
 
-        const aVal = aEl ? parseFloat(aEl.value) : NaN;
+        const aRaw = aEl ? aEl.value.trim() : '';
+        const aVal = aRaw === '' ? NaN : parseFloat(aRaw);
+        const aInvalid = aRaw !== '' && (isNaN(aVal) || aVal <= 0);
         const pVal = parseFloat(pEl.value);
         const aUsed = (!isNaN(aVal) && aVal > 0) ? aVal : tAdded;
 
+        if (aEl) aEl.style.color = aInvalid ? '#dc2626' : '';
+
         if (!isNaN(pVal) && pVal > 0) {
-          pEl.style.color = pVal >= tPulled ? '#16a34a' : '#dc2626';
+          pEl.style.color = colorVsTarget(pVal, tPulled, 'rel');
         } else {
           pEl.style.color = '';
         }
 
-        if (actStop || isNaN(pVal) || pVal <= 0) {
+        if (actStop || aInvalid || isNaN(pVal) || pVal <= 0) {
           eEl.textContent = '--';
           eEl.style.color = '';
           actStop = true;
@@ -999,7 +1010,7 @@
         const actEff = (1 - actProduct) * 100;
         const theoEff = (1 - theoProduct) * 100;
         eEl.textContent = Math.round(actEff) + '%';
-        eEl.style.color = actEff >= theoEff ? '#16a34a' : '#dc2626';
+        eEl.style.color = colorVsTarget(actEff, theoEff, 'pct');
       }
       const defaultPulls = mode.num_pulls;
       let filledDefault = 0;
@@ -1084,7 +1095,9 @@
       document.getElementById('inl-summary-powder').textContent = Math.round(base);
       document.getElementById('inl-summary-water').textContent = Math.round(w);
       tbody.innerHTML = rows;
-      const recovered = totalAdded > 0 ? (totalPulled / totalAdded * 100).toFixed(1) : '--';
+      const recoveredNum = totalAdded > 0 ? (totalPulled / totalAdded * 100) : null;
+      const recovered = recoveredNum !== null ? recoveredNum.toFixed(1) : '--';
+      const recoveredColor = recoveredNum !== null ? colorVsTarget(recoveredNum, mode.target_recovered, 'pct') : '';
       tfoot.innerHTML = '<tr class="text-cactus-800">'
         + '<td class="pr-2 pt-2">Total</td>'
         + '<td class="text-right px-1 pt-2">' + Math.round(totalAdded) + '</td>'
@@ -1093,7 +1106,7 @@
         + '</tr>'
         + '<tr class="text-cactus-800">'
         + '<td class="pr-2 pt-1">Recovered EA</td>'
-        + '<td class="text-right px-1 pt-1" colspan="2">' + recovered + '%</td>'
+        + '<td class="text-right px-1 pt-1" colspan="2" style="color:' + recoveredColor + '">' + recovered + '%</td>'
         + '<td colspan="4"></td>'
         + '</tr>';
     }

@@ -555,7 +555,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
-      <p class="text-gray-400 mt-2">v3.5.0</p>
+      <p class="text-gray-400 mt-2">v3.5.1</p>
     </footer>
 
   </main>
@@ -873,20 +873,20 @@
         +         '<input type="number" data-inl-a="' + idx + '" oninput="updateEffCalc2()" class="' + numInput + '" style="font-family:\'DM Mono\',monospace">'
         +         '<span class="text-gray-400 text-xs">g</span>'
         +       '</div>'
-        +       '<span class="' + slotTgt + '">target <span data-inl-tA="' + idx + '">--</span> g</span>'
+        +       '<span class="' + slotTgt + '">target &gt; <span data-inl-tA="' + idx + '">--</span> g</span>'
         +     '</div>'
         +     '<div class="flex flex-col items-center gap-0.5">'
         +       '<span class="' + slotLbl + '">EA pulled</span>'
         +       '<div class="flex items-baseline gap-1">'
-        +         '<input type="number" data-inl-p="' + idx + '" placeholder="0" oninput="updateEffCalc2()" class="' + numInput + '" style="font-family:\'DM Mono\',monospace">'
+        +         '<input type="number" data-inl-p="' + idx + '" oninput="updateEffCalc2()" class="' + numInput + '" style="font-family:\'DM Mono\',monospace">'
         +         '<span class="text-gray-400 text-xs">g</span>'
         +       '</div>'
-        +       '<span class="' + slotTgt + '">target <span data-inl-tP="' + idx + '">--</span> g</span>'
+        +       '<span class="' + slotTgt + '">target &gt; <span data-inl-tP="' + idx + '">--</span> g</span>'
         +     '</div>'
         +     '<div class="flex flex-col items-center gap-0.5 px-3 py-1 rounded-md bg-cactus-50/70">'
         +       '<span class="' + slotLbl + '">efficiency</span>'
         +       '<span data-inl-e="' + idx + '" class="text-lg font-bold font-mono text-cactus-800 leading-tight">--</span>'
-        +       '<span class="' + slotTgt + '">target <span data-inl-tE="' + idx + '">--</span></span>'
+        +       '<span class="' + slotTgt + '">target &gt; <span data-inl-tE="' + idx + '">--</span></span>'
         +     '</div>'
         +   '</div>'
         + '</div>';
@@ -963,7 +963,6 @@
         const tPulled = targetPulledFor(i, base, mode);
         if (tAEl) tAEl.textContent = Math.round(tAdded);
         if (tPEl) tPEl.textContent = Math.round(tPulled);
-        pEl.placeholder = Math.round(tPulled);
 
         const tTotalEA = theoRemaining + tAdded;
         const tFracRemoved = Math.min(1, tPulled / (tTotalEA + denom));
@@ -997,8 +996,10 @@
         const fracRemoved = pVal / (totalEA + denom);
         actProduct *= (1 - fracRemoved);
         actRemaining = totalEA - pVal;
-        eEl.textContent = Math.round((1 - actProduct) * 100) + '%';
-        eEl.style.color = '#16a34a';
+        const actEff = (1 - actProduct) * 100;
+        const theoEff = (1 - theoProduct) * 100;
+        eEl.textContent = Math.round(actEff) + '%';
+        eEl.style.color = actEff >= theoEff ? '#16a34a' : '#dc2626';
       }
       const defaultPulls = mode.num_pulls;
       let filledDefault = 0;

@@ -8,137 +8,11 @@
   <meta property="og:title" content="CIELO - Interactive Extraction Guide">
   <meta property="og:description" content="Crystals In Ethyl-acetate Lazily Over-the-counter. Interactive guide with auto-scaling quantities and progress tracking.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'%3E%3Crect fill='%23166534' width='1200' height='630'/%3E%3Cg transform='translate(540 155) scale(6)' stroke='%2386efac' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 22V4a2 2 0 0 1 4 0v18'/%3E%3Cpath d='M10 14H8a2 2 0 0 1-2-2V9a2 2 0 0 1 4 0v5'/%3E%3Cpath d='M14 12h2a2 2 0 0 0 2-2V8a2 2 0 0 0-4 0v4'/%3E%3Cline x1='7' y1='22' x2='17' y2='22'/%3E%3C/g%3E%3Ctext x='600' y='480' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='72' fill='%2386efac'%3ECIELO%3C/text%3E%3Ctext x='600' y='530' text-anchor='middle' font-family='system-ui' font-size='24' fill='%2386efac' opacity='.6'%3EInteractive Extraction Guide%3C/text%3E%3C/svg%3E">
-  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="CIELO - Interactive Extraction Guide">
   <meta name="twitter:description" content="Crystals In Ethyl-acetate Lazily Over-the-counter. Auto-scaling quantities and progress tracking.">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316a34a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M10 22V4a2 2 0 0 1 4 0v18'/><path d='M10 14H8a2 2 0 0 1-2-2V9a2 2 0 0 1 4 0v5'/><path d='M14 12h2a2 2 0 0 0 2-2V8a2 2 0 0 0-4 0v4'/><line x1='7' y1='22' x2='17' y2='22'/></svg>">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <style type="text/tailwindcss">
-    @theme {
-      --color-cactus-50: #f0fdf4;
-      --color-cactus-100: #dcfce7;
-      --color-cactus-200: #bbf7d0;
-      --color-cactus-300: #86efac;
-      --color-cactus-400: #4ade80;
-      --color-cactus-500: #22c55e;
-      --color-cactus-600: #16a34a;
-      --color-cactus-700: #15803d;
-      --color-cactus-800: #166534;
-      --color-cactus-900: #14532d;
-    }
-  </style>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Mono:wght@400;500&display=swap');
-
-    body {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      background-color: #eef7f0;
-      background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSI0OCI+PGcgb3BhY2l0eT0iLjE2IiBzdHJva2U9IiMxNTgwM2QiIHN0cm9rZS13aWR0aD0iMS44IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYgMikgc2NhbGUoLjg1KSI+PHBhdGggZD0iTTEwIDIyVjRhMiAyIDAgMCAxIDQgMHYxOCIvPjxwYXRoIGQ9Ik0xMCAxNEg4YTIgMiAwIDAgMS0yLTJWOWEyIDIgMCAwIDEgNCAwdjUiLz48cGF0aCBkPSJNMTQgMTJoMmEyIDIgMCAwIDAgMi0yVjhhMiAyIDAgMCAwLTQgMHY0Ii8+PGxpbmUgeDE9IjciIHkxPSIyMiIgeDI9IjE3IiB5Mj0iMjIiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzIgMjYpIHNjYWxlKC44NSkiPjxwYXRoIGQ9Ik0xMCAyMlY0YTIgMiAwIDAgMSA0IDB2MTgiLz48cGF0aCBkPSJNMTAgMTRIOGEyIDIgMCAwIDEtMi0yVjlhMiAyIDAgMCAxIDQgMHY1Ii8+PHBhdGggZD0iTTE0IDEyaDJhMiAyIDAgMCAwIDItMlY4YTIgMiAwIDAgMC00IDB2NCIvPjxsaW5lIHgxPSI3IiB5MT0iMjIiIHgyPSIxNyIgeTI9IjIyIi8+PC9nPjwvZz48L3N2Zz4K");
-    }
-
-    .calc-val {
-      font-family: 'DM Mono', monospace;
-      font-weight: 500;
-      color: var(--color-cactus-800);
-      background: var(--color-cactus-100);
-      padding: 0.1em 0.4em;
-      border-radius: 3px;
-      border-bottom: 2px solid var(--color-cactus-300);
-      white-space: nowrap;
-      font-size: 0.95em;
-    }
-
-    .step-row { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.5rem 0; }
-    .step-row input[type="checkbox"] {
-      margin-top: 0.25rem; width: 1.15rem; height: 1.15rem; min-width: 1.15rem;
-      accent-color: var(--color-cactus-600); cursor: pointer;
-    }
-    .step-row:has(input:checked) .step-text {
-      opacity: 0.4; text-decoration: line-through; text-decoration-color: #444; text-decoration-thickness: 1.5px;
-    }
-
-    .phase-card {
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(4px);
-      border-left: 4px solid var(--color-cactus-500);
-      border-radius: 2px 8px 8px 2px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    }
-    .phase-header {
-      display: flex; align-items: center;
-      width: 100%; padding: 0.875rem 1rem;
-      border-bottom: 1px solid rgba(0,0,0,0.04);
-    }
-    .phase-num {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 1.75rem; height: 1.75rem; border-radius: 50%;
-      background: var(--color-cactus-600); color: white;
-      font-size: 0.8rem; font-weight: 700; margin-right: 0.65rem; flex-shrink: 0;
-    }
-
-    .callout {
-      border-left: 3px solid; padding: 0.65rem 0.85rem; border-radius: 0 6px 6px 0;
-      font-size: 0.85rem; margin-top: 0.75rem;
-    }
-    .callout-warn { border-color: #d97706; background: #fffbeb; color: #92400e; }
-    .callout-tip { border-color: var(--color-cactus-500); background: #f0fdf4; color: var(--color-cactus-800); }
-    .callout-danger { border-color: #dc2626; background: #fef2f2; color: #991b1b; }
-
-    .pull-group {
-      margin: 0.5rem 0;
-    }
-
-    .timer-tag {
-      display: inline-block;
-      font-size: 0.65rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 0.1em 0.45em;
-      border-radius: 3px;
-      margin-left: 0.4em;
-      vertical-align: middle;
-      white-space: nowrap;
-    }
-    .timer-tag-start { background: var(--color-cactus-100); color: var(--color-cactus-800); border: 1px solid var(--color-cactus-300); }
-    .timer-tag-stop { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
-    .step-row:has(input:checked) .timer-tag { opacity: 0.4; }
-
-    .overview-step {
-      padding: 0.35rem 0.75rem; font-weight: 600; font-size: 0.8rem;
-      background: var(--color-cactus-800); color: var(--color-cactus-100);
-      border-radius: 3px; white-space: nowrap;
-      text-decoration: none; cursor: pointer; transition: background 0.15s;
-    }
-    a.overview-step:hover { background: var(--color-cactus-700); }
-    .overview-arrow { color: var(--color-cactus-400); font-size: 1rem; }
-
-    @media print {
-      .no-print, #sticky-header, #print-btn { display: none !important; }
-      .print-only { display: block !important; }
-      body { background: white !important; background-image: none !important; color: black !important; font-size: 10pt; line-height: 1.35; }
-      .calc-val { background: none !important; color: black !important; font-weight: 700; padding: 0; border: none !important; }
-      .step-row input[type="checkbox"] {
-        -webkit-appearance: none; appearance: none;
-        width: 13px; height: 13px; min-width: 13px;
-        border: 1.5pt solid black; border-radius: 2px;
-        background: white; print-color-adjust: exact;
-      }
-      .step-row input[type="checkbox"]:checked::after {
-        content: '\2713'; display: block; text-align: center; font-size: 10px; line-height: 13px; color: black;
-      }
-      .step-row:has(input:checked) .step-text { opacity: 1; text-decoration: none; }
-      .phase-card { background: white !important; backdrop-filter: none !important; border-left: 3pt solid #444 !important; box-shadow: none !important; break-inside: avoid-page; margin-bottom: 0.5rem; }
-      .callout { background: none !important; }
-      h2, h3 { break-after: avoid; }
-      * { box-shadow: none !important; }
-    }
-    .timer-btn { font-variant-numeric: tabular-nums; font-family: 'DM Mono', monospace; }
-    .timer-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-    .timer-btn.running { background: var(--color-cactus-100); border-color: var(--color-cactus-600); }
-    .timer-btn.done { background: var(--color-cactus-500); border-color: var(--color-cactus-600); color: white; }
-  </style>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="vendor/fonts.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="text-gray-800 min-h-screen">
 
@@ -555,7 +429,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
-      <p class="text-gray-400 mt-2">v3.6.0</p>
+      <p class="text-gray-400 mt-2">v3.7.3</p>
     </footer>
 
   </main>

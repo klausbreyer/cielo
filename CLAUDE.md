@@ -2,6 +2,18 @@
 
 Single-page interactive CIELO TEK guide with auto-scaling calculator.
 
+## Build
+
+The repo holds **sources only**. `make build` produces a self-contained, deployable `dist/` (gitignored): `index.html`, minified `style.css`, `assets/`, `vendor/`.
+
+- `make build` - rebuild `dist/`. First run installs `node_modules` automatically.
+- `make start` - rebuild and serve `dist/` at http://localhost:8000
+- `make clean` - drop `dist/` and `node_modules/`
+
+CSS source is `src/style.css` (Tailwind v4 + cactus `@theme` + custom rules). Edit utility classes directly in `index.html`; Tailwind picks them up via `@source` on the next build. Static assets live in `assets/`, fonts in `vendor/fonts.css` + `vendor/fonts/`.
+
+To deploy: run `make build`, upload the contents of `dist/`.
+
 ## Versioning
 
 This project uses [Semantic Versioning](https://semver.org/). The current version is displayed in the footer of `index.html`.

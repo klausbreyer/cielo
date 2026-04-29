@@ -1,0 +1,9 @@
+{
+  "name": "cielo",
+  "version": "0.0.0",
+  "private": true,
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.4",
+    "tailwindcss": "^4.2.4"
+  }
+}

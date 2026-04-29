@@ -10,15 +10,15 @@ The repo holds **sources only**. `make build` produces a self-contained, deploya
 - `make start` - rebuild and serve `dist/` at http://localhost:8000
 - `make clean` - drop `dist/` and `node_modules/`
 
-CSS source is `src/style.css` (Tailwind v4 + cactus `@theme` + custom rules). Edit utility classes directly in `index.html`; Tailwind picks them up via `@source` on the next build. Static assets live in `assets/`, fonts in `vendor/fonts.css` + `vendor/fonts/`.
+All sources live under `src/`: `index.html` at the top, everything else (Tailwind input `style.css` with cactus `@theme` + custom rules, `favicon.svg`, `bg-cacti.svg`, `fonts.css`, `fonts/*.woff2`) in `src/assets/`. Edit utility classes directly in `src/index.html`; Tailwind picks them up via `@source` on the next build.
 
 To deploy: run `make build`, upload the contents of `dist/`.
 
 ## Versioning
 
-This project uses [Semantic Versioning](https://semver.org/). The current version is displayed in the footer of `index.html`.
+This project uses [Semantic Versioning](https://semver.org/). The current version is displayed in the footer of `src/index.html`.
 
-**After every change, update the version in the footer (`<p class="text-gray-400 mt-2">vX.Y.Z</p>` in the `<footer>` section of `index.html`):**
+**After every change, update the version in the footer (`<p class="text-gray-400 mt-2">vX.Y.Z</p>` in the `<footer>` section of `src/index.html`):**
 
 - **MAJOR** (X) - breaking changes: restructured layout, removed features, changed URL/hosting setup
 - **MINOR** (Y) - new features or sections added (e.g. new calculator option, new phase, new callout box)

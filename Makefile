@@ -10,9 +10,8 @@ node_modules: package.json
 build: node_modules
 	@rm -rf $(DIST)
 	@mkdir -p $(DIST)
-	cp index.html $(DIST)/
-	cp -R assets vendor $(DIST)/
-	npx @tailwindcss/cli -i src/style.css -o $(DIST)/style.css --minify
+	cp -R src/. $(DIST)/
+	npx @tailwindcss/cli -i src/assets/style.css -o $(DIST)/assets/style.css --minify
 	@echo "Built $(DIST)/ - ready to deploy"
 
 start: build

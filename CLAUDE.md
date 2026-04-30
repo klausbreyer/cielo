@@ -12,6 +12,8 @@ The repo holds **sources only**. `make build` produces a self-contained, deploya
 
 All sources live under `src/`: `index.html` at the top, everything else (Tailwind input `style.css` with cactus `@theme` + custom rules, `favicon.svg`, `bg-cacti.svg`, `fonts.css`, `fonts/*.woff2`) in `src/assets/`. Edit utility classes directly in `src/index.html`; Tailwind picks them up via `@source` on the next build.
 
+**After every change to anything under `src/`, run `make build` so `dist/` stays in sync.**
+
 To deploy: run `make build`, upload the contents of `dist/`.
 
 ## Versioning

@@ -10,9 +10,8 @@ node_modules: package.json
 	@touch node_modules
 
 build: node_modules
-	@rm -rf $(DIST)
 	@mkdir -p $(DIST)
-	cp -R src/. $(DIST)/
+	@rsync -a --delete src/ $(DIST)/
 	npx @tailwindcss/cli -i src/assets/style.css -o $(DIST)/assets/style.css --minify
 	@rm -f cielo-v*.zip
 	@cd $(DIST) && zip -qr ../$(ZIP) .
@@ -20,7 +19,7 @@ build: node_modules
 
 start: build
 	@echo "Serving http://localhost:$(PORT) from $(DIST)/"
-	@python3 -m http.server $(PORT) --directory $(DIST)
+	@caffeinate -i python3 -m http.server $(PORT) --directory $(DIST) --protocol HTTP/1.1
 
 clean:
 	rm -rf $(DIST) node_modules cielo-v*.zip

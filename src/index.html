@@ -55,7 +55,7 @@
 
     <!-- Intro note -->
     <div class="mb-6 px-4 py-3 bg-white/70 border-l-4 border-cactus-400 rounded-r text-xs text-gray-700 no-print">
-      <p>This is only an interactive companion to the full write-up. Read the <a href="https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 text-cactus-700 hover:text-cactus-800 font-semibold">CIELO TEK</a> in detail before starting.</p>
+      <p>This is only an interactive companion to the full write-up. Read the <a href="https://www.anoniem.org/https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 text-cactus-700 hover:text-cactus-800 font-semibold">CIELO TEK</a> in detail before starting.</p>
     </div>
 
     <!-- Safety + Grow Your Own -->
@@ -223,12 +223,13 @@
           <label class="step-row"><input type="checkbox" id="s2-1"><span class="step-text">Weigh <span class="calc-val" data-calc="base">100</span> g cactus powder into bowl</span></label>
           <label class="step-row"><input type="checkbox" id="s2-2"><span class="step-text">Add <span class="calc-val" data-calc="lime">25</span> g lime, mix dry until uniform</span></label>
           <label class="step-row"><input type="checkbox" id="s2-3"><span class="step-text">Add ~<span class="calc-val" data-calc="water_start">130</span> ml water, mix thoroughly for 10+ minutes</span></label>
-          <div class="flex items-center gap-2 ml-7 -mt-1 mb-2">
-            <span class="font-medium text-gray-400 uppercase text-[10px] tracking-wider whitespace-nowrap">actual water added</span>
-            <input type="number" id="actual-water" oninput="updateActualWater(this.value)" class="w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
+          <div class="flex items-center gap-2 flex-wrap ml-7 -mt-1 mb-2">
+            <span class="font-medium text-gray-500 text-xs whitespace-nowrap">Actual water added</span>
+            <input type="number" id="actual-water" placeholder="actual" oninput="updateActualWater(this.value)" class="pull-num-input w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
             <span class="text-gray-400 text-xs">ml</span>
-            <span class="text-[10px] text-gray-400 italic">target <span class="calc-val" data-calc="water_start">130</span> ml; leave empty to match target, deviation feeds the pull efficiency calc</span>
+            <span class="text-xs text-gray-400 italic">target &rsaquo; <span class="calc-val" data-calc="water_start">130</span> ml</span>
           </div>
+          <p class="text-xs text-gray-400 italic ml-7 -mt-1 mb-2">Leave empty to match target. Deviations feed the pull efficiency calc.</p>
           <label class="step-row"><input type="checkbox" id="s2-4"><span class="step-text">Wet crumb consistency confirmed</span></label>
 
           <p class="text-xs text-gray-500 mt-2">Dry spots? Add small amounts from your <span class="calc-val" data-calc="water_reserve">70</span> ml reserve. Stand mixer at low speed is a great upgrade.</p>
@@ -295,14 +296,14 @@
 
           <!-- Summary Table -->
           <div id="inl-summary" class="mt-4 p-4 bg-cactus-50/50 rounded-lg border border-cactus-200" style="display:none;">
-            <div class="flex items-baseline justify-between mb-3">
-              <p class="font-bold text-xs uppercase tracking-wider text-cactus-700">Extraction Summary</p>
+            <div class="flex items-baseline justify-between gap-3 flex-wrap mb-3">
+              <p class="font-bold text-sm text-cactus-700">Extraction Summary</p>
               <p class="text-[10px] text-gray-400">Using <span id="inl-summary-powder">--</span> g powder + <span id="inl-summary-water">--</span> ml water</p>
             </div>
             <div class="overflow-x-auto">
-              <table class="w-full text-xs font-mono">
+              <table class="text-xs font-mono" style="min-width: 480px; width: 100%;">
                 <thead>
-                  <tr class="text-gray-500 text-[10px] uppercase tracking-wider">
+                  <tr class="text-gray-500 text-[11px]">
                     <th class="text-left pb-2 pr-2">Pull</th>
                     <th class="text-right pb-2 px-1">Added</th>
                     <th class="text-right pb-2 px-1">Pulled</th>
@@ -361,7 +362,7 @@
           <p class="text-xs text-gray-500 mt-2">Crystals can look like undissolved acid. All acid reliably dissolves. Mescaline salt floats and snow-globes; acid doesn&rsquo;t.</p>
 
           <div data-show-acid="citric" class="hidden callout callout-danger">
-            <strong>Goo instead of crystals?</strong> Too much water in EA. Fumaric is much more forgiving. Consult <a href="https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline">r/mescaline</a> for help.
+            <strong>Goo instead of crystals?</strong> Too much water in EA. Fumaric is much more forgiving. Consult <a href="https://www.anoniem.org/https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline">r/mescaline</a> for help.
           </div>
         </div>
       </div>
@@ -427,9 +428,9 @@
 
     <!-- Footer -->
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
-      <p class="text-gray-500">Based upon the <a href="https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
-      <p class="text-gray-500">Thanks to <a href="https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
-      <p class="text-gray-400 mt-2">v3.7.6</p>
+      <p class="text-gray-500">Based upon the <a href="https://www.anoniem.org/https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://www.anoniem.org/https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
+      <p class="text-gray-500">Thanks to <a href="https://www.anoniem.org/https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.anoniem.org/https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://www.anoniem.org/https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.anoniem.org/https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
+      <p class="text-gray-400 mt-2">v3.9.6</p>
     </footer>
 
   </main>
@@ -464,7 +465,7 @@
     let state = loadState();
 
     function defaultState() {
-      return { version: 4, baseAmount: 100, acidType: 'fumaric', eaMode: 'standard', kWater: 3, kPowder: 1, extraPulls: 0, actualWater: null, checklist: {}, timerStart: null, timerEnd: null };
+      return { version: 6, baseAmount: 100, acidType: 'fumaric', eaMode: 'standard', kWater: 3, kPowder: 1, extraPulls: 0, actualWater: null, checklist: {}, timerStart: null, timerEnd: null };
     }
 
     const CONGEAL_MS = 60 * 60 * 1000;
@@ -496,7 +497,7 @@
         const raw = localStorage.getItem(STORAGE_KEY);
         if (raw) {
           const s = JSON.parse(raw);
-          if (s && s.version === 4) {
+          if (s && s.version >= 4 && s.version <= 6) {
             if (!s.eaMode) s.eaMode = 'standard';
             if (typeof s.kWater !== 'number') s.kWater = 3;
             if (typeof s.kPowder !== 'number') s.kPowder = 1;
@@ -505,6 +506,31 @@
             if (s.checklist && s.checklist['s3-6'] && !s.checklist['s3-end']) {
               s.checklist['s3-end'] = true;
               delete s.checklist['s3-6'];
+            }
+            if (s.version === 4 && s.checklist) {
+              for (let i = 1; i <= 10; i++) {
+                if (s.checklist['s3-' + i]) {
+                  s.checklist['s3-' + i + 'a'] = true;
+                  s.checklist['s3-' + i + 'b'] = true;
+                  delete s.checklist['s3-' + i];
+                }
+              }
+              s.version = 5;
+            }
+            if (s.version === 5 && s.checklist) {
+              for (let i = 1; i <= 10; i++) {
+                if (s.checklist['s3-' + i + 'a']) {
+                  s.checklist['s3-' + i + '-add'] = true;
+                  s.checklist['s3-' + i + '-stir'] = true;
+                  delete s.checklist['s3-' + i + 'a'];
+                }
+                if (s.checklist['s3-' + i + 'b']) {
+                  s.checklist['s3-' + i + '-rest'] = true;
+                  s.checklist['s3-' + i + '-plunge'] = true;
+                  delete s.checklist['s3-' + i + 'b'];
+                }
+              }
+              s.version = 6;
             }
             return s;
           }
@@ -590,16 +616,18 @@
         localStorage.removeItem(INL_STORAGE_KEY);
       } catch (e) {}
       state = defaultState();
-      document.querySelectorAll('.step-row input[type="checkbox"]').forEach(cb => { cb.checked = false; });
+      document.querySelectorAll('.step-row input[type="checkbox"], .pull-step input[type="checkbox"]').forEach(cb => { cb.checked = false; });
       document.querySelectorAll('[data-inl-a], [data-inl-p]').forEach(el => { el.value = ''; el.style.color = ''; });
       document.querySelectorAll('[data-inl-e]').forEach(el => { el.textContent = '--'; el.style.color = ''; });
       document.querySelectorAll('.timer-btn').forEach(btn => {
         if (btn.dataset.interval) { clearInterval(parseInt(btn.dataset.interval)); delete btn.dataset.interval; }
-        btn.classList.remove('done', 'running');
-        const secs = parseInt(btn.getAttribute('onclick').match(/,\s*(\d+)/)[1]);
-        const label = secs >= 180 ? 'Stir' : 'Rest';
-        btn.disabled = secs < 180;
-        btn.textContent = label + ' ' + formatTimer(secs);
+        delete btn.dataset.remaining;
+        btn.classList.remove('done', 'running', 'paused');
+        const spec = TIMER_SPEC[btn.dataset.step];
+        if (spec) {
+          btn.disabled = false;
+          btn.textContent = spec.label + ' ' + formatTimer(spec.sec);
+        }
       });
       const baseInput = document.getElementById('base-input');
       if (baseInput) baseInput.value = state.baseAmount;
@@ -661,15 +689,18 @@
       const aEl = document.querySelector('[data-inl-a="' + idx + '"]');
       const pEl = document.querySelector('[data-inl-p="' + idx + '"]');
       const eEl = document.querySelector('[data-inl-e="' + idx + '"]');
-      const cb = document.getElementById('s3-' + idx);
       if (aEl) aEl.value = '';
       if (pEl) { pEl.value = ''; pEl.style.color = ''; }
       if (eEl) { eEl.textContent = '--'; eEl.style.color = ''; }
-      if (cb) {
-        cb.checked = false;
-        delete state.checklist[cb.id];
-        updateTimersForCheckbox(cb.id, false);
-      }
+      ['add', 'stir', 'rest', 'plunge'].forEach(step => {
+        const cbId = 's3-' + idx + '-' + step;
+        const cb = document.getElementById(cbId);
+        if (cb) {
+          cb.checked = false;
+          delete state.checklist[cbId];
+          updateTimersForCheckbox(cbId, false);
+        }
+      });
       state.extraPulls--;
       saveState();
       updatePullVisibility();
@@ -694,26 +725,27 @@
       return Math.floor(secs / 60) + ':' + String(secs % 60).padStart(2, '0');
     }
 
+    const TIMER_SPEC = { stir: { sec: 180, label: 'Stir' }, rest: { sec: 60, label: 'Rest' } };
+
     function updateTimersForCheckbox(cbId, checked) {
-      const group = document.querySelector('.pull-timer[data-checkbox="' + cbId + '"]');
-      if (!group) return;
-      const btns = group.querySelectorAll('.timer-btn');
-      btns.forEach((b, i) => {
-        const secs = parseInt(b.getAttribute('onclick').match(/,\s*(\d+)/)[1]);
-        const label = i === 0 ? 'Stir' : 'Rest';
-        if (checked) {
-          if (b.dataset.interval) { clearInterval(parseInt(b.dataset.interval)); delete b.dataset.interval; }
-          b.classList.add('done');
-          b.classList.remove('running');
-          b.disabled = true;
-          b.textContent = label + ' done';
-        } else {
-          b.classList.remove('done', 'running');
-          b.disabled = i > 0;
-          b.textContent = label + ' ' + formatTimer(secs);
-          delete b.dataset.interval;
-        }
-      });
+      const m = cbId.match(/^s3-(\d+)-(stir|rest)$/);
+      if (!m) return;
+      const idx = m[1], step = m[2];
+      const spec = TIMER_SPEC[step];
+      const btn = document.querySelector('.timer-btn[data-pull-idx="' + idx + '"][data-step="' + step + '"]');
+      if (!btn) return;
+      if (btn.dataset.interval) { clearInterval(parseInt(btn.dataset.interval)); delete btn.dataset.interval; }
+      btn.classList.remove('running', 'paused');
+      delete btn.dataset.remaining;
+      if (checked) {
+        btn.classList.add('done');
+        btn.disabled = true;
+        btn.textContent = spec.label + ' done';
+      } else {
+        btn.classList.remove('done');
+        btn.disabled = false;
+        btn.textContent = spec.label + ' ' + formatTimer(spec.sec);
+      }
     }
 
     const INL_STORAGE_KEY = 'cielo-inl-calc';
@@ -736,39 +768,60 @@
     }
 
     function createPullHTML(idx) {
-      const numInput = 'w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors';
-      const slotLbl = 'font-medium text-gray-400 uppercase text-[10px] tracking-wider whitespace-nowrap';
-      const slotTgt = 'text-[10px] text-gray-400 italic whitespace-nowrap';
+      const numInput = 'pull-num-input w-20 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors';
       const calcKey = idx === 1 ? 'ea_pull_1_g' : 'ea_pull_n_g';
       const defaultTarget = idx === 1 ? '250' : '150';
-      return '<label class="step-row mt-2" data-pull-idx="' + idx + '"><input type="checkbox" id="s3-' + idx + '"><span class="step-text"><strong>Pull ' + idx + '</strong> - <span class="calc-val" data-calc="' + calcKey + '">' + defaultTarget + '</span> g of EA added to french press, stir 3 min, rest 1 min, squeeze filter</span></label>'
-        + '<div class="flex flex-wrap items-center gap-x-4 gap-y-3 ml-7" data-pull-idx="' + idx + '">'
-        +   '<div class="pull-timer flex gap-2" data-checkbox="s3-' + idx + '">'
-        +     '<button onclick="startTimer(this, 180)" class="timer-btn px-3 py-2 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[100px] shadow-sm">Stir 3:00</button>'
-        +     '<button onclick="startTimer(this, 60)" class="timer-btn px-3 py-2 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[100px] shadow-sm" disabled>Rest 1:00</button>'
-        +   '</div>'
-        +   '<div class="flex flex-wrap items-center gap-x-4 gap-y-2 sm:ml-auto sm:pl-4 sm:border-l sm:border-cactus-100">'
-        +     '<div class="flex flex-col items-center gap-0.5">'
-        +       '<span class="' + slotLbl + '">EA added</span>'
-        +       '<div class="flex items-baseline gap-1">'
-        +         '<input type="number" min="0.01" step="any" data-inl-a="' + idx + '" oninput="updateEffCalc2()" class="' + numInput + '" style="font-family:\'DM Mono\',monospace">'
+      const timerBtn = 'timer-btn px-3 py-1.5 rounded-lg border-2 border-cactus-400 bg-cactus-50 text-cactus-800 font-bold text-sm cursor-pointer hover:bg-cactus-100 active:bg-cactus-200 transition-colors min-w-[100px] shadow-sm';
+      return '<div class="pull-block" data-pull-idx="' + idx + '">'
+        +   '<p class="pull-header">Pull ' + idx + '</p>'
+        +   '<div class="pull-steps">'
+        +     '<div class="pull-step">'
+        +       '<label class="step-label">'
+        +         '<input type="checkbox" id="s3-' + idx + '-add">'
+        +         '<span class="step-text"><strong>Add</strong> ~<span class="calc-val" data-calc="' + calcKey + '">' + defaultTarget + '</span> g EA</span>'
+        +       '</label>'
+        +       '<div class="step-action">'
+        +         '<input type="number" min="0.01" step="any" placeholder="actual" data-inl-a="' + idx + '" oninput="handleInputChange(this)" class="' + numInput + '" style="font-family:\'DM Mono\',monospace">'
         +         '<span class="text-gray-400 text-xs">g</span>'
         +       '</div>'
-        +       '<span class="' + slotTgt + '">target ~ <span data-inl-tA="' + idx + '">--</span> g</span>'
+        +       '<span class="step-target"></span>'
         +     '</div>'
-        +     '<div class="flex flex-col items-center gap-0.5">'
-        +       '<span class="' + slotLbl + '">EA pulled</span>'
-        +       '<div class="flex items-baseline gap-1">'
-        +         '<input type="number" min="0.01" step="any" data-inl-p="' + idx + '" oninput="updateEffCalc2()" class="' + numInput + '" style="font-family:\'DM Mono\',monospace">'
+        +     '<div class="pull-step">'
+        +       '<label class="step-label">'
+        +         '<input type="checkbox" id="s3-' + idx + '-stir">'
+        +         '<span class="step-text">Stir</span>'
+        +       '</label>'
+        +       '<div class="step-action">'
+        +         '<button onclick="startTimer(this, 180)" data-pull-idx="' + idx + '" data-step="stir" class="' + timerBtn + '">Stir 3:00</button>'
+        +       '</div>'
+        +       '<span class="step-target"></span>'
+        +     '</div>'
+        +     '<div class="pull-step">'
+        +       '<label class="step-label">'
+        +         '<input type="checkbox" id="s3-' + idx + '-rest">'
+        +         '<span class="step-text">Rest</span>'
+        +       '</label>'
+        +       '<div class="step-action">'
+        +         '<button onclick="startTimer(this, 60)" data-pull-idx="' + idx + '" data-step="rest" class="' + timerBtn + '">Rest 1:00</button>'
+        +       '</div>'
+        +       '<span class="step-target"></span>'
+        +     '</div>'
+        +     '<div class="pull-step">'
+        +       '<label class="step-label">'
+        +         '<input type="checkbox" id="s3-' + idx + '-plunge">'
+        +         '<span class="step-text"><strong>Plunge, Pull</strong> + weigh</span>'
+        +       '</label>'
+        +       '<div class="step-action">'
+        +         '<input type="number" min="0.01" step="any" placeholder="actual" data-inl-p="' + idx + '" oninput="handleInputChange(this)" class="' + numInput + '" style="font-family:\'DM Mono\',monospace">'
         +         '<span class="text-gray-400 text-xs">g</span>'
         +       '</div>'
-        +       '<span class="' + slotTgt + '">target &gt; <span data-inl-tP="' + idx + '">--</span> g</span>'
+        +       '<span class="step-target">target &rsaquo; <span data-inl-tP="' + idx + '">--</span> g</span>'
         +     '</div>'
-        +     '<div class="flex flex-col items-center gap-0.5 px-3 py-1 rounded-md bg-cactus-50/70">'
-        +       '<span class="' + slotLbl + '">efficiency</span>'
-        +       '<span data-inl-e="' + idx + '" class="text-lg font-bold font-mono text-cactus-800 leading-tight">--</span>'
-        +       '<span class="' + slotTgt + '">target &gt; <span data-inl-tE="' + idx + '">--</span></span>'
+        +     '<div class="pull-efficiency">'
+        +       '<span class="eff-tag">Efficiency</span>'
+        +       '<span class="eff-value" data-inl-e="' + idx + '">--</span>'
         +     '</div>'
+        +     '<span class="eff-target">target &rsaquo; <span data-inl-tE="' + idx + '">--</span></span>'
         +   '</div>'
         + '</div>';
     }
@@ -899,7 +952,7 @@
       const targetEff = mode.target_eff;
       const addBtn = document.getElementById('btn-add-pull');
       const sugg = document.getElementById('pull-suggestion');
-      if (addBtn) addBtn.style.display = (allDefaultsFilled && maxP < MAX_PULLS) ? '' : 'none';
+      if (addBtn) addBtn.style.display = (maxP < MAX_PULLS) ? '' : 'none';
       if (sugg) {
         if (!allDefaultsFilled) {
           sugg.textContent = '';
@@ -986,7 +1039,7 @@
     }
 
     function initChecklist() {
-      document.querySelectorAll('.step-row input[type="checkbox"]').forEach(cb => {
+      document.querySelectorAll('.step-row input[type="checkbox"], .pull-step input[type="checkbox"]').forEach(cb => {
         if (state.checklist[cb.id]) {
           cb.checked = true;
           updateTimersForCheckbox(cb.id, true);
@@ -1001,9 +1054,41 @@
       updateProgress();
     }
 
+    function handleInputChange(el) {
+      const raw = el.value.trim();
+      const val = parseFloat(raw);
+      const valid = raw !== '' && !isNaN(val) && val > 0;
+      if (valid) {
+        const idx = el.dataset.inlA || el.dataset.inlP;
+        const step = el.dataset.inlA ? 'add' : 'plunge';
+        const cbId = 's3-' + idx + '-' + step;
+        const cb = document.getElementById(cbId);
+        if (cb && !cb.checked) {
+          cb.checked = true;
+          state.checklist[cbId] = true;
+          saveState();
+          updateProgress();
+          updateTimersForCheckbox(cbId, true);
+        }
+      }
+      updateEffCalc2();
+    }
+
     function startTimer(btn, seconds) {
-      if (btn.dataset.interval) return;
-      let remaining = seconds;
+      if (btn.dataset.interval) {
+        clearInterval(parseInt(btn.dataset.interval));
+        delete btn.dataset.interval;
+        btn.classList.remove('running');
+        btn.classList.add('paused');
+        return;
+      }
+      let remaining;
+      if (btn.classList.contains('paused') && btn.dataset.remaining) {
+        remaining = parseInt(btn.dataset.remaining);
+        btn.classList.remove('paused');
+      } else {
+        remaining = seconds;
+      }
       btn.disabled = false;
       btn.classList.add('running');
       const label = btn.textContent.split(' ')[0];
@@ -1011,6 +1096,7 @@
         const m = Math.floor(remaining / 60);
         const s = remaining % 60;
         btn.textContent = label + ' ' + m + ':' + String(s).padStart(2, '0');
+        btn.dataset.remaining = remaining;
       };
       update();
       const iv = setInterval(() => {
@@ -1019,32 +1105,23 @@
         if (remaining <= 0) {
           clearInterval(iv);
           delete btn.dataset.interval;
-          btn.classList.remove('running');
+          delete btn.dataset.remaining;
+          btn.classList.remove('running', 'paused');
           btn.classList.add('done');
           btn.disabled = true;
           btn.textContent = label + ' done';
-          // enable next timer button (Rest) if exists
-          const next = btn.nextElementSibling;
-          if (next && next.classList.contains('timer-btn')) {
-            next.disabled = false;
-          }
-          // if all timer buttons in this group are done, check the checkbox
-          const group = btn.closest('.pull-timer');
-          if (group) {
-            const allBtns = group.querySelectorAll('.timer-btn');
-            const allDone = Array.from(allBtns).every(b => b.classList.contains('done'));
-            if (allDone) {
-              const cbId = group.dataset.checkbox;
-              const cb = document.getElementById(cbId);
-              if (cb && !cb.checked) {
-                cb.checked = true;
-                state.checklist[cb.id] = true;
-                saveState();
-                updateProgress();
-              }
+          const idx = btn.dataset.pullIdx;
+          const step = btn.dataset.step;
+          if (idx && step) {
+            const cbId = 's3-' + idx + '-' + step;
+            const cb = document.getElementById(cbId);
+            if (cb && !cb.checked) {
+              cb.checked = true;
+              state.checklist[cb.id] = true;
+              saveState();
+              updateProgress();
             }
           }
-          // beep
           try {
             const ctx = new (window.AudioContext || window.webkitAudioContext)();
             const osc = ctx.createOscillator();

@@ -293,31 +293,6 @@
           <div class="callout callout-warn">
             <strong>Particles?</strong> Crumbs had dry spots. Filter everything before salting. More water + mixing next time.
           </div>
-
-          <!-- Summary Table -->
-          <div id="inl-summary" class="mt-4 p-4 bg-cactus-50/50 rounded-lg border border-cactus-200" style="display:none;">
-            <div class="flex items-baseline justify-between gap-3 flex-wrap mb-3">
-              <p class="font-bold text-sm text-cactus-700">Extraction Summary</p>
-              <p class="text-[10px] text-gray-400">Using <span id="inl-summary-powder">--</span> g powder + <span id="inl-summary-water">--</span> ml water</p>
-            </div>
-            <div class="overflow-x-auto">
-              <table class="text-xs font-mono" style="min-width: 480px; width: 100%;">
-                <thead>
-                  <tr class="text-gray-500 text-[11px]">
-                    <th class="text-left pb-2 pr-2">Pull</th>
-                    <th class="text-right pb-2 px-1">Added</th>
-                    <th class="text-right pb-2 px-1">Pulled</th>
-                    <th class="text-right pb-2 px-1">Remaining</th>
-                    <th class="text-right pb-2 px-1">M removed</th>
-                    <th class="text-right pb-2 px-1">M in jar</th>
-                    <th class="text-right pb-2 pl-1">Efficiency</th>
-                  </tr>
-                </thead>
-                <tbody id="inl-summary-body"></tbody>
-                <tfoot id="inl-summary-foot" class="border-t-2 border-cactus-300 font-bold"></tfoot>
-              </table>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -394,6 +369,59 @@
     </section>
 
     <!-- ============================================ -->
+    <!-- EXTRACTION SUMMARY -->
+    <!-- ============================================ -->
+    <section id="phase-summary" class="mb-6 phase-card overflow-hidden no-print">
+      <div class="phase-header">
+        <h2 class="text-base font-bold text-gray-800">Extraction Summary</h2>
+      </div>
+      <div class="p-4">
+        <p class="text-sm text-gray-500 mb-3">A recap of this run. Add the final crystal yield, then save the image for r/mescaline or the Nexus.</p>
+
+        <div class="flex items-center gap-2 flex-wrap mb-1">
+          <span class="font-medium text-gray-500 text-xs whitespace-nowrap uppercase tracking-wider">Final crystal yield</span>
+          <input type="number" id="yield-input" min="0" step="any" placeholder="yield" oninput="updateYield(this.value)" class="pull-num-input w-24 px-2 py-1 border-b-2 border-cactus-400 bg-transparent text-center font-bold text-cactus-800 focus:outline-none focus:border-cactus-600 transition-colors" style="font-family:'DM Mono',monospace">
+          <span class="text-gray-400 text-xs">g</span>
+          <span class="text-xs text-gray-400 italic">yield % = product / <span class="calc-val" data-calc="base">100</span> g &times; 100</span>
+        </div>
+        <p class="text-xs text-gray-400 italic mb-4">Optional. Leave empty to omit yield from the summary.</p>
+
+        <div id="inl-summary" class="p-4 bg-cactus-50/50 rounded-lg border border-cactus-200" style="display:none;">
+          <div class="flex items-baseline justify-between gap-3 flex-wrap mb-3">
+            <p class="font-bold text-sm text-cactus-700">CIELO Extraction Summary</p>
+            <p class="text-[10px] text-gray-400">Using <span id="inl-summary-powder">--</span> g powder + <span id="inl-summary-water">--</span> ml water</p>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="text-xs font-mono" style="min-width: 480px; width: 100%;">
+              <thead>
+                <tr class="text-gray-500 text-[11px]">
+                  <th class="text-left pb-2 pr-2">Pull</th>
+                  <th class="text-right pb-2 px-1">Added</th>
+                  <th class="text-right pb-2 px-1">Pulled</th>
+                  <th class="text-right pb-2 px-1">Remaining</th>
+                  <th class="text-right pb-2 px-1">M removed</th>
+                  <th class="text-right pb-2 px-1">M in jar</th>
+                  <th class="text-right pb-2 pl-1">Efficiency</th>
+                </tr>
+              </thead>
+              <tbody id="inl-summary-body"></tbody>
+              <tfoot id="inl-summary-foot" class="border-t-2 border-cactus-300 font-bold"></tfoot>
+            </table>
+          </div>
+        </div>
+        <p id="summary-empty" class="text-xs text-gray-400 italic">Enter pull weights in the <a href="#phase3" onclick="jumpToPhase(event,'phase3')" class="underline underline-offset-2 text-cactus-700 hover:text-cactus-800 font-semibold">Extract</a> section to build the summary.</p>
+
+        <div class="flex items-center gap-2 flex-wrap mt-4">
+          <button type="button" id="btn-save-summary" onclick="saveSummaryImage()" disabled
+                  class="px-3 py-1.5 border border-cactus-300 hover:border-cactus-500 text-cactus-700 hover:text-cactus-900 rounded text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
+            Save image
+          </button>
+          <span id="summary-share-status" class="text-xs text-gray-400 italic" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
     <!-- PHASE 6: Reuse -->
     <!-- ============================================ -->
     <section id="phase6" class="mb-6 phase-card overflow-hidden">
@@ -421,7 +449,9 @@
           <label class="step-row"><input type="checkbox" id="s6b-4"><span class="step-text">Add <span class="calc-val" data-calc="reuse_salt_tbsp">1</span> tbsp salt + <span class="calc-val" data-calc="reuse_water_50ml">50</span> ml water, shake</span></label>
           <label class="step-row"><input type="checkbox" id="s6b-5"><span class="step-text">Fridge rest until clear, decant to storage</span></label>
 
-          <p class="text-xs text-gray-400 mt-3">No salted solvent in metal. Neutralized solvent can go back in the original can. Mason jar with EA-resistant lid also works.</p>
+          <div class="callout callout-warn">
+            <strong>No salted solvent in metal.</strong> Neutralized solvent can go back in the original can. Mason jar with EA-resistant lid also works.
+          </div>
         </div>
       </div>
     </section>
@@ -430,7 +460,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://www.anoniem.org/https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://www.anoniem.org/https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.anoniem.org/https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.anoniem.org/https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://www.anoniem.org/https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.anoniem.org/https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
-      <p class="text-gray-400 mt-2">v3.9.6</p>
+      <p class="text-gray-400 mt-2">v3.10.0</p>
     </footer>
 
   </main>
@@ -465,7 +495,7 @@
     let state = loadState();
 
     function defaultState() {
-      return { version: 6, baseAmount: 100, acidType: 'fumaric', eaMode: 'standard', kWater: 3, kPowder: 1, extraPulls: 0, actualWater: null, checklist: {}, timerStart: null, timerEnd: null };
+      return { version: 7, baseAmount: 100, acidType: 'fumaric', eaMode: 'standard', kWater: 3, kPowder: 1, extraPulls: 0, actualWater: null, yieldG: null, checklist: {}, timerStart: null, timerEnd: null };
     }
 
     const CONGEAL_MS = 60 * 60 * 1000;
@@ -497,12 +527,13 @@
         const raw = localStorage.getItem(STORAGE_KEY);
         if (raw) {
           const s = JSON.parse(raw);
-          if (s && s.version >= 4 && s.version <= 6) {
+          if (s && s.version >= 4 && s.version <= 7) {
             if (!s.eaMode) s.eaMode = 'standard';
             if (typeof s.kWater !== 'number') s.kWater = 3;
             if (typeof s.kPowder !== 'number') s.kPowder = 1;
             if (typeof s.extraPulls !== 'number') s.extraPulls = 0;
             if (typeof s.actualWater !== 'number') s.actualWater = null;
+            if (typeof s.yieldG !== 'number') s.yieldG = null;
             if (s.checklist && s.checklist['s3-6'] && !s.checklist['s3-end']) {
               s.checklist['s3-end'] = true;
               delete s.checklist['s3-6'];
@@ -636,6 +667,7 @@
       const kw = document.getElementById('k-water'); if (kw) kw.value = state.kWater;
       const kp = document.getElementById('k-powder'); if (kp) kp.value = state.kPowder;
       const aw = document.getElementById('actual-water'); if (aw) aw.value = '';
+      const yi = document.getElementById('yield-input'); if (yi) yi.value = '';
       saveState();
       updateAllValues();
       updatePullVisibility();
@@ -648,6 +680,13 @@
       state.actualWater = (isNaN(n) || n <= 0) ? null : n;
       saveState();
       updateEffCalc2();
+    }
+
+    function updateYield(val) {
+      const n = parseFloat(val);
+      state.yieldG = (isNaN(n) || n <= 0) ? null : n;
+      saveState();
+      updateSummaryTable();
     }
 
     function resetCoefficients() {
@@ -977,17 +1016,15 @@
       updateEffCalc2(false);
     }
 
-    function updateSummaryTable() {
-      const wrap = document.getElementById('inl-summary');
-      const tbody = document.getElementById('inl-summary-body');
-      const tfoot = document.getElementById('inl-summary-foot');
+    function computeSummaryData() {
       const base = state.baseAmount;
       const mode = EA_MODES[state.eaMode];
       const w = (typeof state.actualWater === 'number' && state.actualWater > 0) ? state.actualWater : base * SCALE.water_start;
       const denom = w / state.kWater + base / state.kPowder;
-      let rows = '', totalAdded = 0, totalPulled = 0, product = 1, hasData = false;
-      let remaining = 0;
       const maxP = effectiveMaxPulls();
+      const rows = [];
+      let totalAdded = 0, totalPulled = 0;
+      let product = 1, remaining = 0;
       for (let i = 1; i <= maxP; i++) {
         const aEl = document.querySelector('[data-inl-a="' + i + '"]');
         const pEl = document.querySelector('[data-inl-p="' + i + '"]');
@@ -998,44 +1035,241 @@
         const totalEA = remaining + added;
         const pulled = parseFloat(pEl.value);
         if (!pulled || pulled <= 0 || pulled > totalEA) break;
-        hasData = true;
         const newRemaining = totalEA - pulled;
         const mRemoved = pulled / (totalEA + denom);
         product *= (1 - mRemoved);
-        const mInJar = product;
-        const eff = 1 - product;
         totalAdded += added;
         totalPulled += pulled;
         remaining = newRemaining;
-        rows += '<tr>'
-          + '<td class="pr-2 py-1 font-bold">' + i + '</td>'
-          + '<td class="text-right px-1">' + Math.round(added) + '</td>'
-          + '<td class="text-right px-1">' + Math.round(pulled) + '</td>'
-          + '<td class="text-right px-1">' + Math.round(newRemaining) + '</td>'
-          + '<td class="text-right px-1">' + (mRemoved * 100).toFixed(1) + '%</td>'
-          + '<td class="text-right px-1">' + (mInJar * 100).toFixed(1) + '%</td>'
-          + '<td class="text-right pl-1 font-bold">' + (eff * 100).toFixed(1) + '%</td>'
-          + '</tr>';
+        rows.push({
+          i: i,
+          added: Math.round(added),
+          pulled: Math.round(pulled),
+          remaining: Math.round(newRemaining),
+          mRemovedPct: (mRemoved * 100).toFixed(1),
+          mInJarPct: (product * 100).toFixed(1),
+          effPct: ((1 - product) * 100).toFixed(1),
+        });
       }
-      if (!hasData) { wrap.style.display = 'none'; return; }
-      wrap.style.display = '';
-      document.getElementById('inl-summary-powder').textContent = Math.round(base);
-      document.getElementById('inl-summary-water').textContent = Math.round(w);
-      tbody.innerHTML = rows;
       const recoveredNum = totalAdded > 0 ? (totalPulled / totalAdded * 100) : null;
-      const recovered = recoveredNum !== null ? recoveredNum.toFixed(1) : '--';
-      const recoveredColor = recoveredNum !== null ? colorVsTarget(recoveredNum, mode.target_recovered, 'pct') : '';
-      tfoot.innerHTML = '<tr class="text-cactus-800">'
+      const yieldG = (typeof state.yieldG === 'number' && state.yieldG > 0) ? state.yieldG : null;
+      return {
+        hasData: rows.length > 0,
+        base: Math.round(base),
+        water: Math.round(w),
+        acidName: ACIDS[state.acidType].name,
+        eaModeLabel: (state.eaMode === 'large' ? '2× EA' : '1× EA') + ' · ' + mode.num_pulls + ' pulls',
+        rows: rows,
+        totalAdded: Math.round(totalAdded),
+        totalPulled: Math.round(totalPulled),
+        recoveredNum: recoveredNum,
+        recoveredColor: recoveredNum !== null ? colorVsTarget(recoveredNum, mode.target_recovered, 'pct') : '',
+        yieldG: yieldG,
+        yieldPct: yieldG !== null ? (yieldG / base * 100) : null,
+      };
+    }
+
+    function updateSummaryTable() {
+      const wrap = document.getElementById('inl-summary');
+      const empty = document.getElementById('summary-empty');
+      const saveBtn = document.getElementById('btn-save-summary');
+      const d = computeSummaryData();
+      if (saveBtn) saveBtn.disabled = !d.hasData;
+      if (!d.hasData) {
+        if (wrap) wrap.style.display = 'none';
+        if (empty) empty.style.display = '';
+        return;
+      }
+      if (wrap) wrap.style.display = '';
+      if (empty) empty.style.display = 'none';
+      document.getElementById('inl-summary-powder').textContent = d.base;
+      document.getElementById('inl-summary-water').textContent = d.water;
+      let rows = '';
+      d.rows.forEach(r => {
+        rows += '<tr>'
+          + '<td class="pr-2 py-1 font-bold">' + r.i + '</td>'
+          + '<td class="text-right px-1">' + r.added + '</td>'
+          + '<td class="text-right px-1">' + r.pulled + '</td>'
+          + '<td class="text-right px-1">' + r.remaining + '</td>'
+          + '<td class="text-right px-1">' + r.mRemovedPct + '%</td>'
+          + '<td class="text-right px-1">' + r.mInJarPct + '%</td>'
+          + '<td class="text-right pl-1 font-bold">' + r.effPct + '%</td>'
+          + '</tr>';
+      });
+      document.getElementById('inl-summary-body').innerHTML = rows;
+      const recovered = d.recoveredNum !== null ? d.recoveredNum.toFixed(1) : '--';
+      let foot = '<tr class="text-cactus-800">'
         + '<td class="pr-2 pt-2">Total</td>'
-        + '<td class="text-right px-1 pt-2">' + Math.round(totalAdded) + '</td>'
-        + '<td class="text-right px-1 pt-2">' + Math.round(totalPulled) + '</td>'
+        + '<td class="text-right px-1 pt-2">' + d.totalAdded + '</td>'
+        + '<td class="text-right px-1 pt-2">' + d.totalPulled + '</td>'
         + '<td colspan="4"></td>'
         + '</tr>'
         + '<tr class="text-cactus-800">'
         + '<td class="pr-2 pt-1">Recovered EA</td>'
-        + '<td class="text-right px-1 pt-1" colspan="2" style="color:' + recoveredColor + '">' + recovered + '%</td>'
+        + '<td class="text-right px-1 pt-1" colspan="2" style="color:' + d.recoveredColor + '">' + recovered + '%</td>'
         + '<td colspan="4"></td>'
         + '</tr>';
+      if (d.yieldG !== null) {
+        foot += '<tr class="text-cactus-800">'
+          + '<td class="pr-2 pt-1">Yield</td>'
+          + '<td class="text-right pl-1 pt-1" colspan="6">' + d.yieldG + ' g (' + d.yieldPct.toFixed(2) + '%)</td>'
+          + '</tr>';
+      }
+      document.getElementById('inl-summary-foot').innerHTML = foot;
+    }
+
+    function buildSummaryCanvas() {
+      const d = computeSummaryData();
+      if (!d.hasData) return null;
+      const cols = [
+        { label: 'Pull',       align: 'left',  w: 46 },
+        { label: 'Added',      align: 'right', w: 70 },
+        { label: 'Pulled',     align: 'right', w: 70 },
+        { label: 'Remaining',  align: 'right', w: 86 },
+        { label: 'M removed',  align: 'right', w: 86 },
+        { label: 'M in jar',   align: 'right', w: 76 },
+        { label: 'Efficiency', align: 'right', w: 86 },
+      ];
+      const pad = 36;
+      const tableW = cols.reduce((s, c) => s + c.w, 0);
+      const W = tableW + pad * 2;
+      const rowH = 26;
+      const footRows = 2 + (d.yieldG !== null ? 1 : 0);
+      let y = pad;
+      const titleH = 30, subH = 22, gap = 14, headH = 26, sepGap = 8;
+      const H = pad + titleH + subH + gap + headH + sepGap + d.rows.length * rowH
+              + sepGap + footRows * rowH + 8 + 18 + pad;
+      const dpr = Math.min(window.devicePixelRatio || 1, 3);
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(W * dpr);
+      canvas.height = Math.round(H * dpr);
+      const ctx = canvas.getContext('2d');
+      ctx.scale(dpr, dpr);
+      const FONT = '"DM Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif';
+      const MONO = '"DM Mono", ui-monospace, Menlo, Consolas, monospace';
+
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, W, H);
+      ctx.fillStyle = '#22c55e';
+      ctx.fillRect(0, 0, 6, H);
+
+      const colX = [];
+      let cx = pad;
+      cols.forEach(c => { colX.push(cx); cx += c.w; });
+      const cellX = (idx) => cols[idx].align === 'right' ? colX[idx] + cols[idx].w - 6 : colX[idx];
+      const drawRow = (vals, opts) => {
+        opts = opts || {};
+        ctx.font = (opts.bold ? '600 ' : '') + '13px ' + (opts.mono ? MONO : FONT);
+        ctx.fillStyle = opts.color || '#1f2937';
+        vals.forEach((v, idx) => {
+          if (v == null || v === '') return;
+          ctx.textAlign = cols[idx].align;
+          ctx.fillText(String(v), cellX(idx), y + 17);
+        });
+      };
+
+      ctx.textBaseline = 'alphabetic';
+      ctx.textAlign = 'left';
+      const logoSize = 30;
+      ctx.save();
+      ctx.translate(pad, y - 2);
+      ctx.scale(logoSize / 24, logoSize / 24);
+      ctx.strokeStyle = '#16a34a';
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ['M10 22V4a2 2 0 0 1 4 0v18',
+       'M10 14H8a2 2 0 0 1-2-2V9a2 2 0 0 1 4 0v5',
+       'M14 12h2a2 2 0 0 0 2-2V8a2 2 0 0 0-4 0v4',
+       'M7 22L17 22'].forEach(p => ctx.stroke(new Path2D(p)));
+      ctx.restore();
+      ctx.font = '700 22px ' + FONT;
+      ctx.fillStyle = '#166534';
+      ctx.fillText('CIELO Extraction Summary', pad + logoSize + 12, y + 22);
+      y += titleH;
+      ctx.font = '13px ' + FONT;
+      ctx.fillStyle = '#6b7280';
+      ctx.fillText(d.base + ' g powder  ·  ' + d.water + ' ml water  ·  ' + d.acidName + '  ·  ' + d.eaModeLabel, pad, y + 15);
+      y += subH + gap;
+
+      ctx.fillStyle = '#6b7280';
+      ctx.font = '600 12px ' + FONT;
+      cols.forEach((c, idx) => { ctx.textAlign = c.align; ctx.fillText(c.label, cellX(idx), y + 16); });
+      y += headH;
+      ctx.strokeStyle = '#bbf7d0';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(pad, y + 2); ctx.lineTo(pad + tableW, y + 2); ctx.stroke();
+      y += sepGap;
+
+      d.rows.forEach(r => {
+        drawRow([r.i, r.added, r.pulled, r.remaining, r.mRemovedPct + '%', r.mInJarPct + '%', r.effPct + '%'], { mono: true });
+        y += rowH;
+      });
+
+      ctx.strokeStyle = '#86efac';
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(pad, y + 2); ctx.lineTo(pad + tableW, y + 2); ctx.stroke();
+      y += sepGap;
+
+      const recovered = d.recoveredNum !== null ? d.recoveredNum.toFixed(1) + '%' : '--';
+      drawRow(['Total', d.totalAdded, d.totalPulled, '', '', '', ''], { bold: true, mono: true, color: '#166534' });
+      y += rowH;
+      ctx.font = '600 13px ' + MONO;
+      ctx.fillStyle = '#166534';
+      ctx.textAlign = 'left';
+      ctx.fillText('Recovered EA', colX[0], y + 17);
+      ctx.fillStyle = d.recoveredColor || '#166534';
+      ctx.textAlign = 'right';
+      ctx.fillText(recovered, cellX(2), y + 17);
+      y += rowH;
+      if (d.yieldG !== null) {
+        ctx.fillStyle = '#166534';
+        ctx.textAlign = 'left';
+        ctx.font = '600 13px ' + MONO;
+        ctx.fillText('Yield', colX[0], y + 17);
+        ctx.textAlign = 'right';
+        ctx.fillText(d.yieldG + ' g (' + d.yieldPct.toFixed(2) + '%)', cellX(6), y + 17);
+        y += rowH;
+      }
+
+      y += 8;
+      ctx.font = '11px ' + FONT;
+      ctx.fillStyle = '#9ca3af';
+      ctx.textAlign = 'left';
+      ctx.fillText('Generated with the CIELO interactive extraction guide', pad, y + 12);
+      return canvas;
+    }
+
+    function summaryStatus(msg) {
+      const el = document.getElementById('summary-share-status');
+      if (el) el.textContent = msg || '';
+    }
+
+    function downloadBlob(blob, name) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    function withSummaryBlob(cb) {
+      const canvas = buildSummaryCanvas();
+      if (!canvas) { summaryStatus('Add pull data first.'); return; }
+      canvas.toBlob(blob => {
+        if (!blob) { summaryStatus('Could not render image.'); return; }
+        cb(blob);
+      }, 'image/png');
+    }
+
+    function saveSummaryImage() {
+      withSummaryBlob(blob => {
+        downloadBlob(blob, 'cielo-extraction-summary.png');
+        summaryStatus('Image saved.');
+      });
     }
 
     function initChecklist() {
@@ -1218,6 +1452,8 @@
       document.getElementById('k-powder').value = state.kPowder;
       const aw = document.getElementById('actual-water');
       if (aw && typeof state.actualWater === 'number' && state.actualWater > 0) aw.value = state.actualWater;
+      const yi = document.getElementById('yield-input');
+      if (yi && typeof state.yieldG === 'number' && state.yieldG > 0) yi.value = state.yieldG;
     }
 
     document.addEventListener('DOMContentLoaded', () => {

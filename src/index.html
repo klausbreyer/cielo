@@ -376,7 +376,7 @@
         <h2 class="text-base font-bold text-gray-800">Extraction Summary</h2>
       </div>
       <div class="p-4">
-        <p class="text-sm text-gray-500 mb-3">A recap of this run. Add the final crystal yield, then save the image for r/mescaline or the Nexus.</p>
+        <p class="text-sm text-gray-500 mb-3">Want to give back to the community? Input the final crystal yield, and answer the survey below (partial answers OK). Post the saved image at <a href="https://www.anoniem.org/https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 text-cactus-700 hover:text-cactus-800 font-semibold">r/mescaline</a> or the <a href="https://www.anoniem.org/https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 text-cactus-700 hover:text-cactus-800 font-semibold">Nexus</a>.</p>
 
         <div class="flex items-center gap-2 flex-wrap mb-1">
           <span class="font-medium text-gray-500 text-xs whitespace-nowrap uppercase tracking-wider">Final crystal yield</span>
@@ -411,11 +411,276 @@
         </div>
         <p id="summary-empty" class="text-xs text-gray-400 italic">Enter pull weights in the <a href="#phase3" onclick="jumpToPhase(event,'phase3')" class="underline underline-offset-2 text-cactus-700 hover:text-cactus-800 font-semibold">Extract</a> section to build the summary.</p>
 
-        <div class="flex items-center gap-2 flex-wrap mt-4">
+        <!-- Community Survey -->
+        <div class="mt-5 pt-5 border-t border-cactus-200">
+          <h3 class="font-bold text-sm text-cactus-800 mb-1">Community Survey</h3>
+          <p class="text-xs text-gray-500 italic mb-3">All fields optional. Filled answers are baked into the saved image so the community can later look for yield correlations.</p>
+
+          <div class="space-y-3 text-xs">
+
+            <!-- Plant -->
+            <fieldset class="space-y-1.5">
+              <legend class="font-bold text-[11px] uppercase tracking-wider text-gray-600 mb-1">Plant</legend>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+                <label class="block">
+                  <span class="block text-gray-500 mb-0.5">Species</span>
+                  <select data-survey="species" class="survey-input">
+                    <option value="">--</option>
+                    <optgroup label="Pure">
+                      <option value="pachanoi">pachanoi</option>
+                      <option value="peruvianus">peruvianus</option>
+                      <option value="bridgesii">bridgesii</option>
+                      <option value="scopulicola">scopulicola</option>
+                    </optgroup>
+                    <optgroup label="Hybrid (mother x father)">
+                      <option value="pachanoi x peruvianus">pachanoi x peruvianus</option>
+                      <option value="peruvianus x pachanoi">peruvianus x pachanoi</option>
+                      <option value="pachanoi x bridgesii">pachanoi x bridgesii</option>
+                      <option value="bridgesii x pachanoi">bridgesii x pachanoi</option>
+                      <option value="pachanoi x scopulicola">pachanoi x scopulicola</option>
+                      <option value="scopulicola x pachanoi">scopulicola x pachanoi</option>
+                      <option value="peruvianus x bridgesii">peruvianus x bridgesii</option>
+                      <option value="bridgesii x peruvianus">bridgesii x peruvianus</option>
+                      <option value="peruvianus x scopulicola">peruvianus x scopulicola</option>
+                      <option value="scopulicola x peruvianus">scopulicola x peruvianus</option>
+                      <option value="bridgesii x scopulicola">bridgesii x scopulicola</option>
+                      <option value="scopulicola x bridgesii">scopulicola x bridgesii</option>
+                    </optgroup>
+                    <option value="other">Other (specify)</option>
+                  </select>
+                  <input type="text" data-survey="species_other" placeholder="specify species" class="survey-input mt-1" data-show-when="species=other" style="display:none;">
+                </label>
+                <label class="block">
+                  <span class="block text-gray-500 mb-0.5">Clone name</span>
+                  <select data-survey="clone" class="survey-input">
+                    <option value="">--</option>
+                    <option value="NOID">NOID</option>
+                    <option value="PC">PC</option>
+                    <option value="BBG">BBG</option>
+                    <option value="SS02">SS02</option>
+                    <option value="KGC">KGC</option>
+                    <option value="Yowie">Yowie</option>
+                    <option value="Juul's Giant">Juul's Giant</option>
+                    <option value="Eileen">Eileen</option>
+                    <option value="Lumberjack">Lumberjack</option>
+                    <option value="Helmut">Helmut</option>
+                    <option value="other">Other (specify)</option>
+                  </select>
+                  <input type="text" data-survey="clone_other" placeholder="specify clone" class="survey-input mt-1" data-show-when="clone=other" style="display:none;">
+                </label>
+                <label class="block">
+                  <span class="block text-gray-500 mb-0.5">Part of plant harvested</span>
+                  <select data-survey="plant_part" class="survey-input">
+                    <option value="">--</option>
+                    <option value="mother">Mother</option>
+                    <option value="pup">Pup</option>
+                  </select>
+                </label>
+                <label class="block" data-show-when="plant_part=pup" style="display:none;">
+                  <span class="block text-gray-500 mb-0.5">Age of pup (years)</span>
+                  <select data-survey="pup_age" class="survey-input">
+                    <option value="">--</option>
+                  </select>
+                </label>
+                <label class="block" data-show-when="plant_part=mother,pup" style="display:none;">
+                  <span class="block text-gray-500 mb-0.5">Age of mother (years)</span>
+                  <select data-survey="mother_age" class="survey-input">
+                    <option value="">--</option>
+                  </select>
+                </label>
+                <label class="block" data-show-when="plant_part=mother,pup" style="display:none;">
+                  <span class="block text-gray-500 mb-0.5">Cutting section(s)</span>
+                  <select data-survey="cutting" class="survey-input">
+                    <option value="">--</option>
+                  </select>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Stress -->
+            <fieldset class="space-y-1.5">
+              <legend class="font-bold text-[11px] uppercase tracking-wider text-gray-600 mb-1">Stress</legend>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+                <label class="block">
+                  <span class="block text-gray-500 mb-0.5">Weeks stressed</span>
+                  <select data-survey="stress_weeks" class="survey-input">
+                    <option value="">--</option>
+                    <option value="0">No stress</option>
+                  </select>
+                </label>
+                <label class="block" data-show-when="stress_weeks=positive" style="display:none;">
+                  <span class="block text-gray-500 mb-0.5">Light during stress</span>
+                  <select data-survey="stress_light" class="survey-input">
+                    <option value="">--</option>
+                    <option value="Indoor light">Indoor light</option>
+                    <option value="Outdoor light">Outdoor light</option>
+                    <option value="Dark">Dark</option>
+                    <option value="In paper bag">In paper bag</option>
+                    <option value="In paper bag with ripening bananas/apples">In paper bag with ripening bananas/apples</option>
+                  </select>
+                </label>
+                <label class="block" data-show-when="stress_weeks=positive" style="display:none;">
+                  <span class="block text-gray-500 mb-0.5">Temperature during stress</span>
+                  <select data-survey="stress_temp" class="survey-input">
+                    <option value="">--</option>
+                    <option value="At room temp">At room temp</option>
+                    <option value="Below room temp">Below room temp</option>
+                    <option value="Above room temp">Above room temp</option>
+                  </select>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Processing -->
+            <fieldset class="space-y-1.5">
+              <legend class="font-bold text-[11px] uppercase tracking-wider text-gray-600 mb-1">Processing</legend>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+                <label class="block">
+                  <span class="block text-gray-500 mb-0.5">Parts used for extraction</span>
+                  <select data-survey="parts_used" class="survey-input">
+                    <option value="">--</option>
+                    <option value="Whole plant">Whole plant</option>
+                    <option value="Core excluded">Core excluded</option>
+                  </select>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Growing conditions -->
+            <fieldset class="space-y-1.5">
+              <legend class="font-bold text-[11px] uppercase tracking-wider text-gray-600 mb-1">Growing conditions</legend>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+                <label class="block">
+                  <span class="block text-gray-500 mb-0.5">Fertilizer used</span>
+                  <input type="text" data-survey="fertilizer" placeholder="brand, NPK, type..." class="survey-input">
+                </label>
+                <label class="block">
+                  <span class="block text-gray-500 mb-0.5">Monthly feedings (per month)</span>
+                  <input type="number" data-survey="feedings_monthly" min="0" step="any" placeholder="e.g. 2" class="survey-input">
+                </label>
+                <label class="block">
+                  <span class="block text-gray-500 mb-0.5">Environment</span>
+                  <select data-survey="environment" class="survey-input">
+                    <option value="">--</option>
+                    <option value="outdoors">Outdoors</option>
+                    <option value="indoors">Indoors</option>
+                  </select>
+                </label>
+                <label class="block" data-show-when="environment=outdoors" style="display:none;">
+                  <span class="block text-gray-500 mb-0.5">Season of harvest</span>
+                  <select data-survey="season" class="survey-input">
+                    <option value="">--</option>
+                    <option value="winter">Winter</option>
+                    <option value="spring">Spring</option>
+                    <option value="summer">Summer</option>
+                    <option value="fall">Fall</option>
+                  </select>
+                </label>
+                <label class="block" data-show-when="environment=outdoors" style="display:none;">
+                  <span class="block text-gray-500 mb-0.5">Local UV index</span>
+                  <input type="number" data-survey="uv_index" min="0" step="any" placeholder="e.g. 7" class="survey-input">
+                </label>
+                <label class="block" data-show-when="environment=outdoors" style="display:none;">
+                  <span class="block text-gray-500 mb-0.5">Light hours / day</span>
+                  <input type="number" data-survey="light_hours" min="0" max="24" step="any" placeholder="e.g. 12" class="survey-input">
+                </label>
+                <label class="block" data-show-when="environment=outdoors" style="display:none;">
+                  <span class="block text-gray-500 mb-0.5">Latitude</span>
+                  <input type="text" data-survey="latitude" placeholder="e.g. 34.05 N" class="survey-input">
+                </label>
+                <label class="block" data-show-when="environment=outdoors" style="display:none;">
+                  <span class="block text-gray-500 mb-0.5">Altitude (m)</span>
+                  <input type="number" data-survey="altitude" min="0" step="any" placeholder="e.g. 600" class="survey-input">
+                </label>
+                <label class="block" data-show-when="environment=indoors" style="display:none;">
+                  <span class="block text-gray-500 mb-0.5">Light wavelength</span>
+                  <input type="text" data-survey="light_wavelength" placeholder="e.g. full spectrum, 660nm" class="survey-input">
+                </label>
+                <label class="block" data-show-when="environment=indoors" style="display:none;">
+                  <span class="block text-gray-500 mb-0.5">Wattage (W)</span>
+                  <input type="number" data-survey="wattage" min="0" step="any" placeholder="e.g. 100" class="survey-input">
+                </label>
+                <label class="block sm:col-span-2 lg:col-span-3 xl:col-span-4">
+                  <span class="block text-gray-500 mb-0.5">Soil mix</span>
+                  <input type="text" data-survey="soil" placeholder="e.g. 1:1:1 pumice / coco / compost" class="survey-input">
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Damage -->
+            <fieldset class="space-y-1.5">
+              <legend class="font-bold text-[11px] uppercase tracking-wider text-gray-600 mb-1">Damage</legend>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <label class="block">
+                  <span class="block text-gray-500 mb-0.5">Insects</span>
+                  <select data-survey="dmg_insects" class="survey-input">
+                    <option value="">--</option>
+                    <option value="none">none</option>
+                    <option value="light">light</option>
+                    <option value="medium">medium</option>
+                    <option value="heavy">heavy</option>
+                  </select>
+                </label>
+                <label class="block">
+                  <span class="block text-gray-500 mb-0.5">Mold</span>
+                  <select data-survey="dmg_mold" class="survey-input">
+                    <option value="">--</option>
+                    <option value="none">none</option>
+                    <option value="light">light</option>
+                    <option value="medium">medium</option>
+                    <option value="heavy">heavy</option>
+                  </select>
+                </label>
+                <label class="block">
+                  <span class="block text-gray-500 mb-0.5">Cold</span>
+                  <select data-survey="dmg_cold" class="survey-input">
+                    <option value="">--</option>
+                    <option value="none">none</option>
+                    <option value="light">light</option>
+                    <option value="medium">medium</option>
+                    <option value="heavy">heavy</option>
+                  </select>
+                </label>
+                <label class="block">
+                  <span class="block text-gray-500 mb-0.5">Virus/Bacteria/Rot</span>
+                  <select data-survey="dmg_vbr" class="survey-input">
+                    <option value="">--</option>
+                    <option value="none">none</option>
+                    <option value="light">light</option>
+                    <option value="medium">medium</option>
+                    <option value="heavy">heavy</option>
+                  </select>
+                </label>
+              </div>
+            </fieldset>
+
+            <label class="block">
+              <span class="block text-gray-500 mb-0.5 text-[11px] uppercase tracking-wider font-bold">Other details</span>
+              <textarea data-survey="notes" rows="2" placeholder="anything else worth noting..." class="survey-input"></textarea>
+            </label>
+          </div>
+        </div>
+
+        <p class="text-xs text-gray-500 mt-4 mb-2">Pick the format that matches where you are posting. Reddit users: toggle to <b>Markdown Mode</b> at the bottom of the Reddit composer before pasting, otherwise the table will appear as plain text.</p>
+        <div class="flex items-center gap-2 flex-wrap">
           <button type="button" id="btn-save-summary" onclick="saveSummaryImage()" disabled
                   class="px-3 py-1.5 border border-cactus-300 hover:border-cactus-500 text-cactus-700 hover:text-cactus-900 rounded text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
             Save image
           </button>
+          <button type="button" id="btn-copy-reddit" onclick="copySummaryMarkdown()" disabled
+                  class="px-3 py-1.5 border border-cactus-300 hover:border-cactus-500 text-cactus-700 hover:text-cactus-900 rounded text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
+            Copy markdown (Reddit)
+          </button>
+          <button type="button" id="btn-copy-md" onclick="copySummaryTable()" disabled
+                  class="px-3 py-1.5 border border-cactus-300 hover:border-cactus-500 text-cactus-700 hover:text-cactus-900 rounded text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
+            Copy rich table
+          </button>
+          <button type="button" id="btn-copy-bb" onclick="copySummaryBBCode()" disabled
+                  class="px-3 py-1.5 border border-cactus-300 hover:border-cactus-500 text-cactus-700 hover:text-cactus-900 rounded text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
+            Copy BBCode (Nexus)
+          </button>
+          <a href="https://www.anoniem.org/https://www.reddit.com/r/mescaline/submit" target="_blank" rel="noopener" class="px-3 py-1.5 border border-cactus-300 hover:border-cactus-500 text-cactus-700 hover:text-cactus-900 rounded text-xs font-semibold uppercase tracking-wider transition-colors">Open r/mescaline</a>
+          <a href="https://www.anoniem.org/https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="px-3 py-1.5 border border-cactus-300 hover:border-cactus-500 text-cactus-700 hover:text-cactus-900 rounded text-xs font-semibold uppercase tracking-wider transition-colors">Open the Nexus</a>
           <span id="summary-share-status" class="text-xs text-gray-400 italic" aria-live="polite"></span>
         </div>
       </div>
@@ -460,7 +725,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://www.anoniem.org/https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://www.anoniem.org/https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.anoniem.org/https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.anoniem.org/https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://www.anoniem.org/https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.anoniem.org/https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
-      <p class="text-gray-400 mt-2">v3.10.0</p>
+      <p class="text-gray-400 mt-2">v3.12.0</p>
     </footer>
 
   </main>
@@ -495,7 +760,7 @@
     let state = loadState();
 
     function defaultState() {
-      return { version: 7, baseAmount: 100, acidType: 'fumaric', eaMode: 'standard', kWater: 3, kPowder: 1, extraPulls: 0, actualWater: null, yieldG: null, checklist: {}, timerStart: null, timerEnd: null };
+      return { version: 8, baseAmount: 100, acidType: 'fumaric', eaMode: 'standard', kWater: 3, kPowder: 1, extraPulls: 0, actualWater: null, yieldG: null, checklist: {}, timerStart: null, timerEnd: null, survey: {} };
     }
 
     const CONGEAL_MS = 60 * 60 * 1000;
@@ -527,13 +792,14 @@
         const raw = localStorage.getItem(STORAGE_KEY);
         if (raw) {
           const s = JSON.parse(raw);
-          if (s && s.version >= 4 && s.version <= 7) {
+          if (s && s.version >= 4 && s.version <= 8) {
             if (!s.eaMode) s.eaMode = 'standard';
             if (typeof s.kWater !== 'number') s.kWater = 3;
             if (typeof s.kPowder !== 'number') s.kPowder = 1;
             if (typeof s.extraPulls !== 'number') s.extraPulls = 0;
             if (typeof s.actualWater !== 'number') s.actualWater = null;
             if (typeof s.yieldG !== 'number') s.yieldG = null;
+            if (!s.survey || typeof s.survey !== 'object') s.survey = {};
             if (s.checklist && s.checklist['s3-6'] && !s.checklist['s3-end']) {
               s.checklist['s3-end'] = true;
               delete s.checklist['s3-6'];
@@ -687,6 +953,94 @@
       state.yieldG = (isNaN(n) || n <= 0) ? null : n;
       saveState();
       updateSummaryTable();
+    }
+
+    const SURVEY_FIELDS = [
+      ['species', 'Species'],
+      ['species_other', 'Species (other)'],
+      ['clone', 'Clone'],
+      ['clone_other', 'Clone (other)'],
+      ['plant_part', 'Plant part'],
+      ['pup_age', 'Pup age (yrs)'],
+      ['mother_age', 'Mother age (yrs)'],
+      ['cutting', 'Cutting'],
+      ['stress_weeks', 'Stress (wks)'],
+      ['stress_light', 'Stress light'],
+      ['stress_temp', 'Stress temp'],
+      ['parts_used', 'Parts used'],
+      ['fertilizer', 'Fertilizer'],
+      ['feedings_monthly', 'Feedings/mo'],
+      ['environment', 'Environment'],
+      ['season', 'Season'],
+      ['uv_index', 'UV index'],
+      ['light_hours', 'Light hrs/day'],
+      ['latitude', 'Latitude'],
+      ['altitude', 'Altitude (m)'],
+      ['light_wavelength', 'Wavelength'],
+      ['wattage', 'Wattage'],
+      ['soil', 'Soil mix'],
+      ['dmg_insects', 'Insect dmg'],
+      ['dmg_mold', 'Mold dmg'],
+      ['dmg_cold', 'Cold dmg'],
+      ['dmg_vbr', 'Virus/Bact/Rot'],
+      ['notes', 'Notes'],
+    ];
+
+    function initSurvey() {
+      const pupAge = document.querySelector('select[data-survey="pup_age"]');
+      if (pupAge) {
+        for (let i = 1; i <= 50; i++) pupAge.add(new Option(String(i), String(i)));
+      }
+      const motherAge = document.querySelector('select[data-survey="mother_age"]');
+      if (motherAge) {
+        for (let i = 1; i <= 100; i++) motherAge.add(new Option(String(i), String(i)));
+        motherAge.add(new Option('100+', '100+'));
+      }
+      const stress = document.querySelector('select[data-survey="stress_weeks"]');
+      if (stress) {
+        for (let i = 1; i <= 52; i++) stress.add(new Option(String(i), String(i)));
+      }
+      const cutOptions = ['Full', 'Top', 'Middle', 'Bottom', 'Top and Middle', 'Top and Bottom', 'Middle and Bottom'];
+      const cutting = document.querySelector('select[data-survey="cutting"]');
+      if (cutting) {
+        cutOptions.forEach(o => cutting.add(new Option(o, o)));
+      }
+
+      document.querySelectorAll('[data-survey]').forEach(el => {
+        const key = el.dataset.survey;
+        const v = state.survey ? state.survey[key] : null;
+        if (v != null && v !== '') el.value = v;
+        const handler = () => handleSurveyChange(el);
+        el.addEventListener('change', handler);
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.addEventListener('input', handler);
+      });
+      updateSurveyVisibility();
+    }
+
+    function handleSurveyChange(el) {
+      const key = el.dataset.survey;
+      const val = (el.value || '').trim();
+      if (!state.survey) state.survey = {};
+      if (val === '') delete state.survey[key]; else state.survey[key] = val;
+      saveState();
+      updateSurveyVisibility();
+    }
+
+    function surveyConditionMet(cond) {
+      const [field, valSpec] = cond.split('=');
+      const current = state.survey ? state.survey[field] : null;
+      if (!current) return false;
+      if (valSpec === 'positive') {
+        const n = parseFloat(current);
+        return !isNaN(n) && n > 0;
+      }
+      return valSpec.split(',').includes(current);
+    }
+
+    function updateSurveyVisibility() {
+      document.querySelectorAll('[data-show-when]').forEach(el => {
+        el.style.display = surveyConditionMet(el.dataset.showWhen) ? '' : 'none';
+      });
     }
 
     function resetCoefficients() {
@@ -1073,8 +1427,14 @@
       const wrap = document.getElementById('inl-summary');
       const empty = document.getElementById('summary-empty');
       const saveBtn = document.getElementById('btn-save-summary');
+      const redditBtn = document.getElementById('btn-copy-reddit');
+      const mdBtn = document.getElementById('btn-copy-md');
+      const bbBtn = document.getElementById('btn-copy-bb');
       const d = computeSummaryData();
       if (saveBtn) saveBtn.disabled = !d.hasData;
+      if (redditBtn) redditBtn.disabled = !d.hasData;
+      if (mdBtn) mdBtn.disabled = !d.hasData;
+      if (bbBtn) bbBtn.disabled = !d.hasData;
       if (!d.hasData) {
         if (wrap) wrap.style.display = 'none';
         if (empty) empty.style.display = '';
@@ -1118,6 +1478,30 @@
       document.getElementById('inl-summary-foot').innerHTML = foot;
     }
 
+    function wrapText(ctx, text, maxW) {
+      const words = String(text).split(/\s+/);
+      const lines = [];
+      let line = '';
+      words.forEach(w => {
+        const candidate = line ? line + ' ' + w : w;
+        if (ctx.measureText(candidate).width <= maxW) {
+          line = candidate;
+        } else {
+          if (line) lines.push(line);
+          line = w;
+        }
+      });
+      if (line) lines.push(line);
+      return lines.length ? lines : [''];
+    }
+
+    function truncateToWidth(ctx, text, maxW) {
+      if (ctx.measureText(text).width <= maxW) return text;
+      let s = text;
+      while (s.length > 1 && ctx.measureText(s + '...').width > maxW) s = s.slice(0, -1);
+      return s + '...';
+    }
+
     function buildSummaryCanvas() {
       const d = computeSummaryData();
       if (!d.hasData) return null;
@@ -1137,8 +1521,37 @@
       const footRows = 2 + (d.yieldG !== null ? 1 : 0);
       let y = pad;
       const titleH = 30, subH = 22, gap = 14, headH = 26, sepGap = 8;
+
+      const FONT_MAIN = '"DM Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif';
+      const surveyEntries = SURVEY_FIELDS
+        .map(([k, label]) => {
+          const v = state.survey ? state.survey[k] : null;
+          if (v == null || v === '') return null;
+          if (k === 'species' && v === 'other') return null;
+          if (k === 'clone' && v === 'other') return null;
+          return [label, String(v)];
+        })
+        .filter(Boolean);
+      const surveyRowH = 18;
+      const surveyHeadH = 24;
+      const surveyGap = 14;
+      const notesEntry = surveyEntries.find(e => e[0] === 'Notes');
+      const tabularEntries = surveyEntries.filter(e => e[0] !== 'Notes');
+      const surveyCols = 2;
+      const surveyTableRows = Math.ceil(tabularEntries.length / surveyCols);
+      let notesLines = [];
+      if (notesEntry) {
+        const measure = document.createElement('canvas').getContext('2d');
+        measure.font = '12px ' + FONT_MAIN;
+        notesLines = wrapText(measure, notesEntry[1], tableW - 60);
+      }
+      const surveyBlockH = surveyEntries.length
+        ? surveyGap + surveyHeadH + surveyTableRows * surveyRowH
+          + (notesEntry ? 6 + 16 + notesLines.length * 16 : 0)
+        : 0;
+
       const H = pad + titleH + subH + gap + headH + sepGap + d.rows.length * rowH
-              + sepGap + footRows * rowH + 8 + 18 + pad;
+              + sepGap + footRows * rowH + surveyBlockH + 8 + 18 + pad;
       const dpr = Math.min(window.devicePixelRatio || 1, 3);
       const canvas = document.createElement('canvas');
       canvas.width = Math.round(W * dpr);
@@ -1232,6 +1645,43 @@
         y += rowH;
       }
 
+      if (surveyEntries.length) {
+        y += surveyGap;
+        ctx.font = '700 13px ' + FONT;
+        ctx.fillStyle = '#166534';
+        ctx.textAlign = 'left';
+        ctx.fillText('Community Survey', pad, y + 16);
+        y += surveyHeadH;
+        const colW = tableW / 2;
+        ctx.font = '12px ' + FONT;
+        for (let i = 0; i < surveyTableRows; i++) {
+          for (let c = 0; c < surveyCols; c++) {
+            const entry = tabularEntries[i * surveyCols + c];
+            if (!entry) continue;
+            const x = pad + c * colW;
+            ctx.fillStyle = '#6b7280';
+            ctx.textAlign = 'left';
+            ctx.fillText(entry[0] + ':', x, y + 13);
+            ctx.fillStyle = '#1f2937';
+            const labelW = ctx.measureText(entry[0] + ': ').width;
+            const val = truncateToWidth(ctx, entry[1], colW - labelW - 12);
+            ctx.fillText(val, x + labelW, y + 13);
+          }
+          y += surveyRowH;
+        }
+        if (notesEntry) {
+          y += 6;
+          ctx.fillStyle = '#6b7280';
+          ctx.fillText('Notes:', pad, y + 13);
+          y += 16;
+          ctx.fillStyle = '#1f2937';
+          notesLines.forEach(line => {
+            ctx.fillText(line, pad, y + 13);
+            y += 16;
+          });
+        }
+      }
+
       y += 8;
       ctx.font = '11px ' + FONT;
       ctx.fillStyle = '#9ca3af';
@@ -1270,6 +1720,231 @@
         downloadBlob(blob, 'cielo-extraction-summary.png');
         summaryStatus('Image saved.');
       });
+    }
+
+    function buildSurveyEntries() {
+      return SURVEY_FIELDS
+        .map(([k, label]) => {
+          const v = state.survey ? state.survey[k] : null;
+          if (v == null || v === '') return null;
+          if (k === 'species' && v === 'other') return null;
+          if (k === 'clone' && v === 'other') return null;
+          return [label, String(v)];
+        })
+        .filter(Boolean);
+    }
+
+    function buildSummaryHeaderLine() {
+      const d = computeSummaryData();
+      if (!d.hasData) return null;
+      return { d };
+    }
+
+    function escapeMd(s) {
+      return String(s).replace(/\\/g, '\\\\').replace(/\|/g, '\\|').replace(/\n+/g, ' ');
+    }
+
+    function buildSummaryMarkdown() {
+      const d = computeSummaryData();
+      if (!d.hasData) return null;
+      const out = [];
+      out.push('**CIELO Extraction Summary**');
+      out.push('');
+      out.push(d.base + ' g powder, ' + d.water + ' ml water, ' + d.acidName + ', ' + d.eaModeLabel);
+      out.push('');
+      out.push('|Pull|Added|Pulled|Remaining|M removed|M in jar|Efficiency|');
+      out.push('|:-:|-:|-:|-:|-:|-:|-:|');
+      d.rows.forEach(r => {
+        out.push('|' + r.i + '|' + r.added + '|' + r.pulled + '|' + r.remaining
+          + '|' + r.mRemovedPct + '%|' + r.mInJarPct + '%|' + r.effPct + '%|');
+      });
+      out.push('|**Total**|**' + d.totalAdded + '**|**' + d.totalPulled + '**|||||');
+      out.push('');
+      const recovered = d.recoveredNum !== null ? d.recoveredNum.toFixed(1) + '%' : '--';
+      out.push('**Recovered EA:** ' + recovered + '  ');
+      if (d.yieldG !== null) {
+        out.push('**Yield:** ' + d.yieldG + ' g (' + d.yieldPct.toFixed(2) + '%)');
+      }
+      const entries = buildSurveyEntries();
+      if (entries.length) {
+        out.push('');
+        out.push('**Community Survey**');
+        out.push('');
+        out.push('|Field|Value|');
+        out.push('|:-|:-|');
+        entries.forEach(([k, v]) => {
+          out.push('|' + escapeMd(k) + '|' + escapeMd(v) + '|');
+        });
+      }
+      out.push('');
+      out.push('*Generated with the CIELO interactive extraction guide*');
+      return out.join('\n');
+    }
+
+    function escapeHtml(s) {
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function buildSummaryHTML() {
+      const d = computeSummaryData();
+      if (!d.hasData) return null;
+      const lines = [];
+      lines.push('<h3>CIELO Extraction Summary</h3>');
+      lines.push('<p>' + escapeHtml(d.base + ' g powder, ' + d.water + ' ml water, ' + d.acidName + ', ' + d.eaModeLabel) + '</p>');
+      lines.push('<table border="1" cellpadding="4" cellspacing="0">');
+      lines.push('<tr><th>Pull</th><th>Added</th><th>Pulled</th><th>Remaining</th><th>M removed</th><th>M in jar</th><th>Efficiency</th></tr>');
+      d.rows.forEach(r => {
+        lines.push('<tr><td>' + r.i + '</td><td>' + r.added + '</td><td>' + r.pulled
+          + '</td><td>' + r.remaining + '</td><td>' + r.mRemovedPct + '%</td><td>'
+          + r.mInJarPct + '%</td><td>' + r.effPct + '%</td></tr>');
+      });
+      lines.push('<tr><td><b>Total</b></td><td><b>' + d.totalAdded + '</b></td><td><b>'
+        + d.totalPulled + '</b></td><td></td><td></td><td></td><td></td></tr>');
+      lines.push('</table>');
+      const recovered = d.recoveredNum !== null ? d.recoveredNum.toFixed(1) + '%' : '--';
+      lines.push('<p><b>Recovered EA:</b> ' + recovered + '</p>');
+      if (d.yieldG !== null) {
+        lines.push('<p><b>Yield:</b> ' + d.yieldG + ' g (' + d.yieldPct.toFixed(2) + '%)</p>');
+      }
+      const entries = buildSurveyEntries();
+      if (entries.length) {
+        lines.push('<h4>Community Survey</h4>');
+        lines.push('<table border="1" cellpadding="4" cellspacing="0">');
+        entries.forEach(([k, v]) => {
+          lines.push('<tr><td><b>' + escapeHtml(k) + '</b></td><td>' + escapeHtml(v) + '</td></tr>');
+        });
+        lines.push('</table>');
+      }
+      lines.push('<p><i>Generated with the CIELO interactive extraction guide</i></p>');
+      return lines.join('\n');
+    }
+
+    function buildSummaryTSV() {
+      const d = computeSummaryData();
+      if (!d.hasData) return null;
+      const lines = [];
+      lines.push('CIELO Extraction Summary');
+      lines.push(d.base + ' g powder, ' + d.water + ' ml water, ' + d.acidName + ', ' + d.eaModeLabel);
+      lines.push('');
+      lines.push(['Pull', 'Added', 'Pulled', 'Remaining', 'M removed', 'M in jar', 'Efficiency'].join('\t'));
+      d.rows.forEach(r => {
+        lines.push([r.i, r.added, r.pulled, r.remaining, r.mRemovedPct + '%', r.mInJarPct + '%', r.effPct + '%'].join('\t'));
+      });
+      lines.push(['Total', d.totalAdded, d.totalPulled, '', '', '', ''].join('\t'));
+      lines.push('');
+      const recovered = d.recoveredNum !== null ? d.recoveredNum.toFixed(1) + '%' : '--';
+      lines.push('Recovered EA:\t' + recovered);
+      if (d.yieldG !== null) {
+        lines.push('Yield:\t' + d.yieldG + ' g (' + d.yieldPct.toFixed(2) + '%)');
+      }
+      const entries = buildSurveyEntries();
+      if (entries.length) {
+        lines.push('');
+        lines.push('Community Survey');
+        entries.forEach(([k, v]) => {
+          lines.push(k + '\t' + String(v).replace(/\t/g, ' ').replace(/\n+/g, ' '));
+        });
+      }
+      lines.push('');
+      lines.push('Generated with the CIELO interactive extraction guide');
+      return lines.join('\n');
+    }
+
+    function buildSummaryBBCode() {
+      const d = computeSummaryData();
+      if (!d.hasData) return null;
+      const lines = [];
+      lines.push('[b]CIELO Extraction Summary[/b]');
+      lines.push(d.base + ' g powder, ' + d.water + ' ml water, ' + d.acidName + ', ' + d.eaModeLabel);
+      lines.push('');
+      lines.push('[table]');
+      lines.push('[tr][td][b]Pull[/b][/td][td][b]Added[/b][/td][td][b]Pulled[/b][/td][td][b]Remaining[/b][/td][td][b]M removed[/b][/td][td][b]M in jar[/b][/td][td][b]Efficiency[/b][/td][/tr]');
+      d.rows.forEach(r => {
+        lines.push('[tr][td]' + r.i + '[/td][td]' + r.added + '[/td][td]' + r.pulled
+          + '[/td][td]' + r.remaining + '[/td][td]' + r.mRemovedPct + '%[/td][td]'
+          + r.mInJarPct + '%[/td][td]' + r.effPct + '%[/td][/tr]');
+      });
+      lines.push('[tr][td][b]Total[/b][/td][td][b]' + d.totalAdded + '[/b][/td][td][b]'
+        + d.totalPulled + '[/b][/td][td][/td][td][/td][td][/td][td][/td][/tr]');
+      lines.push('[/table]');
+      const recovered = d.recoveredNum !== null ? d.recoveredNum.toFixed(1) + '%' : '--';
+      lines.push('[b]Recovered EA:[/b] ' + recovered);
+      if (d.yieldG !== null) {
+        lines.push('[b]Yield:[/b] ' + d.yieldG + ' g (' + d.yieldPct.toFixed(2) + '%)');
+      }
+      const entries = buildSurveyEntries();
+      if (entries.length) {
+        lines.push('');
+        lines.push('[b]Community Survey[/b]');
+        lines.push('[table]');
+        entries.forEach(([k, v]) => {
+          lines.push('[tr][td][b]' + k + '[/b][/td][td]' + v + '[/td][/tr]');
+        });
+        lines.push('[/table]');
+      }
+      lines.push('');
+      lines.push('[i]Generated with the CIELO interactive extraction guide[/i]');
+      return lines.join('\n');
+    }
+
+    function copyTextToClipboard(text, label) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text)
+          .then(() => summaryStatus(label + ' copied to clipboard.'))
+          .catch(() => fallbackCopy(text, label));
+      } else {
+        fallbackCopy(text, label);
+      }
+    }
+
+    function fallbackCopy(text, label) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        summaryStatus(label + ' copied to clipboard.');
+      } catch (e) {
+        summaryStatus('Copy failed: ' + e.message);
+      }
+      ta.remove();
+    }
+
+    function copySummaryMarkdown() {
+      const txt = buildSummaryMarkdown();
+      if (!txt) { summaryStatus('Add pull data first.'); return; }
+      copyTextToClipboard(txt, 'Reddit markdown');
+    }
+
+    async function copySummaryTable() {
+      const html = buildSummaryHTML();
+      const tsv = buildSummaryTSV();
+      if (!html || !tsv) { summaryStatus('Add pull data first.'); return; }
+      if (typeof ClipboardItem !== 'undefined' && navigator.clipboard && navigator.clipboard.write) {
+        try {
+          const item = new ClipboardItem({
+            'text/html': new Blob([html], { type: 'text/html' }),
+            'text/plain': new Blob([tsv], { type: 'text/plain' }),
+          });
+          await navigator.clipboard.write([item]);
+          summaryStatus('Table copied. Paste into Reddit, Nexus rich editor, Google Docs, etc.');
+          return;
+        } catch (e) {}
+      }
+      copyTextToClipboard(tsv, 'Table (text only)');
+    }
+
+    function copySummaryBBCode() {
+      const txt = buildSummaryBBCode();
+      if (!txt) { summaryStatus('Add pull data first.'); return; }
+      copyTextToClipboard(txt, 'BBCode');
     }
 
     function initChecklist() {
@@ -1458,7 +2133,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       initExtraPulls();
-      initControls(); initChecklist(); updateAllValues(); updatePullVisibility(); restoreEffCalc2();
+      initControls(); initChecklist(); updateAllValues(); updatePullVisibility(); restoreEffCalc2(); initSurvey();
       setInterval(() => {
         if (state.timerStart && !state.timerEnd) updateProgress();
       }, 1000);

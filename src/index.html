@@ -376,7 +376,9 @@
         <h2 class="text-base font-bold text-gray-800">Extraction Summary</h2>
       </div>
       <div class="p-4">
-        <p class="text-sm text-gray-500 mb-3">Want to give back to the community? Input the final crystal yield, and answer the survey below (partial answers OK). Post the saved image at <a href="https://www.anoniem.org/https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 text-cactus-700 hover:text-cactus-800 font-semibold">r/mescaline</a> or the <a href="https://www.anoniem.org/https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 text-cactus-700 hover:text-cactus-800 font-semibold">Nexus</a>.</p>
+        <div class="callout callout-tip mb-4">
+          <strong>Want to give back to the community?</strong> Input the final crystal yield, and answer the survey below (partial answers OK). Post the saved image to the yield thread on <a href="https://www.anoniem.org/https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 text-cactus-700 hover:text-cactus-800 font-semibold">r/mescaline</a> or the <a href="https://www.anoniem.org/https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 text-cactus-700 hover:text-cactus-800 font-semibold">Nexus</a>.
+        </div>
 
         <div class="flex items-center gap-2 flex-wrap mb-1">
           <span class="font-medium text-gray-500 text-xs whitespace-nowrap uppercase tracking-wider">Final crystal yield</span>
@@ -474,18 +476,6 @@
                     <option value="">--</option>
                     <option value="mother">Mother</option>
                     <option value="pup">Pup</option>
-                  </select>
-                </label>
-                <label class="block" data-show-when="plant_part=pup" style="display:none;">
-                  <span class="block text-gray-500 mb-0.5">Age of pup (years)</span>
-                  <select data-survey="pup_age" class="survey-input">
-                    <option value="">--</option>
-                  </select>
-                </label>
-                <label class="block" data-show-when="plant_part=mother,pup" style="display:none;">
-                  <span class="block text-gray-500 mb-0.5">Age of mother (years)</span>
-                  <select data-survey="mother_age" class="survey-input">
-                    <option value="">--</option>
                   </select>
                 </label>
                 <label class="block" data-show-when="plant_part=mother,pup" style="display:none;">
@@ -661,27 +651,23 @@
           </div>
         </div>
 
-        <p class="text-xs text-gray-500 mt-4 mb-2">Pick the format that matches where you are posting. Reddit users: toggle to <b>Markdown Mode</b> at the bottom of the Reddit composer before pasting, otherwise the table will appear as plain text.</p>
-        <div class="flex items-center gap-2 flex-wrap">
+        <div class="flex items-center gap-2.5 flex-wrap mt-4">
           <button type="button" id="btn-save-summary" onclick="saveSummaryImage()" disabled
-                  class="px-3 py-1.5 border border-cactus-300 hover:border-cactus-500 text-cactus-700 hover:text-cactus-900 rounded text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
+                  class="px-3 py-1.5 rounded border border-cactus-700 bg-cactus-700 text-white text-xs font-semibold transition-all hover:bg-cactus-800 hover:border-cactus-800 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
             Save image
           </button>
-          <button type="button" id="btn-copy-reddit" onclick="copySummaryMarkdown()" disabled
-                  class="px-3 py-1.5 border border-cactus-300 hover:border-cactus-500 text-cactus-700 hover:text-cactus-900 rounded text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
-            Copy markdown (Reddit)
-          </button>
-          <button type="button" id="btn-copy-md" onclick="copySummaryTable()" disabled
-                  class="px-3 py-1.5 border border-cactus-300 hover:border-cactus-500 text-cactus-700 hover:text-cactus-900 rounded text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
-            Copy rich table
-          </button>
-          <button type="button" id="btn-copy-bb" onclick="copySummaryBBCode()" disabled
-                  class="px-3 py-1.5 border border-cactus-300 hover:border-cactus-500 text-cactus-700 hover:text-cactus-900 rounded text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
-            Copy BBCode (Nexus)
-          </button>
-          <a href="https://www.anoniem.org/https://www.reddit.com/r/mescaline/submit" target="_blank" rel="noopener" class="px-3 py-1.5 border border-cactus-300 hover:border-cactus-500 text-cactus-700 hover:text-cactus-900 rounded text-xs font-semibold uppercase tracking-wider transition-colors">Open r/mescaline</a>
-          <a href="https://www.anoniem.org/https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="px-3 py-1.5 border border-cactus-300 hover:border-cactus-500 text-cactus-700 hover:text-cactus-900 rounded text-xs font-semibold uppercase tracking-wider transition-colors">Open the Nexus</a>
+          <a href="https://www.anoniem.org/https://www.reddit.com/r/mescaline/submit" target="_blank" rel="noopener"
+             class="px-3 py-1.5 rounded border border-cactus-200 text-cactus-800 text-xs font-semibold transition-all hover:border-cactus-700 hover:bg-cactus-50">
+            Yield thread on r/mescaline
+          </a>
+          <a href="https://www.anoniem.org/https://wiki.dmt-nexus.me/" target="_blank" rel="noopener"
+             class="px-3 py-1.5 rounded border border-cactus-200 text-cactus-800 text-xs font-semibold transition-all hover:border-cactus-700 hover:bg-cactus-50">
+            Yield thread on the Nexus
+          </a>
           <span id="summary-share-status" class="text-xs text-gray-400 italic" aria-live="polite"></span>
+        </div>
+        <div class="callout callout-tip mt-3">
+          <strong>Share back.</strong> Save the image, then drop it in the yield thread on r/mescaline or the Nexus so the community can keep learning together. More shared yields = better tools and insights for everyone.
         </div>
       </div>
     </section>
@@ -725,7 +711,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://www.anoniem.org/https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://www.anoniem.org/https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.anoniem.org/https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.anoniem.org/https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://www.anoniem.org/https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.anoniem.org/https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
-      <p class="text-gray-400 mt-2">v3.12.0</p>
+      <p class="text-gray-400 mt-2">v4.0.4</p>
     </footer>
 
   </main>
@@ -961,8 +947,6 @@
       ['clone', 'Clone'],
       ['clone_other', 'Clone (other)'],
       ['plant_part', 'Plant part'],
-      ['pup_age', 'Pup age (yrs)'],
-      ['mother_age', 'Mother age (yrs)'],
       ['cutting', 'Cutting'],
       ['stress_weeks', 'Stress (wks)'],
       ['stress_light', 'Stress light'],
@@ -987,15 +971,6 @@
     ];
 
     function initSurvey() {
-      const pupAge = document.querySelector('select[data-survey="pup_age"]');
-      if (pupAge) {
-        for (let i = 1; i <= 50; i++) pupAge.add(new Option(String(i), String(i)));
-      }
-      const motherAge = document.querySelector('select[data-survey="mother_age"]');
-      if (motherAge) {
-        for (let i = 1; i <= 100; i++) motherAge.add(new Option(String(i), String(i)));
-        motherAge.add(new Option('100+', '100+'));
-      }
       const stress = document.querySelector('select[data-survey="stress_weeks"]');
       if (stress) {
         for (let i = 1; i <= 52; i++) stress.add(new Option(String(i), String(i)));
@@ -1427,14 +1402,8 @@
       const wrap = document.getElementById('inl-summary');
       const empty = document.getElementById('summary-empty');
       const saveBtn = document.getElementById('btn-save-summary');
-      const redditBtn = document.getElementById('btn-copy-reddit');
-      const mdBtn = document.getElementById('btn-copy-md');
-      const bbBtn = document.getElementById('btn-copy-bb');
       const d = computeSummaryData();
       if (saveBtn) saveBtn.disabled = !d.hasData;
-      if (redditBtn) redditBtn.disabled = !d.hasData;
-      if (mdBtn) mdBtn.disabled = !d.hasData;
-      if (bbBtn) bbBtn.disabled = !d.hasData;
       if (!d.hasData) {
         if (wrap) wrap.style.display = 'none';
         if (empty) empty.style.display = '';
@@ -1734,218 +1703,6 @@
         .filter(Boolean);
     }
 
-    function buildSummaryHeaderLine() {
-      const d = computeSummaryData();
-      if (!d.hasData) return null;
-      return { d };
-    }
-
-    function escapeMd(s) {
-      return String(s).replace(/\\/g, '\\\\').replace(/\|/g, '\\|').replace(/\n+/g, ' ');
-    }
-
-    function buildSummaryMarkdown() {
-      const d = computeSummaryData();
-      if (!d.hasData) return null;
-      const out = [];
-      out.push('**CIELO Extraction Summary**');
-      out.push('');
-      out.push(d.base + ' g powder, ' + d.water + ' ml water, ' + d.acidName + ', ' + d.eaModeLabel);
-      out.push('');
-      out.push('|Pull|Added|Pulled|Remaining|M removed|M in jar|Efficiency|');
-      out.push('|:-:|-:|-:|-:|-:|-:|-:|');
-      d.rows.forEach(r => {
-        out.push('|' + r.i + '|' + r.added + '|' + r.pulled + '|' + r.remaining
-          + '|' + r.mRemovedPct + '%|' + r.mInJarPct + '%|' + r.effPct + '%|');
-      });
-      out.push('|**Total**|**' + d.totalAdded + '**|**' + d.totalPulled + '**|||||');
-      out.push('');
-      const recovered = d.recoveredNum !== null ? d.recoveredNum.toFixed(1) + '%' : '--';
-      out.push('**Recovered EA:** ' + recovered + '  ');
-      if (d.yieldG !== null) {
-        out.push('**Yield:** ' + d.yieldG + ' g (' + d.yieldPct.toFixed(2) + '%)');
-      }
-      const entries = buildSurveyEntries();
-      if (entries.length) {
-        out.push('');
-        out.push('**Community Survey**');
-        out.push('');
-        out.push('|Field|Value|');
-        out.push('|:-|:-|');
-        entries.forEach(([k, v]) => {
-          out.push('|' + escapeMd(k) + '|' + escapeMd(v) + '|');
-        });
-      }
-      out.push('');
-      out.push('*Generated with the CIELO interactive extraction guide*');
-      return out.join('\n');
-    }
-
-    function escapeHtml(s) {
-      return String(s)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
-    }
-
-    function buildSummaryHTML() {
-      const d = computeSummaryData();
-      if (!d.hasData) return null;
-      const lines = [];
-      lines.push('<h3>CIELO Extraction Summary</h3>');
-      lines.push('<p>' + escapeHtml(d.base + ' g powder, ' + d.water + ' ml water, ' + d.acidName + ', ' + d.eaModeLabel) + '</p>');
-      lines.push('<table border="1" cellpadding="4" cellspacing="0">');
-      lines.push('<tr><th>Pull</th><th>Added</th><th>Pulled</th><th>Remaining</th><th>M removed</th><th>M in jar</th><th>Efficiency</th></tr>');
-      d.rows.forEach(r => {
-        lines.push('<tr><td>' + r.i + '</td><td>' + r.added + '</td><td>' + r.pulled
-          + '</td><td>' + r.remaining + '</td><td>' + r.mRemovedPct + '%</td><td>'
-          + r.mInJarPct + '%</td><td>' + r.effPct + '%</td></tr>');
-      });
-      lines.push('<tr><td><b>Total</b></td><td><b>' + d.totalAdded + '</b></td><td><b>'
-        + d.totalPulled + '</b></td><td></td><td></td><td></td><td></td></tr>');
-      lines.push('</table>');
-      const recovered = d.recoveredNum !== null ? d.recoveredNum.toFixed(1) + '%' : '--';
-      lines.push('<p><b>Recovered EA:</b> ' + recovered + '</p>');
-      if (d.yieldG !== null) {
-        lines.push('<p><b>Yield:</b> ' + d.yieldG + ' g (' + d.yieldPct.toFixed(2) + '%)</p>');
-      }
-      const entries = buildSurveyEntries();
-      if (entries.length) {
-        lines.push('<h4>Community Survey</h4>');
-        lines.push('<table border="1" cellpadding="4" cellspacing="0">');
-        entries.forEach(([k, v]) => {
-          lines.push('<tr><td><b>' + escapeHtml(k) + '</b></td><td>' + escapeHtml(v) + '</td></tr>');
-        });
-        lines.push('</table>');
-      }
-      lines.push('<p><i>Generated with the CIELO interactive extraction guide</i></p>');
-      return lines.join('\n');
-    }
-
-    function buildSummaryTSV() {
-      const d = computeSummaryData();
-      if (!d.hasData) return null;
-      const lines = [];
-      lines.push('CIELO Extraction Summary');
-      lines.push(d.base + ' g powder, ' + d.water + ' ml water, ' + d.acidName + ', ' + d.eaModeLabel);
-      lines.push('');
-      lines.push(['Pull', 'Added', 'Pulled', 'Remaining', 'M removed', 'M in jar', 'Efficiency'].join('\t'));
-      d.rows.forEach(r => {
-        lines.push([r.i, r.added, r.pulled, r.remaining, r.mRemovedPct + '%', r.mInJarPct + '%', r.effPct + '%'].join('\t'));
-      });
-      lines.push(['Total', d.totalAdded, d.totalPulled, '', '', '', ''].join('\t'));
-      lines.push('');
-      const recovered = d.recoveredNum !== null ? d.recoveredNum.toFixed(1) + '%' : '--';
-      lines.push('Recovered EA:\t' + recovered);
-      if (d.yieldG !== null) {
-        lines.push('Yield:\t' + d.yieldG + ' g (' + d.yieldPct.toFixed(2) + '%)');
-      }
-      const entries = buildSurveyEntries();
-      if (entries.length) {
-        lines.push('');
-        lines.push('Community Survey');
-        entries.forEach(([k, v]) => {
-          lines.push(k + '\t' + String(v).replace(/\t/g, ' ').replace(/\n+/g, ' '));
-        });
-      }
-      lines.push('');
-      lines.push('Generated with the CIELO interactive extraction guide');
-      return lines.join('\n');
-    }
-
-    function buildSummaryBBCode() {
-      const d = computeSummaryData();
-      if (!d.hasData) return null;
-      const lines = [];
-      lines.push('[b]CIELO Extraction Summary[/b]');
-      lines.push(d.base + ' g powder, ' + d.water + ' ml water, ' + d.acidName + ', ' + d.eaModeLabel);
-      lines.push('');
-      lines.push('[table]');
-      lines.push('[tr][td][b]Pull[/b][/td][td][b]Added[/b][/td][td][b]Pulled[/b][/td][td][b]Remaining[/b][/td][td][b]M removed[/b][/td][td][b]M in jar[/b][/td][td][b]Efficiency[/b][/td][/tr]');
-      d.rows.forEach(r => {
-        lines.push('[tr][td]' + r.i + '[/td][td]' + r.added + '[/td][td]' + r.pulled
-          + '[/td][td]' + r.remaining + '[/td][td]' + r.mRemovedPct + '%[/td][td]'
-          + r.mInJarPct + '%[/td][td]' + r.effPct + '%[/td][/tr]');
-      });
-      lines.push('[tr][td][b]Total[/b][/td][td][b]' + d.totalAdded + '[/b][/td][td][b]'
-        + d.totalPulled + '[/b][/td][td][/td][td][/td][td][/td][td][/td][/tr]');
-      lines.push('[/table]');
-      const recovered = d.recoveredNum !== null ? d.recoveredNum.toFixed(1) + '%' : '--';
-      lines.push('[b]Recovered EA:[/b] ' + recovered);
-      if (d.yieldG !== null) {
-        lines.push('[b]Yield:[/b] ' + d.yieldG + ' g (' + d.yieldPct.toFixed(2) + '%)');
-      }
-      const entries = buildSurveyEntries();
-      if (entries.length) {
-        lines.push('');
-        lines.push('[b]Community Survey[/b]');
-        lines.push('[table]');
-        entries.forEach(([k, v]) => {
-          lines.push('[tr][td][b]' + k + '[/b][/td][td]' + v + '[/td][/tr]');
-        });
-        lines.push('[/table]');
-      }
-      lines.push('');
-      lines.push('[i]Generated with the CIELO interactive extraction guide[/i]');
-      return lines.join('\n');
-    }
-
-    function copyTextToClipboard(text, label) {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text)
-          .then(() => summaryStatus(label + ' copied to clipboard.'))
-          .catch(() => fallbackCopy(text, label));
-      } else {
-        fallbackCopy(text, label);
-      }
-    }
-
-    function fallbackCopy(text, label) {
-      const ta = document.createElement('textarea');
-      ta.value = text;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
-      try {
-        document.execCommand('copy');
-        summaryStatus(label + ' copied to clipboard.');
-      } catch (e) {
-        summaryStatus('Copy failed: ' + e.message);
-      }
-      ta.remove();
-    }
-
-    function copySummaryMarkdown() {
-      const txt = buildSummaryMarkdown();
-      if (!txt) { summaryStatus('Add pull data first.'); return; }
-      copyTextToClipboard(txt, 'Reddit markdown');
-    }
-
-    async function copySummaryTable() {
-      const html = buildSummaryHTML();
-      const tsv = buildSummaryTSV();
-      if (!html || !tsv) { summaryStatus('Add pull data first.'); return; }
-      if (typeof ClipboardItem !== 'undefined' && navigator.clipboard && navigator.clipboard.write) {
-        try {
-          const item = new ClipboardItem({
-            'text/html': new Blob([html], { type: 'text/html' }),
-            'text/plain': new Blob([tsv], { type: 'text/plain' }),
-          });
-          await navigator.clipboard.write([item]);
-          summaryStatus('Table copied. Paste into Reddit, Nexus rich editor, Google Docs, etc.');
-          return;
-        } catch (e) {}
-      }
-      copyTextToClipboard(tsv, 'Table (text only)');
-    }
-
-    function copySummaryBBCode() {
-      const txt = buildSummaryBBCode();
-      if (!txt) { summaryStatus('Add pull data first.'); return; }
-      copyTextToClipboard(txt, 'BBCode');
-    }
 
     function initChecklist() {
       document.querySelectorAll('.step-row input[type="checkbox"], .pull-step input[type="checkbox"]').forEach(cb => {

@@ -645,8 +645,8 @@
             </fieldset>
 
             <label class="block">
-              <span class="block text-gray-500 mb-0.5 text-[11px] uppercase tracking-wider font-bold">Other details</span>
-              <textarea data-survey="notes" rows="2" placeholder="anything else worth noting..." class="survey-input"></textarea>
+              <span class="block text-gray-500 mb-0.5 text-[11px] uppercase tracking-wider font-bold">Other comments</span>
+              <textarea data-survey="notes" rows="3" placeholder="wet weight, size, anything else you want to share with the community..." class="survey-input"></textarea>
             </label>
           </div>
         </div>
@@ -714,7 +714,7 @@
     <footer class="text-center text-xs py-10 space-y-2 bg-white/60 rounded-lg mt-4 px-4">
       <p class="text-gray-500">Based upon the <a href="https://www.anoniem.org/https://wiki.dmt-nexus.me/CIELO" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">CIELO TEK</a> on <a href="https://www.anoniem.org/https://wiki.dmt-nexus.me/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">DMT Nexus</a></p>
       <p class="text-gray-500">Thanks to <a href="https://www.anoniem.org/https://www.reddit.com/user/loveallASAP/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">loveallASAP</a> for the method, <a href="https://www.anoniem.org/https://www.reddit.com/user/bobcollege/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">bobcollege</a> for the <a href="https://www.anoniem.org/https://docs.google.com/spreadsheets/d/1zbPysiF-vxjx8AsMjoqxrfP4JJpjEp3w1jmHu-v0RBk/edit?gid=1344063801#gid=1344063801" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">calculator</a>, and <a href="https://www.anoniem.org/https://www.reddit.com/r/mescaline/" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-cactus-700 transition-colors">r/mescaline</a> for all the support.</p>
-      <p class="text-gray-400 mt-2">v4.1.0</p>
+      <p class="text-gray-400 mt-2">v4.1.2</p>
     </footer>
 
   </main>
@@ -1495,15 +1495,7 @@
       const titleH = 30, subH = 22, gap = 14, headH = 26, sepGap = 8;
 
       const FONT_MAIN = '"DM Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif';
-      const surveyEntries = SURVEY_FIELDS
-        .map(([k, label]) => {
-          const v = state.survey ? state.survey[k] : null;
-          if (v == null || v === '') return null;
-          if (k === 'species' && v === 'other') return null;
-          if (k === 'clone' && v === 'other') return null;
-          return [label, String(v)];
-        })
-        .filter(Boolean);
+      const surveyEntries = buildSurveyEntries();
       const surveyRowH = 18;
       const surveyHeadH = 24;
       const surveyGap = 14;
@@ -1695,15 +1687,28 @@
     }
 
     function buildSurveyEntries() {
-      return SURVEY_FIELDS
-        .map(([k, label]) => {
-          const v = state.survey ? state.survey[k] : null;
-          if (v == null || v === '') return null;
-          if (k === 'species' && v === 'other') return null;
-          if (k === 'clone' && v === 'other') return null;
-          return [label, String(v)];
-        })
-        .filter(Boolean);
+      const labelMap = new Map(SURVEY_FIELDS);
+      const seen = new Set();
+      const entries = [];
+      document.querySelectorAll('[data-survey]').forEach(el => {
+        const key = el.dataset.survey;
+        if (seen.has(key) || !labelMap.has(key)) return;
+        seen.add(key);
+        let cur = el, visible = true;
+        while (cur && cur !== document.body) {
+          if (cur.dataset && cur.dataset.showWhen && !surveyConditionMet(cur.dataset.showWhen)) {
+            visible = false; break;
+          }
+          cur = cur.parentElement;
+        }
+        if (!visible) return;
+        const v = state.survey ? state.survey[key] : null;
+        if (key === 'species' && v === 'other') return;
+        if (key === 'clone' && v === 'other') return;
+        const display = (v == null || v === '') ? 'N/A' : String(v);
+        entries.push([labelMap.get(key), display]);
+      });
+      return entries;
     }
 
 

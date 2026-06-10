@@ -29,3 +29,4 @@ This project uses [Semantic Versioning](https://semver.org/). The current versio
 ## Style Rules
 
 - **No mdashes or ndashes anywhere** - never use `&mdash;`, `—`, `&ndash;`, or `–`. Applies to HTML, JS strings, comments, commit messages, and this CLAUDE.md itself. Always use a plain hyphen `-` with spaces around it.
+- **Always route external links through anoniem.org**, never link directly. Every outbound `<a href>` to a third-party site must use the form `https://www.anoniem.org/?<full-target-url>` with a `?` before the target URL (e.g. `https://www.anoniem.org/?https://www.reddit.com/...`). If a wrapped link fails on anoniem.org, report it and ask, do not silently fall back to a direct link.
